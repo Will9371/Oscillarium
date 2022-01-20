@@ -1,0 +1,135 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &1866154730584133770
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3193889933151421825, guid: 0b6577b0481e9f34394a522c30cae0b6, type: 3}
+      propertyPath: m_Name
+      value: HelixFlower
+      objectReference: {fileID: 0}
+    - target: {fileID: 3193889933151421826, guid: 0b6577b0481e9f34394a522c30cae0b6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3193889933151421826, guid: 0b6577b0481e9f34394a522c30cae0b6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 3193889933151421826, guid: 0b6577b0481e9f34394a522c30cae0b6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3193889933151421826, guid: 0b6577b0481e9f34394a522c30cae0b6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3193889933151421826, guid: 0b6577b0481e9f34394a522c30cae0b6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3193889933151421826, guid: 0b6577b0481e9f34394a522c30cae0b6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3193889933151421826, guid: 0b6577b0481e9f34394a522c30cae0b6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3193889933151421826, guid: 0b6577b0481e9f34394a522c30cae0b6, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3193889933151421826, guid: 0b6577b0481e9f34394a522c30cae0b6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3193889933151421826, guid: 0b6577b0481e9f34394a522c30cae0b6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3193889933151421826, guid: 0b6577b0481e9f34394a522c30cae0b6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3193889933151421827, guid: 0b6577b0481e9f34394a522c30cae0b6, type: 3}
+      propertyPath: bulletsCreated.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3193889933151421827, guid: 0b6577b0481e9f34394a522c30cae0b6, type: 3}
+      propertyPath: multiBullets
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3193889933151421827, guid: 0b6577b0481e9f34394a522c30cae0b6, type: 3}
+      propertyPath: coneBullets
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3193889933151421827, guid: 0b6577b0481e9f34394a522c30cae0b6, type: 3}
+      propertyPath: numberOfRapidFireBullets
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3193889933151421827, guid: 0b6577b0481e9f34394a522c30cae0b6, type: 3}
+      propertyPath: rapidFiresBeforeStop
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3193889933151421827, guid: 0b6577b0481e9f34394a522c30cae0b6, type: 3}
+      propertyPath: doubleSine
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3193889933151421827, guid: 0b6577b0481e9f34394a522c30cae0b6, type: 3}
+      propertyPath: sineAmplitude
+      value: 0.015
+      objectReference: {fileID: 0}
+    - target: {fileID: 3193889933151421827, guid: 0b6577b0481e9f34394a522c30cae0b6, type: 3}
+      propertyPath: reverseAfterSeconds
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3193889933151421827, guid: 0b6577b0481e9f34394a522c30cae0b6, type: 3}
+      propertyPath: sineFrequency
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3193889933151421827, guid: 0b6577b0481e9f34394a522c30cae0b6, type: 3}
+      propertyPath: bulletSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3193889933151421827, guid: 0b6577b0481e9f34394a522c30cae0b6, type: 3}
+      propertyPath: timeBetweenBullets
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3193889933151421827, guid: 0b6577b0481e9f34394a522c30cae0b6, type: 3}
+      propertyPath: bulletSizeX
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3193889933151421827, guid: 0b6577b0481e9f34394a522c30cae0b6, type: 3}
+      propertyPath: bulletSizeY
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3193889933151421827, guid: 0b6577b0481e9f34394a522c30cae0b6, type: 3}
+      propertyPath: doNotDestroyOffScreen
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3193889933151421827, guid: 0b6577b0481e9f34394a522c30cae0b6, type: 3}
+      propertyPath: sweepAngle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3193889933151421827, guid: 0b6577b0481e9f34394a522c30cae0b6, type: 3}
+      propertyPath: sweepSpeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3193889933151421827, guid: 0b6577b0481e9f34394a522c30cae0b6, type: 3}
+      propertyPath: bulletColor
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3193889933151421827, guid: 0b6577b0481e9f34394a522c30cae0b6, type: 3}
+      propertyPath: rapidFireCooldownTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3193889933151421827, guid: 0b6577b0481e9f34394a522c30cae0b6, type: 3}
+      propertyPath: spinSpeed
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0b6577b0481e9f34394a522c30cae0b6, type: 3}

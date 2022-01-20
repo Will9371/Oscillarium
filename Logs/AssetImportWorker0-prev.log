@@ -15,11 +15,11 @@ D:/Unity Projects/Jams/Mythics Jam 2022
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-60745
+60835
 Successfully changed project path to: D:/Unity Projects/Jams/Mythics Jam 2022
 D:/Unity Projects/Jams/Mythics Jam 2022
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 44.63 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 51.48 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.26f1 (7298b473bc1a)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/2020.3.26f1/Editor/Data/Resources/UnitySubsystems
@@ -35,89 +35,89 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/2020.3.26f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/2020.3.26f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/2020.3.26f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56496
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56652
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/2020.3.26f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.002137 seconds.
+Registered in 0.002046 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 43.11 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 50.22 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.515 seconds
+- Completed reload, in  0.528 seconds
 Domain Reload Profiling:
-	ReloadAssembly (515ms)
-		BeginReloadAssembly (49ms)
+	ReloadAssembly (528ms)
+		BeginReloadAssembly (50ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (401ms)
-			LoadAssemblies (47ms)
+		EndReloadAssembly (414ms)
+			LoadAssemblies (48ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (131ms)
+			SetupTypeCache (134ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (28ms)
-			SetupLoadedEditorAssemblies (155ms)
+			RebuildScriptCaches (27ms)
+			SetupLoadedEditorAssemblies (162ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (4ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (43ms)
-				BeforeProcessingInitializeOnLoad (11ms)
-				ProcessInitializeOnLoadAttributes (71ms)
-				ProcessInitializeOnLoadMethodAttributes (25ms)
+				RefreshPlugins (50ms)
+				BeforeProcessingInitializeOnLoad (12ms)
+				ProcessInitializeOnLoadAttributes (72ms)
+				ProcessInitializeOnLoadMethodAttributes (23ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.003219 seconds.
+Registered in 0.003406 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 43.91 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 53.08 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.981 seconds
+- Completed reload, in  1.043 seconds
 Domain Reload Profiling:
-	ReloadAssembly (981ms)
-		BeginReloadAssembly (128ms)
+	ReloadAssembly (1044ms)
+		BeginReloadAssembly (131ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (4ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (18ms)
-		EndReloadAssembly (798ms)
-			LoadAssemblies (78ms)
+		EndReloadAssembly (857ms)
+			LoadAssemblies (79ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (274ms)
+			SetupTypeCache (299ms)
 			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (43ms)
-			SetupLoadedEditorAssemblies (299ms)
+			RebuildScriptCaches (54ms)
+			SetupLoadedEditorAssemblies (322ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (3ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (44ms)
-				BeforeProcessingInitializeOnLoad (73ms)
-				ProcessInitializeOnLoadAttributes (164ms)
-				ProcessInitializeOnLoadMethodAttributes (9ms)
-				AfterProcessingInitializeOnLoad (6ms)
+				RefreshPlugins (53ms)
+				BeforeProcessingInitializeOnLoad (79ms)
+				ProcessInitializeOnLoadAttributes (172ms)
+				ProcessInitializeOnLoadMethodAttributes (8ms)
+				AfterProcessingInitializeOnLoad (7ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (5ms)
+			AwakeInstancesAfterBackupRestoration (6ms)
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.10 seconds
-Refreshing native plugins compatible for Editor in 0.53 ms, found 2 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.11 seconds
+Refreshing native plugins compatible for Editor in 0.56 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2759 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 120.6 MB.
-System memory in use after: 120.8 MB.
+Unloading 3283 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 141.0 MB.
+System memory in use after: 141.2 MB.
 
-Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 3191.
-Total: 3.050200 ms (FindLiveObjects: 0.224200 ms CreateObjectMapping: 0.121000 ms MarkObjects: 2.638100 ms  DeleteObjects: 0.066200 ms)
+Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 3715.
+Total: 3.067700 ms (FindLiveObjects: 0.281600 ms CreateObjectMapping: 0.148800 ms MarkObjects: 2.571500 ms  DeleteObjects: 0.064800 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -132,145 +132,56 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  path: Assets/Scenes
-  artifactKey: Guid(5235c457a8510f94390b2b46b73b152c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes using Guid(5235c457a8510f94390b2b46b73b152c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a712c8c3df86446a156ec97d674b081b') in 0.008741 seconds 
-  Import took 0.012710 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 2.553298 seconds.
-  path: Assets/SampleScene.unity
-  artifactKey: Guid(9fc0d4010bbf28b4594072e72b8655ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/SampleScene.unity using Guid(9fc0d4010bbf28b4594072e72b8655ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '85059f4f9e1a832ed95adaa0d25c5c4c') in 0.012737 seconds 
-  Import took 0.016466 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 3.494267 seconds.
-  path: Assets/Main.unity
-  artifactKey: Guid(9fc0d4010bbf28b4594072e72b8655ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Main.unity using Guid(9fc0d4010bbf28b4594072e72b8655ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1af302a0ce083add9bf18ad47e3dec48') in 0.005210 seconds 
-  Import took 0.009500 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 10.221266 seconds.
-  path: Assets
-  artifactKey: Guid(00000000000000001000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets using Guid(00000000000000001000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '42d402b061de3733987d63b9cc3b64de') in 0.005247 seconds 
-  Import took 0.009692 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 213.082564 seconds.
-  path: Assets/Playcraft
-  artifactKey: Guid(42ff78d3f8ef397429ebfde6959254c2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Playcraft using Guid(42ff78d3f8ef397429ebfde6959254c2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8a34559b6cdee6a0ce53cae27d06038f') in 0.007315 seconds 
-  Import took 0.012524 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 2.579657 seconds.
-  path: Assets/Playcraft/Materials
-  artifactKey: Guid(1d52b1b9247c67b43989833953b70e7b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Playcraft/Materials using Guid(1d52b1b9247c67b43989833953b70e7b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd3a0a2e40dbb55fd16c1171dc66f451b') in 0.005529 seconds 
-  Import took 0.009466 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 1.333325 seconds.
-  path: Assets/Playcraft/Materials/URP
-  artifactKey: Guid(0fa7dfd3dcd93254394e139692363ce2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Playcraft/Materials/URP using Guid(0fa7dfd3dcd93254394e139692363ce2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '155ecc64e6439fb8a7e48194a0a83a5d') in 0.005349 seconds 
-  Import took 0.009725 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.059419 seconds.
-  path: Assets/Playcraft/Materials/URP/Outline.mat
-  artifactKey: Guid(9c78d2c038e382a418d02283970da1cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Playcraft/Materials/URP/Outline.mat using Guid(9c78d2c038e382a418d02283970da1cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '160ca33ed77ef9101f57e90e14b34ee0') in 0.237835 seconds 
-  Import took 0.242351 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000244 seconds.
-  path: Assets/Playcraft/Materials/URP/UniversalRenderPipelineAsset.asset
-  artifactKey: Guid(bfc37c66b6f26144cae490b65224d59d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Playcraft/Materials/URP/UniversalRenderPipelineAsset.asset using Guid(bfc37c66b6f26144cae490b65224d59d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e0848e8e0af787cba6baeac6a91f7fd4') in 0.029916 seconds 
-  Import took 0.033800 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000267 seconds.
-  path: Assets/Playcraft/Materials/URP/UniversalRenderPipelineAsset_Renderer.asset
-  artifactKey: Guid(02f5c4073ce0ceb45bfe56186aa7949f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Playcraft/Materials/URP/UniversalRenderPipelineAsset_Renderer.asset using Guid(02f5c4073ce0ceb45bfe56186aa7949f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c0da0e8816db17fb1d03d99f98a490e4') in 0.020378 seconds 
-  Import took 0.024505 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 6.403243 seconds.
-  path: Assets/Playcraft/Materials/URP/Arrow Path
-  artifactKey: Guid(6c2d92b80fbb33e41970088f97d56b5f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Playcraft/Materials/URP/Arrow Path using Guid(6c2d92b80fbb33e41970088f97d56b5f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4cad0ab6cce43adecc37ec11b6924b51') in 0.005240 seconds 
-  Import took 0.010111 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 14.175309 seconds.
-  path: Assets/Playcraft/URP Materials
-  artifactKey: Guid(1d52b1b9247c67b43989833953b70e7b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Playcraft/URP Materials using Guid(1d52b1b9247c67b43989833953b70e7b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '98c859c3000333cedc796488f052c094') in 0.005031 seconds 
-  Import took 0.009256 seconds .
+  path: Assets/Playcraft/Predictive Movement/Goalie AI/Sprite Goalie.unity
+  artifactKey: Guid(c9c94eeb3350be94bb8c375cc78a638a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Playcraft/Predictive Movement/Goalie AI/Sprite Goalie.unity using Guid(c9c94eeb3350be94bb8c375cc78a638a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5c937e555387e9bb9dd05f6de7fe1f0a') in 0.015032 seconds 
+  Import took 0.019357 seconds .
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.003710 seconds.
+Registered in 0.003446 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.62 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 0.67 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-[ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
 Mono: successfully reloaded assembly
-- Completed reload, in  0.907 seconds
+- Completed reload, in  0.891 seconds
 Domain Reload Profiling:
-	ReloadAssembly (908ms)
-		BeginReloadAssembly (98ms)
+	ReloadAssembly (892ms)
+		BeginReloadAssembly (99ms)
 			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (3ms)
+			DisableScriptedObjects (4ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (33ms)
-		EndReloadAssembly (755ms)
-			LoadAssemblies (83ms)
+			CreateAndSetChildDomain (31ms)
+		EndReloadAssembly (738ms)
+			LoadAssemblies (79ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (281ms)
+			SetupTypeCache (277ms)
 			ReleaseScriptCaches (1ms)
 			RebuildScriptCaches (35ms)
-			SetupLoadedEditorAssemblies (273ms)
+			SetupLoadedEditorAssemblies (266ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (4ms)
 				SetLoadedEditorAssemblies (0ms)
 				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (87ms)
-				ProcessInitializeOnLoadAttributes (167ms)
+				BeforeProcessingInitializeOnLoad (86ms)
+				ProcessInitializeOnLoadAttributes (160ms)
 				ProcessInitializeOnLoadMethodAttributes (7ms)
 				AfterProcessingInitializeOnLoad (7ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (5ms)
+			AwakeInstancesAfterBackupRestoration (6ms)
 Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.63 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 0.57 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3217 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 137.4 MB.
-System memory in use after: 135.6 MB.
+Unloading 3194 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 132.6 MB.
+System memory in use after: 132.8 MB.
 
-Unloading 42 unused Assets to reduce memory usage. Loaded Objects now: 3725.
-Total: 4.166000 ms (FindLiveObjects: 0.262700 ms CreateObjectMapping: 0.121500 ms MarkObjects: 3.111900 ms  DeleteObjects: 0.668800 ms)
+Unloading 15 unused Assets to reduce memory usage. Loaded Objects now: 3717.
+Total: 2.946400 ms (FindLiveObjects: 0.231300 ms CreateObjectMapping: 0.106100 ms MarkObjects: 2.591500 ms  DeleteObjects: 0.016600 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -284,441 +195,219 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
+Received Import Request.
+  Time since last request: 98.926590 seconds.
+  path: Assets/Playcraft/Predictive Movement/Example Data/Average Velocity.asset
+  artifactKey: Guid(eb5ec3fa05ee8ee418ad2e736a3fe4f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Playcraft/Predictive Movement/Example Data/Average Velocity.asset using Guid(eb5ec3fa05ee8ee418ad2e736a3fe4f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3b10de3351555fcff80e90978e21745c') in 0.042279 seconds 
+  Import took 0.046902 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000266 seconds.
+  path: Assets/Playcraft/Predictive Movement/Example Data/Position History.asset
+  artifactKey: Guid(78989f3554081b847987fed7dfff8b41) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Playcraft/Predictive Movement/Example Data/Position History.asset using Guid(78989f3554081b847987fed7dfff8b41) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e16235324c0ac219584d90f2fa9b0958') in 0.004891 seconds 
+  Import took 0.009603 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000199 seconds.
+  path: Assets/Playcraft/Predictive Movement/Example Data/Long Tail.asset
+  artifactKey: Guid(7dbc6983c9df2544c98f1edf15b3c14b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Playcraft/Predictive Movement/Example Data/Long Tail.asset using Guid(7dbc6983c9df2544c98f1edf15b3c14b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '09fadc3fe83229adb2051295d400fe95') in 0.004966 seconds 
+  Import took 0.009695 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000233 seconds.
+  path: Assets/Playcraft/Predictive Movement/Example Data/Complex Follow.asset
+  artifactKey: Guid(52f02e33efeb7234299d55c35a79056c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Playcraft/Predictive Movement/Example Data/Complex Follow.asset using Guid(52f02e33efeb7234299d55c35a79056c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a644ef9cd380ada6ed4bf7dcdeaa01da') in 0.005364 seconds 
+  Import took 0.009678 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000275 seconds.
+  path: Assets/Playcraft/Predictive Movement/Example Data/Quick Movement.asset
+  artifactKey: Guid(2a5c263bee778a84096cd78cf6993040) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Playcraft/Predictive Movement/Example Data/Quick Movement.asset using Guid(2a5c263bee778a84096cd78cf6993040) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2550f6e4e958cec2b0a54545efabbbd1') in 0.004527 seconds 
+  Import took 0.008586 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000280 seconds.
+  path: Assets/Playcraft/Predictive Movement/Example Data/Simple Follow.asset
+  artifactKey: Guid(d01901b25d6d3ae4c9fe40b41ef7a673) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Playcraft/Predictive Movement/Example Data/Simple Follow.asset using Guid(d01901b25d6d3ae4c9fe40b41ef7a673) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e582888a9724f6b9d9606385602376c2') in 0.004385 seconds 
+  Import took 0.008146 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000273 seconds.
+  path: Assets/Playcraft/Predictive Movement/Example Data/Smooth Movement.asset
+  artifactKey: Guid(a3510ef704e155d458942f52e9e38d38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Playcraft/Predictive Movement/Example Data/Smooth Movement.asset using Guid(a3510ef704e155d458942f52e9e38d38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9ab38d404a1f3c6a93df745f9a82c1f2') in 0.004635 seconds 
+  Import took 0.008685 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000279 seconds.
+  path: Assets/Playcraft/Predictive Movement/Example Data/Short Average.asset
+  artifactKey: Guid(8dc57123d5a8cce41ab750ffeafca40f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Playcraft/Predictive Movement/Example Data/Short Average.asset using Guid(8dc57123d5a8cce41ab750ffeafca40f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aa183b3e1f86e54468e8ac6333771ac4') in 0.004715 seconds 
+  Import took 0.009129 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 15.033265 seconds.
+  path: Assets/Playcraft/Predictive Movement/Example Data
+  artifactKey: Guid(f78aa058c053cca40afc9dca1af33d8e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Playcraft/Predictive Movement/Example Data using Guid(f78aa058c053cca40afc9dca1af33d8e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '66f9324bd19db64b4969f973bb364800') in 0.005065 seconds 
+  Import took 0.010079 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 8.117046 seconds.
+  path: Assets/Playcraft/Predictive Movement/Example Data/Average Velocity
+  artifactKey: Guid(fd197f3bd0197ee4b8bf55369249bb6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Playcraft/Predictive Movement/Example Data/Average Velocity using Guid(fd197f3bd0197ee4b8bf55369249bb6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6f3f4e0a14105d8f8920673e4e6d867f') in 0.001741 seconds 
+  Import took 0.006631 seconds .
+
+========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.003589 seconds.
+Registered in 0.004156 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.78 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 0.56 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-[ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
 Mono: successfully reloaded assembly
-- Completed reload, in  0.914 seconds
+- Completed reload, in  0.901 seconds
 Domain Reload Profiling:
-	ReloadAssembly (914ms)
-		BeginReloadAssembly (107ms)
+	ReloadAssembly (901ms)
+		BeginReloadAssembly (102ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (31ms)
+		EndReloadAssembly (745ms)
+			LoadAssemblies (81ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (279ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (37ms)
+			SetupLoadedEditorAssemblies (262ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (85ms)
+				ProcessInitializeOnLoadAttributes (156ms)
+				ProcessInitializeOnLoadMethodAttributes (8ms)
+				AfterProcessingInitializeOnLoad (7ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (6ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.56 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3193 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 132.6 MB.
+System memory in use after: 132.8 MB.
+
+Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 3718.
+Total: 2.868500 ms (FindLiveObjects: 0.231000 ms CreateObjectMapping: 0.113100 ms MarkObjects: 2.506500 ms  DeleteObjects: 0.017200 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-codec-MediaFoundation-h265: e54d7ab0439102e2317fc1e4b246158d -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 50.051885 seconds.
+  path: Assets/Playcraft/Predictive Movement/Goalie AI/GoalieAI.cs
+  artifactKey: Guid(7a4d393decfaf6440861afc3061ebb1c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Playcraft/Predictive Movement/Goalie AI/GoalieAI.cs using Guid(7a4d393decfaf6440861afc3061ebb1c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'acbb6d2abd133a093458f6754bacb212') in 0.010132 seconds 
+  Import took 0.015065 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.039163 seconds.
+  path: Assets/Playcraft/Predictive Movement/Goalie AI/FollowOnCircle.cs
+  artifactKey: Guid(2a1be4bed8107be4e88fb4ec1f6bc3e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Playcraft/Predictive Movement/Goalie AI/FollowOnCircle.cs using Guid(2a1be4bed8107be4e88fb4ec1f6bc3e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '16ba496bc2f389f5c29f3171cbd940a2') in 0.005036 seconds 
+  Import took 0.010035 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.732366 seconds.
+  path: Assets/Playcraft/Predictive Movement/Goalie AI/GoalieAIMono.cs
+  artifactKey: Guid(f9511131e0a83af4cabb236e0d3b5477) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Playcraft/Predictive Movement/Goalie AI/GoalieAIMono.cs using Guid(f9511131e0a83af4cabb236e0d3b5477) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a008e9f39b21a63d6f8a3c666289f481') in 0.035893 seconds 
+  Import took 0.040576 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.543271 seconds.
+  path: Assets/Playcraft/Predictive Movement/Goalie AI/ThiefCursor.cs
+  artifactKey: Guid(be8a72f6c21cfb647975d00ffe670d17) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Playcraft/Predictive Movement/Goalie AI/ThiefCursor.cs using Guid(be8a72f6c21cfb647975d00ffe670d17) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8fee913adac0c4171661595fd8fe4d53') in 0.004849 seconds 
+  Import took 0.009840 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.003499 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.55 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.898 seconds
+Domain Reload Profiling:
+	ReloadAssembly (898ms)
+		BeginReloadAssembly (108ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (4ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (30ms)
-		EndReloadAssembly (753ms)
-			LoadAssemblies (81ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (285ms)
-			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (37ms)
-			SetupLoadedEditorAssemblies (268ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (4ms)
-				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (86ms)
-				ProcessInitializeOnLoadAttributes (162ms)
-				ProcessInitializeOnLoadMethodAttributes (7ms)
-				AfterProcessingInitializeOnLoad (7ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (6ms)
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.57 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3216 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 137.4 MB.
-System memory in use after: 135.6 MB.
-
-Unloading 42 unused Assets to reduce memory usage. Loaded Objects now: 3727.
-Total: 3.756400 ms (FindLiveObjects: 0.341100 ms CreateObjectMapping: 0.167800 ms MarkObjects: 2.624900 ms  DeleteObjects: 0.621900 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-codec-MediaFoundation-h265: e54d7ab0439102e2317fc1e4b246158d -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Import Request.
-  Time since last request: 160.629715 seconds.
-  path: Assets/Playcraft/Predictive Movement
-  artifactKey: Guid(c7b36b11e45c827418e95d3b07d8ce42) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Playcraft/Predictive Movement using Guid(c7b36b11e45c827418e95d3b07d8ce42) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0fd1457faee8a861f114e204a35af35e') in 0.010253 seconds 
-  Import took 0.015311 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 1.021723 seconds.
-  path: Assets/Playcraft/Predictive Movement/Predictive Movement Test.unity
-  artifactKey: Guid(3f835d27caed7ca479234ba6422537b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Playcraft/Predictive Movement/Predictive Movement Test.unity using Guid(3f835d27caed7ca479234ba6422537b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3fc1d77551fb777fef90b259f3b0f5b6') in 0.019492 seconds 
-  Import took 0.024267 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 8.464045 seconds.
-  path: Assets/Playcraft/Predictive Movement/Goalie AI
-  artifactKey: Guid(d425c174d5fdf75438ceccbcaae60ebe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Playcraft/Predictive Movement/Goalie AI using Guid(d425c174d5fdf75438ceccbcaae60ebe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '556916d796d7fe2c84cd12230fe01213') in 0.005369 seconds 
-  Import took 0.011129 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.049903 seconds.
-  path: Assets/Playcraft/Predictive Movement/Goalie AI/Goal.asset
-  artifactKey: Guid(78403e37760a09a44b5e5ef9b22d7626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Playcraft/Predictive Movement/Goalie AI/Goal.asset using Guid(78403e37760a09a44b5e5ef9b22d7626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'df2275a2f0dce57046072ae1efbfe657') in 0.005810 seconds 
-  Import took 0.010877 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000230 seconds.
-  path: Assets/Playcraft/Predictive Movement/Goalie AI/Goalie.asset
-  artifactKey: Guid(412d180825d678f42a97ec69b01846bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Playcraft/Predictive Movement/Goalie AI/Goalie.asset using Guid(412d180825d678f42a97ec69b01846bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aa617f32cea6617720613bcfd1d5d2cb') in 0.005068 seconds 
-  Import took 0.009185 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 1.449728 seconds.
-  path: Assets/Playcraft/Predictive Movement/Goalie AI/Sprite Goalie.unity
-  artifactKey: Guid(c9c94eeb3350be94bb8c375cc78a638a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Playcraft/Predictive Movement/Goalie AI/Sprite Goalie.unity using Guid(c9c94eeb3350be94bb8c375cc78a638a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dccbb710593d4bd694bf798f1167af06') in 0.005413 seconds 
-  Import took 0.010622 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 34.987762 seconds.
-  path: Assets/Playcraft/Interfaces.cs
-  artifactKey: Guid(f2ac4f728af76344eba9b869fe1bd614) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Playcraft/Interfaces.cs using Guid(f2ac4f728af76344eba9b869fe1bd614) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'adc0bc8435dac2c59d7a526e28520a07') in 0.008328 seconds 
-  Import took 0.013128 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 5.554835 seconds.
-  path: Assets/Playcraft/_Uncategorized
-  artifactKey: Guid(b840ce13a77b9054cba7e77bdb0b1809) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Playcraft/_Uncategorized using Guid(b840ce13a77b9054cba7e77bdb0b1809) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '094618fa2814729543f91f23b38785ae') in 0.005811 seconds 
-  Import took 0.010841 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 1.034011 seconds.
-  path: Assets/Playcraft/_Uncategorized/GenerateRadialPlacement.cs
-  artifactKey: Guid(8d2ffe24eff210044a5f899df8a8ec7a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Playcraft/_Uncategorized/GenerateRadialPlacement.cs using Guid(8d2ffe24eff210044a5f899df8a8ec7a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c2e2703c578224b3711a2b5832fb2527') in 0.005307 seconds 
-  Import took 0.009957 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.199998 seconds.
-  path: Assets/Playcraft/_Uncategorized/PlaceAtTag.cs
-  artifactKey: Guid(95fd791208a2ad84381cba35f43c429c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Playcraft/_Uncategorized/PlaceAtTag.cs using Guid(95fd791208a2ad84381cba35f43c429c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6aba98be931706492ec6cbbd705c06ed') in 0.005411 seconds 
-  Import took 0.010724 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.190934 seconds.
-  path: Assets/Playcraft/_Uncategorized/RadialPlacement.cs
-  artifactKey: Guid(32b0eb72993d3ba478dd087d0c74df21) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Playcraft/_Uncategorized/RadialPlacement.cs using Guid(32b0eb72993d3ba478dd087d0c74df21) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b8db99e13aa0d63defc755437345ec04') in 0.005661 seconds 
-  Import took 0.010391 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 12.065950 seconds.
-  path: Assets/Playcraft/_Uncategorized/Movement
-  artifactKey: Guid(81e76bf3edfc2d9488afbec0fd1e2f0e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Playcraft/_Uncategorized/Movement using Guid(81e76bf3edfc2d9488afbec0fd1e2f0e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '39459eb624bec7d985b2a06af113b481') in 0.005440 seconds 
-  Import took 0.010782 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 1.700991 seconds.
-  path: Assets/Playcraft/_Uncategorized/Movement/CircleTargetAtDistance.cs
-  artifactKey: Guid(016db3debf29d6c49b5a02e9a02b2fd1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Playcraft/_Uncategorized/Movement/CircleTargetAtDistance.cs using Guid(016db3debf29d6c49b5a02e9a02b2fd1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '510b74b2a7e65bc7b98f6afbe2004af1') in 0.005079 seconds 
-  Import took 0.009802 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.003358 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.58 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-[ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
-Mono: successfully reloaded assembly
-- Completed reload, in  0.946 seconds
-Domain Reload Profiling:
-	ReloadAssembly (946ms)
-		BeginReloadAssembly (107ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (4ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (34ms)
-		EndReloadAssembly (761ms)
-			LoadAssemblies (85ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (285ms)
-			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (36ms)
-			SetupLoadedEditorAssemblies (273ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (4ms)
-				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (86ms)
-				ProcessInitializeOnLoadAttributes (168ms)
-				ProcessInitializeOnLoadMethodAttributes (7ms)
-				AfterProcessingInitializeOnLoad (7ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (6ms)
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.90 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3216 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 137.5 MB.
-System memory in use after: 135.6 MB.
-
-Unloading 42 unused Assets to reduce memory usage. Loaded Objects now: 3729.
-Total: 3.593500 ms (FindLiveObjects: 0.253800 ms CreateObjectMapping: 0.121100 ms MarkObjects: 2.580200 ms  DeleteObjects: 0.637600 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-codec-MediaFoundation-h265: e54d7ab0439102e2317fc1e4b246158d -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.003196 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.69 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-[ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
-Mono: successfully reloaded assembly
-- Completed reload, in  0.907 seconds
-Domain Reload Profiling:
-	ReloadAssembly (908ms)
-		BeginReloadAssembly (101ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (4ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (35ms)
-		EndReloadAssembly (753ms)
-			LoadAssemblies (78ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (277ms)
-			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (36ms)
-			SetupLoadedEditorAssemblies (277ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (4ms)
-				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (88ms)
-				ProcessInitializeOnLoadAttributes (167ms)
-				ProcessInitializeOnLoadMethodAttributes (10ms)
-				AfterProcessingInitializeOnLoad (7ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (6ms)
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.57 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3216 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 137.5 MB.
-System memory in use after: 135.7 MB.
-
-Unloading 42 unused Assets to reduce memory usage. Loaded Objects now: 3731.
-Total: 4.167200 ms (FindLiveObjects: 0.247000 ms CreateObjectMapping: 0.107000 ms MarkObjects: 2.989700 ms  DeleteObjects: 0.822800 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-codec-MediaFoundation-h265: e54d7ab0439102e2317fc1e4b246158d -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Import Request.
-  Time since last request: 840.102387 seconds.
-  path: Assets/Playcraft/Project Specific
-  artifactKey: Guid(4b650411c2047b949969063433c73da2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Playcraft/Project Specific using Guid(4b650411c2047b949969063433c73da2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3f6e67884511103921b8fa551e648817') in 0.011578 seconds 
-  Import took 0.017829 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 13144.764321 seconds.
-  path: Assets/Playcraft/Core
-  artifactKey: Guid(4bdbe2eb0bb052a499e11222cee104e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Playcraft/Core using Guid(4bdbe2eb0bb052a499e11222cee104e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fabd074f52655981963d6a2a5c5d16ec') in 0.004911 seconds 
-  Import took 0.010969 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.030342 seconds.
-  path: Assets/Playcraft/Core/Editor Settings.prefab
-  artifactKey: Guid(a774029c3e6b08e4293aa96445092cde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Playcraft/Core/Editor Settings.prefab using Guid(a774029c3e6b08e4293aa96445092cde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8bf80a9432a9f77ab87f7f489eb579cc') in 0.037152 seconds 
-  Import took 0.042360 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 2.762982 seconds.
-  path: Assets/Playcraft/Core/Unity Extension
-  artifactKey: Guid(7a93173b75f627b4fa755e85b46ff760) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Playcraft/Core/Unity Extension using Guid(7a93173b75f627b4fa755e85b46ff760) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6b962950a341c6c0a9703d37c8861cd0') in 0.005668 seconds 
-  Import took 0.011320 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.049872 seconds.
-  path: Assets/Playcraft/Core/Unity Extension/Bouncy.physicMaterial
-  artifactKey: Guid(93cf1cde4c128f448b8eb5829917fe6d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Playcraft/Core/Unity Extension/Bouncy.physicMaterial using Guid(93cf1cde4c128f448b8eb5829917fe6d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bba4b90f5add68dc2a13b11f32b58cd6') in 0.008929 seconds 
-  Import took 0.013624 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000272 seconds.
-  path: Assets/Playcraft/Core/Unity Extension/Frictionless.physicMaterial
-  artifactKey: Guid(b7510912f08cf3b45987129ad537d5eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Playcraft/Core/Unity Extension/Frictionless.physicMaterial using Guid(b7510912f08cf3b45987129ad537d5eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '360290a7ed14485c8a84b721118652ba') in 0.007968 seconds 
-  Import took 0.012487 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 2.618302 seconds.
-  path: Assets/Playcraft/Core/Logic
-  artifactKey: Guid(ec9cc3d98eeb9ec4ea33f49cf3b88c87) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Playcraft/Core/Logic using Guid(ec9cc3d98eeb9ec4ea33f49cf3b88c87) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5c82a2eaa730ad40bbaa7c3c9c0d1d73') in 0.004987 seconds 
-  Import took 0.010528 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 7.288273 seconds.
-  path: Assets/Playcraft/UI
-  artifactKey: Guid(96655399688e7254686584c1d7cbba94) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Playcraft/UI using Guid(96655399688e7254686584c1d7cbba94) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a4d420e49c94c59f80fb22a336fbe964') in 0.005265 seconds 
-  Import took 0.010277 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 8.956052 seconds.
-  path: Assets/Playcraft/Object Pooling
-  artifactKey: Guid(4fd915f7a6f6e3e4d8768e2439521db5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Playcraft/Object Pooling using Guid(4fd915f7a6f6e3e4d8768e2439521db5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '87cb6aa505df252ab5bdc930934a5110') in 0.005562 seconds 
-  Import took 0.011231 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.044170 seconds.
-  path: Assets/Playcraft/Object Pooling/ObjectPoolMaster.prefab
-  artifactKey: Guid(5389524c4fb0a0646b0c6604433c227e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Playcraft/Object Pooling/ObjectPoolMaster.prefab using Guid(5389524c4fb0a0646b0c6604433c227e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2982dde0a1069486c1d600772b3b0c25') in 0.009245 seconds 
-  Import took 0.013811 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 4.967450 seconds.
-  path: Assets/Playcraft/Sound
-  artifactKey: Guid(5dc7dd9bd47effd4c8406ec73abb2952) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Playcraft/Sound using Guid(5dc7dd9bd47effd4c8406ec73abb2952) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9b82d75d51c30d41372e364be5f247a8') in 0.005249 seconds 
-  Import took 0.010519 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 982.371587 seconds.
-  path: Assets/Playcraft/Predictive Movement/IndicatePredictiveMovement.cs
-  artifactKey: Guid(bf9428161b6e46547aa401a651cb822f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Playcraft/Predictive Movement/IndicatePredictiveMovement.cs using Guid(bf9428161b6e46547aa401a651cb822f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ee3dde9f07cd446dd81a87b93a3e67de') in 0.004727 seconds 
-  Import took 0.010176 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 1.891050 seconds.
-  path: Assets/Playcraft/Predictive Movement/Position History
-  artifactKey: Guid(db6d987a44e7adc42a6066a634ccf002) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Playcraft/Predictive Movement/Position History using Guid(db6d987a44e7adc42a6066a634ccf002) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5e0c98e620bdc3d4c7bcfe9070397dd1') in 0.006025 seconds 
-  Import took 0.010998 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 4.649921 seconds.
-  path: Assets/Playcraft/Predictive Movement/Average Velocity
-  artifactKey: Guid(7910395e9ec46e54d9352e57b29a4fee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Playcraft/Predictive Movement/Average Velocity using Guid(7910395e9ec46e54d9352e57b29a4fee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c63eacd5fa2b155cfbd2c461283e0b74') in 0.005525 seconds 
-  Import took 0.010613 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.079265 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.56 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-[ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
-Mono: successfully reloaded assembly
-- Completed reload, in  0.892 seconds
-Domain Reload Profiling:
-	ReloadAssembly (892ms)
-		BeginReloadAssembly (113ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (4ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (33ms)
-		EndReloadAssembly (726ms)
+		EndReloadAssembly (736ms)
 			LoadAssemblies (80ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (263ms)
+			SetupTypeCache (276ms)
 			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (35ms)
-			SetupLoadedEditorAssemblies (271ms)
+			RebuildScriptCaches (36ms)
+			SetupLoadedEditorAssemblies (267ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (4ms)
 				SetLoadedEditorAssemblies (0ms)
 				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (84ms)
-				ProcessInitializeOnLoadAttributes (169ms)
+				BeforeProcessingInitializeOnLoad (86ms)
+				ProcessInitializeOnLoadAttributes (161ms)
 				ProcessInitializeOnLoadMethodAttributes (7ms)
 				AfterProcessingInitializeOnLoad (7ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (5ms)
 Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.56 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 0.64 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3216 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 137.4 MB.
-System memory in use after: 135.6 MB.
+Unloading 3193 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 132.6 MB.
+System memory in use after: 132.9 MB.
 
-Unloading 42 unused Assets to reduce memory usage. Loaded Objects now: 3733.
-Total: 3.604000 ms (FindLiveObjects: 0.246200 ms CreateObjectMapping: 0.122500 ms MarkObjects: 2.571600 ms  DeleteObjects: 0.663000 ms)
+Unloading 15 unused Assets to reduce memory usage. Loaded Objects now: 3720.
+Total: 3.197400 ms (FindLiveObjects: 0.239700 ms CreateObjectMapping: 0.120600 ms MarkObjects: 2.780500 ms  DeleteObjects: 0.055700 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -731,4 +420,92 @@ AssetImportParameters requested are different than current active one (requested
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 18.075785 seconds.
+  path: Assets/Playcraft/Predictive Movement/Position History/PositionHistoryMono.cs
+  artifactKey: Guid(f6a8a84342183db47a1c9de5f7bb0105) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Playcraft/Predictive Movement/Position History/PositionHistoryMono.cs using Guid(f6a8a84342183db47a1c9de5f7bb0105) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e3d790afb40882b58287a844640ef3ec') in 0.008580 seconds 
+  Import took 0.013861 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.140221 seconds.
+  path: Assets/Playcraft/Predictive Movement/Average Velocity/AverageAcceleration.cs
+  artifactKey: Guid(6e932c8980814a041a63de8ece439750) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Playcraft/Predictive Movement/Average Velocity/AverageAcceleration.cs using Guid(6e932c8980814a041a63de8ece439750) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3c60cc17054a65c9d34e47f8ebd99f5c') in 0.005712 seconds 
+  Import took 0.010448 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.208546 seconds.
+  path: Assets/Playcraft/Predictive Movement/Average Velocity/AverageVelocity.cs
+  artifactKey: Guid(003ce55c17a6b164cbd09d86a7e61dbe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Playcraft/Predictive Movement/Average Velocity/AverageVelocity.cs using Guid(003ce55c17a6b164cbd09d86a7e61dbe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '45a49c60d3f82277bc3089be3195a6eb') in 0.005246 seconds 
+  Import took 0.009803 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.143620 seconds.
+  path: Assets/Playcraft/Predictive Movement/Average Velocity/AverageVelocityMono.cs
+  artifactKey: Guid(f53e87c4458834e499dff5137abda5da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Playcraft/Predictive Movement/Average Velocity/AverageVelocityMono.cs using Guid(f53e87c4458834e499dff5137abda5da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8548d8b9d4708315e7fa4693f7f57800') in 0.004845 seconds 
+  Import took 0.009602 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.113423 seconds.
+  path: Assets/Playcraft/Predictive Movement/Average Velocity/AverageVelocitySO.cs
+  artifactKey: Guid(0d1c98e244f84aa4e847cd0b302341c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Playcraft/Predictive Movement/Average Velocity/AverageVelocitySO.cs using Guid(0d1c98e244f84aa4e847cd0b302341c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '22910694c2d53a4b3273eccf9c8c905a') in 0.005070 seconds 
+  Import took 0.009746 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.059036 seconds.
+  path: Assets/Playcraft/Predictive Movement/Destination Modifiers
+  artifactKey: Guid(cf4d62ee34d55844a8a68c9812537276) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Playcraft/Predictive Movement/Destination Modifiers using Guid(cf4d62ee34d55844a8a68c9812537276) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f087f109670b135d2bac88aaf3513fd8') in 0.005039 seconds 
+  Import took 0.009388 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.057069 seconds.
+  path: Assets/Playcraft/Predictive Movement/Destination Modifiers/ApplyAverageVelocity.cs
+  artifactKey: Guid(94e9435b83017c244b9b78a3945fd395) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Playcraft/Predictive Movement/Destination Modifiers/ApplyAverageVelocity.cs using Guid(94e9435b83017c244b9b78a3945fd395) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3b5a534cc820588e1977f4d4a93fcb8e') in 0.004242 seconds 
+  Import took 0.008694 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.945477 seconds.
+  path: Assets/Playcraft/Predictive Movement/Destination Modifiers/ApplyPositionHistory.cs
+  artifactKey: Guid(a3a8dbe36efd0294484632942b615c68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Playcraft/Predictive Movement/Destination Modifiers/ApplyPositionHistory.cs using Guid(a3a8dbe36efd0294484632942b615c68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '016ca33872497d405c63831cfb582456') in 0.004974 seconds 
+  Import took 0.009944 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.127553 seconds.
+  path: Assets/Playcraft/Predictive Movement/Destination Modifiers/DestinationModifier.cs
+  artifactKey: Guid(158ec18a1f35a45498cf610ebb596e16) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Playcraft/Predictive Movement/Destination Modifiers/DestinationModifier.cs using Guid(158ec18a1f35a45498cf610ebb596e16) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b84355ab5b95f7c840f1f419234ea745') in 0.004866 seconds 
+  Import took 0.009501 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.110973 seconds.
+  path: Assets/Playcraft/Predictive Movement/Destination Modifiers/DestinationModifiers.cs
+  artifactKey: Guid(68db17b7ea5c898419e17ab594f6ef97) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Playcraft/Predictive Movement/Destination Modifiers/DestinationModifiers.cs using Guid(68db17b7ea5c898419e17ab594f6ef97) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd6978a5811534570ff3591a979e00096') in 0.004847 seconds 
+  Import took 0.009761 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.120559 seconds.
+  path: Assets/Playcraft/Predictive Movement/Destination Modifiers/PlaceOtherAtModifiedPosition.cs
+  artifactKey: Guid(e6c4de8cc56f16240ab7d60f488264ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Playcraft/Predictive Movement/Destination Modifiers/PlaceOtherAtModifiedPosition.cs using Guid(e6c4de8cc56f16240ab7d60f488264ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3dee8779c065c89b5c1ddfb0bc8e04bb') in 0.005756 seconds 
+  Import took 0.010622 seconds .
+
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file
