@@ -1,9 +1,16 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using Playcraft.Pooling;
 
+public enum Faction { Player, Enemy }
 
 public class BulletSpawner : MonoBehaviour
 {
+    ObjectPoolMaster pool => ObjectPoolMaster.instance;
+    
+    [SerializeField] GameObject bulletPrefab;
+    [SerializeField] Faction faction;
+
     [SerializeField] private Transform bulletTransform = null;
     public bool startFiring = false;
     [SerializeField] private bool stopAfterAllDestroyed = false;
@@ -17,7 +24,7 @@ public class BulletSpawner : MonoBehaviour
     [Space]
 
     [Header("Cone Control")]
-    [SerializeField] [Range(1, 20)]private float coneBullets = 1;
+    [SerializeField] [Range(1, 20)] private float coneBullets = 1;
     [SerializeField] [Range(0, 180)] private float coneWidth = 45;
     [Space]
 
@@ -40,8 +47,8 @@ public class BulletSpawner : MonoBehaviour
     [SerializeField] [Range(0.25f, 5)] private float bulletSizeY = 1;
     [Header("SineWave")]
     [SerializeField] private bool doubleSine = false;
-    [SerializeField] private float sineAmplitude = 0;
-    [SerializeField] private float sineFrequency = 0;
+    [SerializeField] private float yAmplitude = 0;
+    [SerializeField] private float yFrequency = 0;
     [Header("Reverse")]
     [SerializeField] private float reverseAfterSeconds = 0;
     [Header("Variable Speeds")]
@@ -83,7 +90,7 @@ public class BulletSpawner : MonoBehaviour
     public List<GameObject> bulletsCreated;
     private float bulletsLifetime = 0;
     private bool freeze = false;
-    private bool isEnemy = false;
+    //private bool isEnemy = false;
 
     // WPP: naked passthrough creates an illusion of encapsulation, just use bulletColor
     // + rename: bulletColorIndex
@@ -91,7 +98,7 @@ public class BulletSpawner : MonoBehaviour
     
     private void OnEnable()
     {
-        if (gameObject.CompareTag("Enemy")) isEnemy = true;
+        //if (gameObject.CompareTag("Enemy")) isEnemy = true;
         spawner = transform;
         spawnerChild = transform.GetChild(0);
         bullet = bulletTransform.GetComponent<Bullet>();
@@ -114,35 +121,22 @@ public class BulletSpawner : MonoBehaviour
     
     private void SetupNewBullet(Quaternion rotation, bool reverseSine)
     {
-        // Set up spawner
-        GameObject newBullet = GetBulletFromPool();
-        
-        // Create a new bullet if there is none
-        if (!newBullet)
-        {
-            newBullet = Instantiate(bullet.gameObject, spawnerChild.transform.position + new Vector3(0, offsetY, offsetX), rotation);
-            bulletsCreated.Add(newBullet);
-        }
-        
-        // Reuse bullet from pool if possible
-        else
-        {
-            newBullet.transform.SetPositionAndRotation(transform.position + new Vector3(0, offsetY, offsetX), rotation);
-            newBullet.SetActive(true);
-        }
+        var bulletPosition = transform.position + new Vector3(0, offsetY, offsetX);
+        GameObject newBullet = pool.Spawn(bulletPrefab, bulletPosition, rotation);
 
         // Assign variables to bullet
         newBullet.transform.localScale = new Vector3(bulletSizeX, bulletSizeY, bulletSizeX);
         newBullet.GetComponent<ColorChange>().color = BulletColor;
-        Bullet bulletControl = newBullet.GetComponent<Bullet>();
-        bulletControl.bulletSpawner = this;
-        bulletControl.speed = bulletSpeed + Mathf.Lerp(0, maxSpeedVariance, speedVarianceCounter / bulletsBeforeRepeat);
-        bulletControl.sineAmplitude = sineAmplitude;
-        bulletControl.sineFrequency = sineFrequency;
-        bulletControl.reverseSine = reverseSine;
-        bulletControl.reverseAfterSeconds = reverseAfterSeconds;
-        bulletControl.speed = bulletSpeed;
-        bulletControl.isEnemy = isEnemy;
+        Bullet bullet = newBullet.GetComponent<Bullet>();
+        bullet.bulletSpawner = this;
+        bullet.speed = bulletSpeed + Mathf.Lerp(0, maxSpeedVariance, speedVarianceCounter / bulletsBeforeRepeat);
+        bullet.yAmplitude = yAmplitude;
+        bullet.yFrequency = yFrequency;
+        bullet.reverseSine = reverseSine;
+        bullet.reverseAfterSeconds = reverseAfterSeconds;
+        bullet.speed = bulletSpeed;
+        //bulletControl.isEnemy = isEnemy;
+        bullet.faction = faction;
 
         // Adjust speeds of the bullets
         if (bulletsBeforeRepeat != 0) speedVarianceCounter++;
@@ -167,17 +161,8 @@ public class BulletSpawner : MonoBehaviour
     private void SpinChild()
     {
         if (spinSpeed == 0) return;
-        
         float spinDirection = reverseSpin ? -1f : 1f;
         spinRotX += spinSpeed * spinDirection * Time.deltaTime;
-        /*if (reverseSpin)
-        {
-            spinRotX -= Time.deltaTime * spinSpeed;
-        }
-        else
-        {
-            spinRotX += Time.deltaTime * spinSpeed;
-        }*/
         spawnerChild.rotation = Quaternion.Euler(spinRotX, 0, 0);
     }
     
@@ -202,42 +187,21 @@ public class BulletSpawner : MonoBehaviour
             if (coneBullets == 1) width = 0;
             if (doubleSine)
             {
-                SetupNewBullet(spawnerChild.transform.rotation * Quaternion.Euler((width + multiWidth), 0, 0), true);
+                SetupNewBullet(spawnerChild.transform.rotation * Quaternion.Euler(width + multiWidth, 0, 0), true);
             }
-            SetupNewBullet(spawnerChild.transform.rotation * Quaternion.Euler((width + multiWidth), 0, 0), false);
+            SetupNewBullet(spawnerChild.transform.rotation * Quaternion.Euler(width + multiWidth, 0, 0), false);
         }
     }
     
     private void Sweep()
     {
         if (sweepSpeed == 0) return;
-        
         float angleDivisor = sweep ? 2f : 1f;
         float sweepDirection = sweep ? -1f : 1f;
         sweepRotX = Mathf.Lerp(-sweepAngle/angleDivisor, sweepAngle/angleDivisor, sweepPosition/100);
         sweepPosition += sweepSpeed * sweepDirection * Time.deltaTime;
         if (sweep && sweepPosition <= 0) sweep = false;
         else if (!sweep && sweepPosition >= 100) sweep = true;
-        
-        /*if (sweepSpeed != 0)
-        {
-            if (!sweep)
-            {
-                float width = Mathf.Lerp(-sweepAngle, sweepAngle, sweepPosition/100);
-                sweepPosition += Time.deltaTime * sweepSpeed;
-                sweepRotX = width;
-                if (sweepPosition >= 100) sweep = true;
-            }
-            else
-            {
-                float width = Mathf.Lerp(-sweepAngle/2, sweepAngle/2, sweepPosition/100);
-                sweepPosition -= Time.deltaTime * sweepSpeed;
-                sweepRotX = width;
-                if (sweepPosition <= 0) sweep = false;
-            }
-        }
-        */
-        
         spawner.rotation = Quaternion.Euler(sweepRotX, 0, 0);
     }
     
@@ -257,14 +221,6 @@ public class BulletSpawner : MonoBehaviour
         if (!randomColorOrder)
         {
             BulletColor = BulletColor == numberOfColors - 1 ? 0 : BulletColor + 1;
-            /*if (BulletColor != numberOfColors - 1)
-            {
-                BulletColor++;
-            }
-            else
-            {
-                BulletColor = 0;
-            }*/
             return;
         }
         BulletColor = Random.Range(0, Mathf.RoundToInt(numberOfColors));
@@ -293,25 +249,7 @@ public class BulletSpawner : MonoBehaviour
         if (stopAfterSeconds <= 0) return;
         if (stopAfterSeconds <= bulletsLifetime) startFiring = false;
     }
-    
-    private GameObject GetBulletFromPool()
-    {
-        if (bulletsCreated == null) return null;
-        
-        for (int i = 0; i < bulletsCreated.Count - 1; i++)
-        {
-            if (!bulletsCreated[i].gameObject)
-            {
-                // WPP: this will create a list modification error, prevent with reverse iteration
-                bulletsCreated.Remove(bulletsCreated[i]);
-                continue;
-            }
-            if (!bulletsCreated[i].activeSelf)
-                return bulletsCreated[i];
-        }
-        return null;
-    }
-    
+
     private bool AllBulletsOffscreen()
     {
         foreach (var bullet in bulletsCreated)

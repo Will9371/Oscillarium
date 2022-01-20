@@ -37,6 +37,8 @@ namespace Playcraft.Pooling
     
             objectPoolDict.Add(data.prefab, spawner);
         }
+        
+        public GameObject Spawn(GameObject obj) { return Spawn(obj, Vector3.zero); }
 
         public GameObject Spawn(GameObject obj, Vector3 position)
         {

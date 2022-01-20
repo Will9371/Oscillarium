@@ -2,67 +2,64 @@
 
 public class Bullet : MonoBehaviour
 {
+    [SerializeField] Renderer rend;
+
     public float speed = 5;
-    public float sineAmplitude = 0;
-    public float sineFrequency = 0;
-    public float yDirection = 1f;
+    public float yAmplitude = 0;
+    public float yFrequency = 0;
     public bool reverseSine = false;
     public float reverseAfterSeconds = 0;
     public float maxLifetime = 3f;
     public BulletSpawner bulletSpawner;
-    public bool isEnemy;
-
-    //Private
-    private float sineWavePosition = 0;
-    private float sineTime = 0;
-    private float bulletLifetime = 0;
+    public Faction faction;
+    public AnimationCurve yCurve;
+    
+    private float bulletLifetime => Time.time - startTime;
+    private float startTime;
     private bool reversed = false;
     private bool dontDestroyOffscreen;
-    private Renderer rend;
+    private Vector3 center;
+    private Vector3 curveOffset;
+    private Vector3 offset => reverseSine ? curveOffset * -1f : curveOffset;
+    private float yPhase;
 
-    private void Start()
-    {
-        rend = GetComponent<Renderer>();
-    
-        if (reverseSine)
-            sineTime = sineFrequency;
-    }
-    
     private void OnEnable()
     {
-        if (reverseSine) sineTime = sineFrequency;
         if (bulletSpawner == null) return;
         dontDestroyOffscreen = bulletSpawner.doNotDestroyOffScreen;
+        center = transform.position;
+        startTime = Time.time;
     }
     
     private void Update()
     {
-        bulletLifetime += Time.deltaTime;
-        transform.Translate(Vector3.right * (Time.deltaTime * speed));
-        SineWave();
+        Step();
         Reverse();
         BulletTimeDestroyer();
         BulletPositionDestroyer();
     }
     
+    private void Step()
+    {
+        center += speed * Time.deltaTime * transform.right;  
+        
+        yPhase += Time.deltaTime * yFrequency;
+        while (yPhase > 1f)
+            yPhase -= 1f;
+        
+        if (yAmplitude != 0f)
+            curveOffset.y = yAmplitude * yCurve.Evaluate(yPhase);
+        
+        transform.position = center + offset;
+    }
+
     private void BulletPositionDestroyer()
     {
         if (dontDestroyOffscreen) return;
         if (!rend.isVisible && bulletLifetime > maxLifetime)
-        //if(this.transform.position.y >= 8 || this.transform.position.y <= -8 || this.transform.position.z >= 30 || this.transform.position.z <= -30)
             gameObject.SetActive(false);
     }
-    
-    private void SineWave()
-    {
-        if (sineAmplitude == 0) return;
-        sineTime += yDirection * Time.deltaTime;
-        sineWavePosition = Mathf.Lerp(-sineAmplitude, sineAmplitude, sineTime / sineFrequency);
-        transform.Translate(Vector3.up * sineWavePosition);
-        if (sineTime >= sineFrequency) yDirection = -1;
-        if (sineTime <= 0) yDirection = 1;
-    }
-    
+
     private void Reverse()
     {
         if (reverseAfterSeconds == 0 || bulletLifetime <= reverseAfterSeconds || reversed) 
@@ -84,8 +81,16 @@ public class Bullet : MonoBehaviour
     void OnDisable()
     {
         reversed = false;
-        sineWavePosition = 0;
-        sineTime = 0;
-        bulletLifetime = 0;
     }
 }
+
+/*private void SineWave()
+{
+    //bulletLifetime += Time.deltaTime;
+    center += speed * Time.deltaTime * transform.right;
+    
+    if (sineAmplitude != 0f)
+        sineOffset.y = sineAmplitude * Mathf.Sin(bulletLifetime * sineFrequency);
+        
+    transform.position = center + offset;
+}*/

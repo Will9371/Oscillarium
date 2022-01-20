@@ -74,7 +74,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e5376158a96afa48993140743fbad1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 5701145716870798735, guid: 2cb27da7a075dd04aafefb2c9c394772, type: 3}
+  faction: 1
+  bulletTransform: {fileID: 237473198249611768, guid: 6b93ab0c9a5898e4f82bb55198b09aff, type: 3}
   startFiring: 1
+  stopAfterAllDestroyed: 0
+  doNotDestroyOffScreen: 0
+  timeNeededBeforeMoving: 0
   multiBullets: 1
   multiDirectionalWidth: 360
   coneBullets: 1
@@ -85,20 +91,25 @@ MonoBehaviour:
   offsetY: 0
   sweepAngle: 0
   sweepSpeed: 0
-  bulletTransform: {fileID: 237473198249611768, guid: 6b93ab0c9a5898e4f82bb55198b09aff, type: 3}
   bulletSpeed: 2
   timeBetweenBullets: 0.1
   bulletSizeX: 1
   bulletSizeY: 1
   doubleSine: 1
-  sineAmplitude: 0.05
-  sineFrequency: 50
+  yAmplitude: 1
+  yFrequency: 2
   reverseAfterSeconds: 6
   bulletsBeforeRepeat: 50
   maxSpeedVariance: 1
+  stopAfterSeconds: 0
+  connectToSpawnerOnStop: 0
+  destroyAfterSeconds: 0
   colorChangeSpeed: 33.7
   numberOfColors: 3
   bulletColor: 2
   randomColorOrder: 1
+  startWithRandomColor: 0
   numberOfRapidFireBullets: 50
   rapidFireCooldownTime: 10
+  rapidFiresBeforeStop: 0
+  bulletsCreated: []
