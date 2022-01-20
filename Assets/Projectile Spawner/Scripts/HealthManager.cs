@@ -11,16 +11,16 @@ public class HealthManager : MonoBehaviour
     [SerializeField] Image bossHealthBar = null;
     private AudioManager audioManager = null;
     [SerializeField] private GameObject winScreen = null;
-
-
+    
     private void Start()
     {
         audioManager = FindObjectOfType<AudioManager>();
-        player = this.GetComponent<Player>();
+        player = GetComponent<Player>();
     }
 
     //Properties
     public float Health { get => health; private set => health = value; }
+    
     public void Damage(float amount)
     {
         if (player != null && player.respawn.isInvulnerable) return;
@@ -30,6 +30,7 @@ public class HealthManager : MonoBehaviour
         Death();
         UpdateBossHealth();
     }
+    
     private void Death()
     {
         if (health > 0) return;
@@ -38,7 +39,7 @@ public class HealthManager : MonoBehaviour
             float rand = Random.Range(-0.5f, 0.5f);
             GameObject bullet = Instantiate(bullets, transform.position + new Vector3(0, rand, rand), Quaternion.Euler (rand*180,0,0));
             bullet.GetComponent<Bullet>().speed = 2;
-            bullet.GetComponent<ColorChange>().color = this.GetComponent<ColorChange>().color;
+            bullet.GetComponent<ColorChange>().color = GetComponent<ColorChange>().color;
         }
         if(gameObject.tag == "Enemy")
         {
@@ -47,20 +48,23 @@ public class HealthManager : MonoBehaviour
         }
         killPlayer = true;
     }
+    
     private void DestroyAndPool()
     {
-        if (this.transform.childCount != 0)
+        if (transform.childCount != 0)
         {
-            for (int i = 0; i < this.transform.childCount; i++)
+            for (int i = 0; i < transform.childCount; i++)
             {
-                if (this.transform.GetChild(i).GetComponent<Bullet>() != null)
+                if (transform.GetChild(i).GetComponent<Bullet>() != null)
                 {
-                    this.transform.GetChild(i).GetComponent<Bullet>().PoolBullet();
+                    transform.GetChild(i).gameObject.SetActive(false);
                 }
             }
         }
-        Destroy(this.gameObject);
+        
+        Destroy(gameObject);
     }
+    
     private void UpdateBossHealth()
     {
         if (bossHealthBar == null) return;
@@ -71,5 +75,4 @@ public class HealthManager : MonoBehaviour
             Time.timeScale = 0;
         }
     }
-    
 }

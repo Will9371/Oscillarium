@@ -1,15 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 
 public class BulletSpawner : MonoBehaviour
 {
     [SerializeField] private Transform bulletTransform = null;
-    [SerializeField] public bool startFiring = false;
+    public bool startFiring = false;
     [SerializeField] private bool stopAfterAllDestroyed = false;
-    [SerializeField] public bool doNotDestroyOffScreen = false;
-    [SerializeField] public float timeNeededBeforeMoving = 0;
+    public bool doNotDestroyOffScreen = false;
+    public float timeNeededBeforeMoving = 0;
     [Space]
 
     [Header("MultiDirectional Controls")]
@@ -86,18 +85,21 @@ public class BulletSpawner : MonoBehaviour
     private bool freeze = false;
     private bool isEnemy = false;
 
+    // WPP: naked passthrough creates an illusion of encapsulation, just use bulletColor
+    // + rename: bulletColorIndex
     public int BulletColor { private get => bulletColor; set => bulletColor = value; }
+    
     private void OnEnable()
     {
-        if (gameObject.tag == "Enemy") isEnemy = true;
-        spawner = this.transform;
-        spawnerChild = this.transform.GetChild(0);
+        if (gameObject.CompareTag("Enemy")) isEnemy = true;
+        spawner = transform;
+        spawnerChild = transform.GetChild(0);
         bullet = bulletTransform.GetComponent<Bullet>();
+        
         if (startWithRandomColor)
-        {
             BulletColor = Random.Range(0, 2);
-        }
     }
+    
     private void Update()
     {
         bulletsLifetime += Time.deltaTime;
@@ -109,24 +111,27 @@ public class BulletSpawner : MonoBehaviour
         FreezeBullets();
         StopFiring();
     }
+    
     private void SetupNewBullet(Quaternion rotation, bool reverseSine)
     {
-        //Setting Up Spawner
+        // Set up spawner
         GameObject newBullet = GetBulletFromPool();
-        //Creating a new bullet if there is none
-        if (newBullet == null)
+        
+        // Create a new bullet if there is none
+        if (!newBullet)
         {
             newBullet = Instantiate(bullet.gameObject, spawnerChild.transform.position + new Vector3(0, offsetY, offsetX), rotation);
             bulletsCreated.Add(newBullet);
         }
-        //Reusing Bullet from pool if possible
+        
+        // Reuse bullet from pool if possible
         else
         {
-            newBullet.transform.SetPositionAndRotation(this.transform.position + new Vector3(0, offsetY, offsetX), rotation);
+            newBullet.transform.SetPositionAndRotation(transform.position + new Vector3(0, offsetY, offsetX), rotation);
             newBullet.SetActive(true);
         }
 
-        //Assigning variables to bullet
+        // Assign variables to bullet
         newBullet.transform.localScale = new Vector3(bulletSizeX, bulletSizeY, bulletSizeX);
         newBullet.GetComponent<ColorChange>().color = BulletColor;
         Bullet bulletControl = newBullet.GetComponent<Bullet>();
@@ -139,14 +144,14 @@ public class BulletSpawner : MonoBehaviour
         bulletControl.speed = bulletSpeed;
         bulletControl.isEnemy = isEnemy;
 
-        //Adjusting the speeds of the bullets
+        // Adjust speeds of the bullets
         if (bulletsBeforeRepeat != 0) speedVarianceCounter++;
         if (speedVarianceCounter >= bulletsBeforeRepeat) speedVarianceCounter = 0;
-
     }
+    
     private void FireBullets()
     {
-        if (freeze == true) return;
+        if (freeze) return;
         if (nextRapidFire > Time.time) return;
         if (nextFire > Time.time) return;
         if (numberOfRapidFireBullets > 1 && rapidFireBulletCount >= numberOfRapidFireBullets)
@@ -158,27 +163,29 @@ public class BulletSpawner : MonoBehaviour
         nextFire = Time.time + timeBetweenBullets;
         ShootMultiDirectional();
     }
+    
     private void SpinChild()
     {
-        if (spinSpeed != 0)
+        if (spinSpeed == 0) return;
+        
+        float spinDirection = reverseSpin ? -1f : 1f;
+        spinRotX += spinSpeed * spinDirection * Time.deltaTime;
+        /*if (reverseSpin)
         {
-            if (reverseSpin)
-            {
-                spinRotX -= Time.deltaTime * spinSpeed;
-            }
-            else
-            {
-                spinRotX += Time.deltaTime * spinSpeed;
-            }
-            spawnerChild.rotation = Quaternion.Euler(spinRotX, 0, 0);
+            spinRotX -= Time.deltaTime * spinSpeed;
         }
+        else
+        {
+            spinRotX += Time.deltaTime * spinSpeed;
+        }*/
+        spawnerChild.rotation = Quaternion.Euler(spinRotX, 0, 0);
     }
+    
     private void ShootMultiDirectional()
     {
-        if(numberOfRapidFireBullets > 1)
-        {
+        if (numberOfRapidFireBullets > 1)
             rapidFireBulletCount++;
-        }
+
         for (int i = 0; i <= multiBullets-1; i++)
         {
             float width = Mathf.Lerp(0, multiDirectionalWidth, i/(multiBullets));
@@ -186,6 +193,7 @@ public class BulletSpawner : MonoBehaviour
             ShootCone(width);
         }
     }
+    
     private void ShootCone(float multiWidth)
     {
         for (int i = 0; i <= coneBullets-1; i++)
@@ -199,27 +207,40 @@ public class BulletSpawner : MonoBehaviour
             SetupNewBullet(spawnerChild.transform.rotation * Quaternion.Euler((width + multiWidth), 0, 0), false);
         }
     }
+    
     private void Sweep()
     {
-        if (sweepSpeed != 0)
+        if (sweepSpeed == 0) return;
+        
+        float angleDivisor = sweep ? 2f : 1f;
+        float sweepDirection = sweep ? -1f : 1f;
+        sweepRotX = Mathf.Lerp(-sweepAngle/angleDivisor, sweepAngle/angleDivisor, sweepPosition/100);
+        sweepPosition += sweepSpeed * sweepDirection * Time.deltaTime;
+        if (sweep && sweepPosition <= 0) sweep = false;
+        else if (!sweep && sweepPosition >= 100) sweep = true;
+        
+        /*if (sweepSpeed != 0)
         {
             if (!sweep)
             {
                 float width = Mathf.Lerp(-sweepAngle, sweepAngle, sweepPosition/100);
-                sweepRotX = width;
                 sweepPosition += Time.deltaTime * sweepSpeed;
+                sweepRotX = width;
                 if (sweepPosition >= 100) sweep = true;
             }
             else
             {
                 float width = Mathf.Lerp(-sweepAngle/2, sweepAngle/2, sweepPosition/100);
-                sweepRotX = width;
                 sweepPosition -= Time.deltaTime * sweepSpeed;
+                sweepRotX = width;
                 if (sweepPosition <= 0) sweep = false;
             }
-            spawner.rotation = Quaternion.Euler(sweepRotX, 0, 0);
         }
+        */
+        
+        spawner.rotation = Quaternion.Euler(sweepRotX, 0, 0);
     }
+    
     private void AutoColorChange()
     {
         if (colorChangeSpeed <= 0) return;
@@ -230,37 +251,40 @@ public class BulletSpawner : MonoBehaviour
         }
         colorPosition += Time.deltaTime * colorChangeSpeed;
     }
+    
     private void ChangeColor()
     {
         if (!randomColorOrder)
         {
-            if(BulletColor != numberOfColors-1)
+            BulletColor = BulletColor == numberOfColors - 1 ? 0 : BulletColor + 1;
+            /*if (BulletColor != numberOfColors - 1)
             {
                 BulletColor++;
             }
             else
             {
                 BulletColor = 0;
-            }
+            }*/
             return;
         }
         BulletColor = Random.Range(0, Mathf.RoundToInt(numberOfColors));
     }
+    
     private void FreezeBullets()
     {
-        if (stopAfterSeconds == 0) return;
-        if (bulletsLifetime > stopAfterSeconds)
+        if (stopAfterSeconds == 0 || bulletsLifetime <= stopAfterSeconds) 
+            return;
+
+        foreach (var bullet in bulletsCreated)
         {
-            for(int i = 0; i < bulletsCreated.Count; i++)
-            {
-                bulletsCreated[i].GetComponent<Bullet>().speed = 0;
-                freeze = true;
-                if (!connectToSpawnerOnStop) return;
-                if (bulletsCreated[i] == null) return;
-                bulletsCreated[i].transform.SetParent(this.transform.GetChild(0));
-            }
+            bullet.GetComponent<Bullet>().speed = 0;
+            freeze = true;
+            if (!connectToSpawnerOnStop) return;
+            if (!bullet) return;
+            bullet.transform.SetParent(transform.GetChild(0));
         }
     }
+    
     private void StopFiring()
     {
         if (nextFire == 0) return;
@@ -269,44 +293,39 @@ public class BulletSpawner : MonoBehaviour
         if (stopAfterSeconds <= 0) return;
         if (stopAfterSeconds <= bulletsLifetime) startFiring = false;
     }
+    
     private GameObject GetBulletFromPool()
     {
-        if (bulletsCreated == null)
-        {
-            return null;
-        }
+        if (bulletsCreated == null) return null;
+        
         for (int i = 0; i < bulletsCreated.Count - 1; i++)
         {
-            if (bulletsCreated[i].gameObject == null)
+            if (!bulletsCreated[i].gameObject)
             {
+                // WPP: this will create a list modification error, prevent with reverse iteration
                 bulletsCreated.Remove(bulletsCreated[i]);
                 continue;
             }
-            else if (!bulletsCreated[i].activeSelf)
-            {
+            if (!bulletsCreated[i].activeSelf)
                 return bulletsCreated[i];
-            }
         }
         return null;
-
     }
+    
     private bool AllBulletsOffscreen()
     {
-        for(int i = 0; i < bulletsCreated.Count; i++)
-        {
-            if (bulletsCreated[i].activeSelf)
-            {
+        foreach (var bullet in bulletsCreated)
+            if (bullet.activeSelf)
                 return false;
-            }
-        }
+        
         return true;
     }
+    
     private void DestroyAll()
     {
         for(int i = 0; i < bulletsCreated.Count; i++)
-        {
             bulletsCreated.Remove(bulletsCreated[i]);
-        }
+        
         Destroy(gameObject);
     }
 }
