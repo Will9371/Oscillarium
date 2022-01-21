@@ -22,8 +22,8 @@ namespace Playcraft.PredictiveMovement
 
         public void Initialize() 
         {
-            bounds.radius = radius; 
-            bounds.center = center.position;
+            bounds.radius = radius;
+            if (center) bounds.center = center.position;
         }
         
         Vector3 targetPosition;

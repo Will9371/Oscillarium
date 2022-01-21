@@ -69,7 +69,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 3930767619706063030}
           m_TargetAssemblyTypeName: PauseGame, Assembly-CSharp
-          m_MethodName: PauseKeyPressed
+          m_MethodName: TogglePause
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

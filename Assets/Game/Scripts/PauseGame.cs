@@ -1,37 +1,16 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PauseGame : MonoBehaviour
 {
     [SerializeField] GameObject PauseMenu;
     private bool isPaused = false;
 
-    public void PauseKeyPressed()
+    public void TogglePause() { SetPaused(!isPaused); }
+    
+    public void SetPaused(bool value)
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-           if (!isPaused)
-           {
-               PauseGameState();
-           }
-           else
-           {
-               ResumeGameState();
-           }
-        } 
-    }
-
-    public void PauseGameState()
-    {
-        Time.timeScale = 0;
-        isPaused = true;
-        PauseMenu.SetActive(true);
-    }
-
-    public void ResumeGameState()
-    {
-        Time.timeScale = 1;
-        isPaused = false;
-        PauseMenu.SetActive(false);
+        isPaused = value;
+        Time.timeScale = isPaused ? 0 : 1;
+        PauseMenu.SetActive(isPaused);        
     }
 }

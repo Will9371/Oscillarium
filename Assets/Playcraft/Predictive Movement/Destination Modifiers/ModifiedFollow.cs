@@ -2,10 +2,10 @@ using UnityEngine;
 
 namespace Playcraft
 {
-    public class PlaceOtherAtModifiedPosition : MonoBehaviour
+    public class ModifiedFollow : MonoBehaviour
     {
         [SerializeField] Transform other;
         [SerializeField] DestinationModifiers modifiers;
-        void FixedUpdate() { other.position = modifiers.Tick(transform.position); }
+        void FixedUpdate() { transform.position = modifiers.Tick(other.position); }
     }
 }

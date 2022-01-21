@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: Straight Shot
   m_EditorClassIdentifier: 
   data:
-    multiBullets: 1
+    multiBullets: 3
     multiDirectionalWidth: 360
-    coneBullets: 1
-    coneWidth: 10
+    coneBullets: 3
+    coneWidth: 45
     spinSpeed: 0
     reverseSpin: 0
     offsetX: -8
     offsetY: 0
-    sweepAngle: 0
-    sweepSpeed: 0
+    sweepAngle: 60
+    sweepSpeed: 60
     bulletInfo: {fileID: 11400000, guid: c745f8e5791830d41a84457ccfb50864, type: 2}
     timeBetweenBullets: 0.2
     bulletSizeX: 1
