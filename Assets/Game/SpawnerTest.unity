@@ -252,12 +252,28 @@ PrefabInstance:
       value: BulletSpawner
       objectReference: {fileID: 0}
     - target: {fileID: 4556431937905085522, guid: 06e4cd248a75afb4696b45e789fadc47, type: 3}
+      propertyPath: doubleSine
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4556431937905085522, guid: 06e4cd248a75afb4696b45e789fadc47, type: 3}
       propertyPath: yFrequency
       value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 4556431937905085522, guid: 06e4cd248a75afb4696b45e789fadc47, type: 3}
       propertyPath: sineFrequency
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4556431937905085522, guid: 06e4cd248a75afb4696b45e789fadc47, type: 3}
+      propertyPath: bulletData.speed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4556431937905085522, guid: 06e4cd248a75afb4696b45e789fadc47, type: 3}
+      propertyPath: timeBetweenBullets
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4556431937905085522, guid: 06e4cd248a75afb4696b45e789fadc47, type: 3}
+      propertyPath: bulletData.destroyAfterSeconds
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4556431937905085523, guid: 06e4cd248a75afb4696b45e789fadc47, type: 3}
       propertyPath: m_RootOrder
@@ -318,7 +334,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4556431937905085520, guid: 06e4cd248a75afb4696b45e789fadc47, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4556431937905085522, guid: 06e4cd248a75afb4696b45e789fadc47, type: 3}
       propertyPath: faction

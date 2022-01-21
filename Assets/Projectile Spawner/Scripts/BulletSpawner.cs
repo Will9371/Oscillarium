@@ -9,13 +9,9 @@ public class BulletSpawner : MonoBehaviour
     ObjectPoolMaster pool => ObjectPoolMaster.instance;
     
     [SerializeField] GameObject bulletPrefab;
-    [SerializeField] Faction faction;
 
-    [SerializeField] private Transform bulletTransform = null;
     public bool startFiring = false;
     [SerializeField] private bool stopAfterAllDestroyed = false;
-    public bool doNotDestroyOffScreen = false;
-    public float timeNeededBeforeMoving = 0;
     [Space]
 
     [Header("MultiDirectional Controls")]
@@ -41,30 +37,26 @@ public class BulletSpawner : MonoBehaviour
     [Space]
 
     [Header("Bullet Controls")]
-    [SerializeField] [Range(0, 200)] private float bulletSpeed = 100f;
-    [SerializeField] [Range(0.01f, 2)] private float timeBetweenBullets = 0.5f;
+    [SerializeField] BulletData bulletData;
+    
+    [SerializeField] [Range(.01f, 2)] private float timeBetweenBullets = 0.5f;
     [SerializeField] [Range(0.25f, 5)] private float bulletSizeX = 1;
     [SerializeField] [Range(0.25f, 5)] private float bulletSizeY = 1;
     [Header("SineWave")]
     [SerializeField] private bool doubleSine = false;
-    [SerializeField] private float yAmplitude = 0;
-    [SerializeField] private float yFrequency = 0;
     [Header("Reverse")]
-    [SerializeField] private float reverseAfterSeconds = 0;
     [Header("Variable Speeds")]
     [SerializeField] private float bulletsBeforeRepeat = 1;
     [SerializeField] private float maxSpeedVariance = 0;
     [Header("Stop Bullets")]
     [SerializeField] private float stopAfterSeconds = 0;
     [SerializeField] private bool connectToSpawnerOnStop = false;
-    [Header("TimeDestroyBullets")]
-    [SerializeField] public float destroyAfterSeconds = 0;
     [Space]
 
     [Header("Color Controls")]
     [SerializeField] [Range(0, 100)] private float colorChangeSpeed = 0;
     [SerializeField] [Range(2, 3)] private float numberOfColors = 2;
-    [SerializeField] [Range(0,2)] private int bulletColor = 0;
+    [Range(0,2)] public int bulletColorIndex = 0;
     [SerializeField] private bool randomColorOrder = false;
     [SerializeField] private bool startWithRandomColor = false;
 
@@ -74,7 +66,7 @@ public class BulletSpawner : MonoBehaviour
     [SerializeField] private float rapidFiresBeforeStop = 0;
 
     //hidden variables
-    private Bullet bullet = null;
+    //private Bullet bullet = null;
     private Transform spawnerChild;
     private Transform spawner;
     private float nextFire = 0.0f;
@@ -87,24 +79,20 @@ public class BulletSpawner : MonoBehaviour
     private float sweepPosition = 0;
     private float colorPosition = 0;
     private float speedVarianceCounter = 1;
-    public List<GameObject> bulletsCreated;
     private float bulletsLifetime = 0;
     private bool freeze = false;
-    //private bool isEnemy = false;
-
-    // WPP: naked passthrough creates an illusion of encapsulation, just use bulletColor
-    // + rename: bulletColorIndex
-    public int BulletColor { private get => bulletColor; set => bulletColor = value; }
+    
+    public List<GameObject> bulletObjects = new List<GameObject>();
+    public List<Bullet> bullets = new List<Bullet>();
+    
     
     private void OnEnable()
     {
-        //if (gameObject.CompareTag("Enemy")) isEnemy = true;
         spawner = transform;
         spawnerChild = transform.GetChild(0);
-        bullet = bulletTransform.GetComponent<Bullet>();
         
         if (startWithRandomColor)
-            BulletColor = Random.Range(0, 2);
+            bulletColorIndex = Random.Range(0, 2);
     }
     
     private void Update()
@@ -122,21 +110,19 @@ public class BulletSpawner : MonoBehaviour
     private void SetupNewBullet(Quaternion rotation, bool reverseSine)
     {
         var bulletPosition = transform.position + new Vector3(0, offsetY, offsetX);
-        GameObject newBullet = pool.Spawn(bulletPrefab, bulletPosition, rotation);
+        GameObject bulletObject = pool.Spawn(bulletPrefab, bulletPosition, rotation);
+        bulletObjects.Add(bulletObject);
 
         // Assign variables to bullet
-        newBullet.transform.localScale = new Vector3(bulletSizeX, bulletSizeY, bulletSizeX);
-        newBullet.GetComponent<ColorChange>().color = BulletColor;
-        Bullet bullet = newBullet.GetComponent<Bullet>();
-        bullet.bulletSpawner = this;
-        bullet.speed = bulletSpeed + Mathf.Lerp(0, maxSpeedVariance, speedVarianceCounter / bulletsBeforeRepeat);
-        bullet.yAmplitude = yAmplitude;
-        bullet.yFrequency = yFrequency;
-        bullet.reverseSine = reverseSine;
-        bullet.reverseAfterSeconds = reverseAfterSeconds;
-        bullet.speed = bulletSpeed;
-        //bulletControl.isEnemy = isEnemy;
-        bullet.faction = faction;
+        bulletObject.transform.localScale = new Vector3(bulletSizeX, bulletSizeY, bulletSizeX);
+        bulletObject.GetComponent<ColorChange>().color = bulletColorIndex;
+        
+        Bullet bullet = bulletObject.GetComponent<Bullet>();
+        bullets.Add(bullet);
+        
+        //bulletData.speed = Mathf.Lerp(0, maxSpeedVariance, speedVarianceCounter / bulletsBeforeRepeat);
+        bulletData.reverseSine = reverseSine;
+        bullet.data = new BulletData(bulletData);
 
         // Adjust speeds of the bullets
         if (bulletsBeforeRepeat != 0) speedVarianceCounter++;
@@ -145,9 +131,7 @@ public class BulletSpawner : MonoBehaviour
     
     private void FireBullets()
     {
-        if (freeze) return;
-        if (nextRapidFire > Time.time) return;
-        if (nextFire > Time.time) return;
+        if (freeze || nextRapidFire > Time.time || nextFire > Time.time) return;
         if (numberOfRapidFireBullets > 1 && rapidFireBulletCount >= numberOfRapidFireBullets)
         {
             nextRapidFire = Time.time + rapidFireCooldownTime;
@@ -173,7 +157,7 @@ public class BulletSpawner : MonoBehaviour
 
         for (int i = 0; i <= multiBullets-1; i++)
         {
-            float width = Mathf.Lerp(0, multiDirectionalWidth, i/(multiBullets));
+            float width = Mathf.Lerp(0, multiDirectionalWidth, i/multiBullets);
             if (multiBullets == 1) width = 0;
             ShootCone(width);
         }
@@ -220,10 +204,10 @@ public class BulletSpawner : MonoBehaviour
     {
         if (!randomColorOrder)
         {
-            BulletColor = BulletColor == numberOfColors - 1 ? 0 : BulletColor + 1;
+            bulletColorIndex = bulletColorIndex == numberOfColors - 1 ? 0 : bulletColorIndex + 1;
             return;
         }
-        BulletColor = Random.Range(0, Mathf.RoundToInt(numberOfColors));
+        bulletColorIndex = Random.Range(0, Mathf.RoundToInt(numberOfColors));
     }
     
     private void FreezeBullets()
@@ -231,9 +215,9 @@ public class BulletSpawner : MonoBehaviour
         if (stopAfterSeconds == 0 || bulletsLifetime <= stopAfterSeconds) 
             return;
 
-        foreach (var bullet in bulletsCreated)
+        foreach (var bullet in bullets)
         {
-            bullet.GetComponent<Bullet>().speed = 0;
+            bullet.data.speed = 0f;
             freeze = true;
             if (!connectToSpawnerOnStop) return;
             if (!bullet) return;
@@ -252,7 +236,7 @@ public class BulletSpawner : MonoBehaviour
 
     private bool AllBulletsOffscreen()
     {
-        foreach (var bullet in bulletsCreated)
+        foreach (var bullet in bulletObjects)
             if (bullet.activeSelf)
                 return false;
         
@@ -261,8 +245,11 @@ public class BulletSpawner : MonoBehaviour
     
     private void DestroyAll()
     {
-        for(int i = 0; i < bulletsCreated.Count; i++)
-            bulletsCreated.Remove(bulletsCreated[i]);
+        for (int i = bulletObjects.Count - 1; i >= 0; i--)
+        {
+            bulletObjects.Remove(bulletObjects[i]);
+            bullets.Remove(bullets[i]);
+        }
         
         Destroy(gameObject);
     }

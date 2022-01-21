@@ -26,7 +26,7 @@ public class PlayerShooting : MonoBehaviour
     }
     private void ChangeBulletColor()
     {
-        player.bulletSpawner.BulletColor = player.colorChange.color;
+        player.bulletSpawner.bulletColorIndex = player.colorChange.color;
         bulletColor = player.colorChange.color;
     }
     private void TurnLeft()

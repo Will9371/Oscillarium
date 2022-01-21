@@ -1,32 +1,52 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+
+[Serializable]
+public struct BulletData
+{
+    public Faction faction;
+    public float speed;
+    public float yAmplitude;
+    public float yFrequency;
+    public bool reverseSine;
+    public float reverseAfterSeconds;
+    public float maxLifetime;
+    public bool dontDestroyOffscreen;
+    public float destroyAfterSeconds;
+    
+    public BulletData(BulletData template)
+    {
+        speed = template.speed;
+        yAmplitude = template.yAmplitude;
+        yFrequency = template.yFrequency;
+        reverseSine = template.reverseSine;
+        reverseAfterSeconds = template.reverseAfterSeconds;
+        maxLifetime = template.maxLifetime;
+        dontDestroyOffscreen = template.dontDestroyOffscreen;
+        faction = template.faction;
+        destroyAfterSeconds = template.destroyAfterSeconds;
+    }    
+}
 
 public class Bullet : MonoBehaviour
 {
     [SerializeField] Renderer rend;
-
-    public float speed = 5;
-    public float yAmplitude = 0;
-    public float yFrequency = 0;
-    public bool reverseSine = false;
-    public float reverseAfterSeconds = 0;
-    public float maxLifetime = 3f;
-    public BulletSpawner bulletSpawner;
-    public Faction faction;
+    
+    [NonSerialized] public BulletData data;
     public AnimationCurve yCurve;
     
     private float bulletLifetime => Time.time - startTime;
+    [SerializeField] [ReadOnly] 
     private float startTime;
     private bool reversed = false;
-    private bool dontDestroyOffscreen;
+    private bool dontDestroyOffscreen;  // * Move to struct
     private Vector3 center;
     private Vector3 curveOffset;
-    private Vector3 offset => reverseSine ? curveOffset * -1f : curveOffset;
+    private Vector3 offset => data.reverseSine ? curveOffset * -1f : curveOffset;
     private float yPhase;
 
     private void OnEnable()
     {
-        if (bulletSpawner == null) return;
-        dontDestroyOffscreen = bulletSpawner.doNotDestroyOffScreen;
         center = transform.position;
         startTime = Time.time;
     }
@@ -41,14 +61,14 @@ public class Bullet : MonoBehaviour
     
     private void Step()
     {
-        center += speed * Time.deltaTime * transform.right;  
+        center += data.speed * Time.deltaTime * transform.right;  
         
-        yPhase += Time.deltaTime * yFrequency;
+        yPhase += Time.deltaTime * data.yFrequency;
         while (yPhase > 1f)
             yPhase -= 1f;
         
-        if (yAmplitude != 0f)
-            curveOffset.y = yAmplitude * yCurve.Evaluate(yPhase);
+        if (data.yAmplitude != 0f)
+            curveOffset.y = data.yAmplitude * yCurve.Evaluate(yPhase);
         
         transform.position = center + offset;
     }
@@ -56,25 +76,25 @@ public class Bullet : MonoBehaviour
     private void BulletPositionDestroyer()
     {
         if (dontDestroyOffscreen) return;
-        if (!rend.isVisible && bulletLifetime > maxLifetime)
+        if (!rend.isVisible && bulletLifetime > data.maxLifetime)
             gameObject.SetActive(false);
     }
 
     private void Reverse()
     {
-        if (reverseAfterSeconds == 0 || bulletLifetime <= reverseAfterSeconds || reversed) 
+        if (data.reverseAfterSeconds == 0 || bulletLifetime <= data.reverseAfterSeconds || reversed) 
             return;
 
-        speed *= -1;
+        data.speed *= -1;
         reversed = true;
     }
 
     private void BulletTimeDestroyer()
     {
-        if (!bulletSpawner || bulletSpawner.destroyAfterSeconds == 0) 
+        if (data.destroyAfterSeconds == 0) 
             return;
         
-        if(bulletSpawner.destroyAfterSeconds <= bulletLifetime)
+        if (data.destroyAfterSeconds <= bulletLifetime)
             gameObject.SetActive(false);
     }
     

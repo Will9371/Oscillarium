@@ -91,6 +91,14 @@ MonoBehaviour:
   offsetY: 0
   sweepAngle: 0
   sweepSpeed: 0
+  bulletData:
+    speed: 2
+    yAmplitude: 1
+    yFrequency: 0.5
+    reverseSine: 0
+    reverseAfterSeconds: 6
+    maxLifetime: 12
+    faction: 1
   bulletSpeed: 2
   timeBetweenBullets: 0.1
   bulletSizeX: 1

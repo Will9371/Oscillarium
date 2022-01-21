@@ -1,6 +1,7 @@
 ﻿using UnityEngine.UI;
 using UnityEngine;
 
+// REFACTOR
 public class HealthManager : MonoBehaviour
 {
     private Player player = null;
@@ -38,7 +39,7 @@ public class HealthManager : MonoBehaviour
         {
             float rand = Random.Range(-0.5f, 0.5f);
             GameObject bullet = Instantiate(bullets, transform.position + new Vector3(0, rand, rand), Quaternion.Euler (rand*180,0,0));
-            bullet.GetComponent<Bullet>().speed = 2;
+            //bullet.GetComponent<Bullet>().speed = 2;
             bullet.GetComponent<ColorChange>().color = GetComponent<ColorChange>().color;
         }
         if(gameObject.tag == "Enemy")
