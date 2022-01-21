@@ -6,18 +6,18 @@ public class Bullet : MonoBehaviour
     [SerializeField] Renderer rend;
     
     [NonSerialized] public BulletData data;
+    [NonSerialized] public Faction faction;
     
     private float bulletLifetime => Time.time - startTime;
     private float startTime;
     private Vector3 center;
-    private Vector3 curveOffset;
-    private Vector3 offset => data.reverseSine ? curveOffset * -1f : curveOffset;
+    private Vector3 offset;
     private float yPhase;
 
-    public void Initialize(BulletData data, bool reverseSine)
+    public void Initialize(BulletData data, Faction faction)
     {
         this.data = data;
-        this.data.reverseSine = reverseSine;
+        this.faction = faction;
         
         center = transform.position;
         startTime = Time.time;
@@ -42,7 +42,7 @@ public class Bullet : MonoBehaviour
             yPhase -= 1f;
         
         if (data.yAmplitude != 0f)
-            curveOffset.y = data.yAmplitude * data.yCurve.Evaluate(yPhase);
+            offset.y = data.yAmplitude * data.yCurve.Evaluate(yPhase);
         
         transform.position = center + offset;
     }

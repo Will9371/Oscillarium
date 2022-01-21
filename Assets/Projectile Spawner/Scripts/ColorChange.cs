@@ -12,9 +12,9 @@ public class ColorChange : MonoBehaviour
     private float changeColorEverySeconds = 0;
     private float colorTimer = 0;
     
-    public ColorSO colors;
-    public Color color => colors.data[colorIndex].color;
-    int colorCount => colors.data.Length;
+    public ColorInfo colorInfo;
+    public Color color => colorInfo.data[colorIndex].color;
+    int colorCount => colorInfo.data.Length;
 
     private void Start()
     {

@@ -75,6 +75,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 5701145716870798735, guid: 2cb27da7a075dd04aafefb2c9c394772, type: 3}
+  faction: 1
   startFiring: 1
   stopAfterAllDestroyed: 0
   multiBullets: 1
@@ -87,8 +88,8 @@ MonoBehaviour:
   offsetY: 0
   sweepAngle: 0
   sweepSpeed: 0
+  bulletInfo: {fileID: 11400000, guid: fa346091fdd0dd64a9dc1c52e44d031f, type: 2}
   bulletData:
-    faction: 1
     speed: 2
     yAmplitude: 1
     yFrequency: 0.5

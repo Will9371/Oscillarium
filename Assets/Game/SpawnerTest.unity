@@ -334,12 +334,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4556431937905085520, guid: 06e4cd248a75afb4696b45e789fadc47, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4556431937905085522, guid: 06e4cd248a75afb4696b45e789fadc47, type: 3}
       propertyPath: faction
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4556431937905085522, guid: 06e4cd248a75afb4696b45e789fadc47, type: 3}
+      propertyPath: bulletInfo
+      value: 
+      objectReference: {fileID: 11400000, guid: 39d6ba05488b1e744b50359b9551dc83, type: 2}
     - target: {fileID: 4556431937905085522, guid: 06e4cd248a75afb4696b45e789fadc47, type: 3}
       propertyPath: yAmplitude
       value: 1.5

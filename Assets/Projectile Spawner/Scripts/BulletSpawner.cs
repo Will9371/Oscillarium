@@ -9,6 +9,7 @@ public class BulletSpawner : MonoBehaviour
     ObjectPoolMaster pool => ObjectPoolMaster.instance;
     
     [SerializeField] GameObject bulletPrefab;
+    [SerializeField] Faction faction = Faction.Enemy;
 
     public bool startFiring = false;
     [SerializeField] private bool stopAfterAllDestroyed = false;
@@ -37,13 +38,11 @@ public class BulletSpawner : MonoBehaviour
     [Space]
 
     [Header("Bullet Controls")]
-    [SerializeField] BulletData bulletData;
+    [SerializeField] BulletInfo bulletInfo;
     
     [SerializeField] [Range(.01f, 2)] private float timeBetweenBullets = 0.5f;
     [SerializeField] [Range(0.25f, 5)] private float bulletSizeX = 1;
     [SerializeField] [Range(0.25f, 5)] private float bulletSizeY = 1;
-    [Header("SineWave")]
-    [SerializeField] private bool doubleSine = false;
     [Header("Reverse")]
     [Header("Variable Speeds")]
     [SerializeField] private float bulletsBeforeRepeat = 1;
@@ -106,13 +105,12 @@ public class BulletSpawner : MonoBehaviour
         StopFiring();
     }
     
-    private void SetupNewBullet(Quaternion rotation, bool reverseSine)
+    private void SetupNewBullet(Quaternion rotation, BulletData data)
     {
         var bulletPosition = transform.position + new Vector3(0, offsetY, offsetX);
         GameObject bulletObject = pool.Spawn(bulletPrefab, bulletPosition, rotation);
         bulletObjects.Add(bulletObject);
 
-        // Assign variables to bullet
         bulletObject.transform.localScale = new Vector3(bulletSizeX, bulletSizeY, bulletSizeX);
         bulletObject.GetComponent<ColorChange>().colorIndex = bulletColorIndex;
         
@@ -120,7 +118,7 @@ public class BulletSpawner : MonoBehaviour
         bullets.Add(bullet);
         
         //bulletData.speed = Mathf.Lerp(0, maxSpeedVariance, speedVarianceCounter / bulletsBeforeRepeat);
-        bullet.Initialize(bulletData, reverseSine);
+        bullet.Initialize(data, faction);
 
         // Adjust speeds of the bullets
         if (bulletsBeforeRepeat != 0) speedVarianceCounter++;
@@ -167,11 +165,14 @@ public class BulletSpawner : MonoBehaviour
         {
             float width = Mathf.Lerp(-coneWidth / 2, coneWidth / 2, i / (coneBullets - 1));
             if (coneBullets == 1) width = 0;
-            if (doubleSine)
+            
+            Quaternion bulletRotation;
+            foreach (var bulletData in bulletInfo.data)
             {
-                SetupNewBullet(spawnerChild.transform.rotation * Quaternion.Euler(width + multiWidth, 0, 0), true);
+                Debug.Log(bulletInfo.length);
+                bulletRotation = spawnerChild.transform.rotation * Quaternion.Euler(width + multiWidth, 0, 0);
+                SetupNewBullet(bulletRotation, bulletData);
             }
-            SetupNewBullet(spawnerChild.transform.rotation * Quaternion.Euler(width + multiWidth, 0, 0), false);
         }
     }
     

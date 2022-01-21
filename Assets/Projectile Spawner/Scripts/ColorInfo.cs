@@ -4,7 +4,7 @@ using UnityEngine;
 namespace BulletHell
 {
     [CreateAssetMenu(menuName = "Bullet Hell/Color")]
-    public class ColorSO : ScriptableObject
+    public class ColorInfo : ScriptableObject
     {
         public ColorData[] data;
     }
