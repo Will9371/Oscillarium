@@ -713,13 +713,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1795434149}
-        m_TargetAssemblyTypeName: MenuButtonActions, Assembly-CSharp
-        m_MethodName: LoadMainMenuScene
-        m_Mode: 1
+      - m_Target: {fileID: 1795434150}
+        m_TargetAssemblyTypeName: Playcraft.Scene.SingleSceneController, Assembly-CSharp
+        m_MethodName: SetScene
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: 788d3062c61bdb643a4e50143e4f4656, type: 2}
+          m_ObjectArgumentAssemblyTypeName: Playcraft.StringSO, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1127,13 +1127,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1795434149}
-        m_TargetAssemblyTypeName: MenuButtonActions, Assembly-CSharp
-        m_MethodName: LoadToyboxLevel
-        m_Mode: 1
+      - m_Target: {fileID: 1795434150}
+        m_TargetAssemblyTypeName: Playcraft.Scene.SingleSceneController, Assembly-CSharp
+        m_MethodName: SetScene
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: 05f52b6de13dd7b4f9cd77dfd4c2a3dd, type: 2}
+          m_ObjectArgumentAssemblyTypeName: Playcraft.StringSO, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1506,15 +1506,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36947ed5ddbdce74c919e434899085ce, type: 3}
---- !u!114 &1795434149 stripped
+--- !u!114 &1795434150 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6693137920135927165, guid: 36947ed5ddbdce74c919e434899085ce, type: 3}
+  m_CorrespondingSourceObject: {fileID: 2559794557779752165, guid: 36947ed5ddbdce74c919e434899085ce, type: 3}
   m_PrefabInstance: {fileID: 1795434148}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c304e49c570397948960960c3acc5684, type: 3}
+  m_Script: {fileID: 11500000, guid: 3f76ffb0c4c12b5469f84267ab89a81e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1940893778

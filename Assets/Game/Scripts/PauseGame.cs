@@ -1,26 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PauseGame : MonoBehaviour
 {
-
     [SerializeField] GameObject PauseMenu;
     private bool isPaused = false;
-    private void Update()
+
+    public void PauseKeyPressed()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (!isPaused)
-            {
-                PauseGameState();
-            }
-            else
-            {
-                ResumeGameState();
-            }
-        }
+           if (!isPaused)
+           {
+               PauseGameState();
+           }
+           else
+           {
+               ResumeGameState();
+           }
+        } 
     }
 
     public void PauseGameState()

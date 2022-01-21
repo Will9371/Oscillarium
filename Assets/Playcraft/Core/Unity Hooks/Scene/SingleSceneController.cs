@@ -5,6 +5,11 @@ namespace Playcraft.Scene
 {
     public class SingleSceneController : MonoBehaviour
     {
+        public void SetScene(StringSO value)
+        {
+            SetScene(value.value);
+        }
+    
         public void SetScene(string name)
         {
             SceneManager.LoadScene(name);
@@ -14,6 +19,11 @@ namespace Playcraft.Scene
         {
             UnityEngine.SceneManagement.Scene scene = SceneManager.GetActiveScene();
             SetScene(scene.name);
+        }
+        
+        public void LoadNextLevel()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 }

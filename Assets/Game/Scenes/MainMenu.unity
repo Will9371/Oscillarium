@@ -268,6 +268,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &82264887 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1652322198857492011, guid: 36947ed5ddbdce74c919e434899085ce, type: 3}
+  m_PrefabInstance: {fileID: 6693137921064114055}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42469629d00811b408c3f0c4e33075bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &399668513
 GameObject:
   m_ObjectHideFlags: 0
@@ -468,13 +479,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1004471034}
-        m_TargetAssemblyTypeName: MenuButtonActions, Assembly-CSharp
-        m_MethodName: LoadCredits
-        m_Mode: 1
+      - m_Target: {fileID: 6693137921064114056}
+        m_TargetAssemblyTypeName: Playcraft.Scene.SingleSceneController, Assembly-CSharp
+        m_MethodName: SetScene
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: 5c85e12dc61631f4d80071f7c8a1f3db, type: 2}
+          m_ObjectArgumentAssemblyTypeName: Playcraft.StringSO, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -759,9 +770,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1004471034}
-        m_TargetAssemblyTypeName: MenuButtonActions, Assembly-CSharp
-        m_MethodName: ExitGame
+      - m_Target: {fileID: 82264887}
+        m_TargetAssemblyTypeName: Playcraft.ApplicationHelper, Assembly-CSharp
+        m_MethodName: Quit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -966,7 +977,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 924835859}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6693137921064114056}
+        m_TargetAssemblyTypeName: Playcraft.Scene.SingleSceneController, Assembly-CSharp
+        m_MethodName: SetScene
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: fe917bb45b3d8404a82f8b976300b33a, type: 2}
+          m_ObjectArgumentAssemblyTypeName: Playcraft.StringSO, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &924835859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1077,17 +1100,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 998321898}
   m_CullTransparentMesh: 1
---- !u!114 &1004471034 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6693137920135927165, guid: 36947ed5ddbdce74c919e434899085ce, type: 3}
-  m_PrefabInstance: {fileID: 6693137921064114055}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c304e49c570397948960960c3acc5684, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1604590150
 GameObject:
   m_ObjectHideFlags: 0
@@ -1171,8 +1183,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1004471034}
-        m_TargetAssemblyTypeName: MenuButtonActions, Assembly-CSharp
+      - m_Target: {fileID: 6693137921064114056}
+        m_TargetAssemblyTypeName: Playcraft.Scene.SingleSceneController, Assembly-CSharp
         m_MethodName: LoadNextLevel
         m_Mode: 1
         m_Arguments:
@@ -1570,13 +1582,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1004471034}
-        m_TargetAssemblyTypeName: MenuButtonActions, Assembly-CSharp
-        m_MethodName: LoadLevelScene
-        m_Mode: 1
+      - m_Target: {fileID: 6693137921064114056}
+        m_TargetAssemblyTypeName: Playcraft.Scene.SingleSceneController, Assembly-CSharp
+        m_MethodName: SetScene
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: 47fdafab132703a43b3de4075b76bbe9, type: 2}
+          m_ObjectArgumentAssemblyTypeName: Playcraft.StringSO, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1677,3 +1689,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36947ed5ddbdce74c919e434899085ce, type: 3}
+--- !u!114 &6693137921064114056 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2559794557779752165, guid: 36947ed5ddbdce74c919e434899085ce, type: 3}
+  m_PrefabInstance: {fileID: 6693137921064114055}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f76ffb0c4c12b5469f84267ab89a81e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
