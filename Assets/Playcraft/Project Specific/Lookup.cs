@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
 // Globally-accessible point of access to prefabs and scriptable object resources
+[CreateAssetMenu(menuName = "Playcraft/Resource Library", fileName = "Resource Library")]
 public class Lookup : ScriptableObject
 {
 	#region Singleton initialization
@@ -12,9 +13,9 @@ public class Lookup : ScriptableObject
 
 
 	#region Global Resource References
-	// public GameObject ExamplePrefab;
-	// public RuntimeAnimatorController ExampleAnimator;
-	// public ScriptableObject ExampleScriptableObject;
+	
+	public GameObject bulletPrefab;
+	
 	#endregion
 
 

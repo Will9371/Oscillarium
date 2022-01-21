@@ -10,50 +10,32 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b9254f45e8ac47c42ac83499f846bc28, type: 3}
-  m_Name: Sine
+  m_Name: Straight Shot
   m_EditorClassIdentifier: 
   data:
   - speed: 2
-    yAmplitude: 2
+    yAmplitude: 0
     yFrequency: 0.75
     yCurve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: -0.006378174
-        value: 0.500473
-        inSlope: 3.824873
-        outSlope: 3.824873
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0.07986728
-      - serializedVersion: 3
-        time: 0.25
-        value: 1
-        inSlope: -0.025800526
-        outSlope: -0.025800526
+        time: 0
+        value: 0.5
+        inSlope: 0
+        outSlope: 0
         tangentMode: 34
         weightedMode: 0
-        inWeight: 0.33333334
+        inWeight: 0
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.75
-        value: 0
+        time: 1
+        value: 0.5
         inSlope: 0
         outSlope: 0
         tangentMode: 34
         weightedMode: 0
         inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 1
-        value: 0.5
-        inSlope: 4.008087
-        outSlope: 4.008087
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.06301211
         outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2

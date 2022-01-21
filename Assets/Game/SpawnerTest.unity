@@ -337,6 +337,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4556431937905085522, guid: 06e4cd248a75afb4696b45e789fadc47, type: 3}
+      propertyPath: info
+      value: 
+      objectReference: {fileID: 11400000, guid: e9522c206de06144f8cde3ba8e45f0de, type: 2}
+    - target: {fileID: 4556431937905085522, guid: 06e4cd248a75afb4696b45e789fadc47, type: 3}
       propertyPath: faction
       value: 0
       objectReference: {fileID: 0}

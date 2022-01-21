@@ -14,5 +14,6 @@ namespace BulletHell
     public struct ColorData
     {
         public Color color;
+        public Material material;
     }
 }

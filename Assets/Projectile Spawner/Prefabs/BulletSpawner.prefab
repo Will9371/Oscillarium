@@ -74,9 +74,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e5376158a96afa48993140743fbad1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 5701145716870798735, guid: 2cb27da7a075dd04aafefb2c9c394772, type: 3}
   faction: 1
+  info: {fileID: 11400000, guid: 28cee2bdf8b7c574dacc95ffebb1b181, type: 2}
   startFiring: 1
+  isFiring: 0
   stopAfterAllDestroyed: 0
   multiBullets: 1
   multiDirectionalWidth: 360
@@ -89,61 +90,9 @@ MonoBehaviour:
   sweepAngle: 0
   sweepSpeed: 0
   bulletInfo: {fileID: 11400000, guid: fa346091fdd0dd64a9dc1c52e44d031f, type: 2}
-  bulletData:
-    speed: 2
-    yAmplitude: 1
-    yFrequency: 0.5
-    yCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: -0.006378174
-        value: 0.500473
-        inSlope: 3.824873
-        outSlope: 3.824873
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0.07986728
-      - serializedVersion: 3
-        time: 0.25
-        value: 1
-        inSlope: -0.025800526
-        outSlope: -0.025800526
-        tangentMode: 34
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.75
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 34
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 1
-        value: 0.5
-        inSlope: 4.008087
-        outSlope: 4.008087
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.06301211
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    reverseSine: 0
-    reverseAfterSeconds: 6
-    maxLifetime: 12
-    dontDestroyOffscreen: 0
-    destroyAfterSeconds: 0
   timeBetweenBullets: 0.1
   bulletSizeX: 1
   bulletSizeY: 1
-  doubleSine: 1
   bulletsBeforeRepeat: 50
   maxSpeedVariance: 1
   stopAfterSeconds: 0

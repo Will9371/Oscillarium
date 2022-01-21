@@ -27,17 +27,17 @@ public class Ammo : MonoBehaviour
     {
         if (player.shooting.bulletColor == 0 && whiteAmmo > 0)
         {
-            player.bulletSpawner.startFiring = true;
+            player.bulletSpawner.isFiring = true;
             whiteAmmo -= ammoPerFrame;
         }
         else if (player.shooting.bulletColor == 1 && purpleAmmo > 0)
         {
-            player.bulletSpawner.startFiring = true;
+            player.bulletSpawner.isFiring = true;
             purpleAmmo -= ammoPerFrame;
         }
         else
         {
-            player.bulletSpawner.startFiring = false;
+            player.bulletSpawner.isFiring = false;
         }
         UpdateAmmoBarSize();
     }
@@ -55,7 +55,7 @@ public class Ammo : MonoBehaviour
     }
     private void ShootingSounds()
     {
-        if (player.bulletSpawner.startFiring == true)
+        if (player.bulletSpawner.isFiring == true)
         {
             audioManager.PlayShoot();
             return;

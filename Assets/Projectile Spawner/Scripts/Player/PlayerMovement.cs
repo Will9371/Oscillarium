@@ -61,6 +61,6 @@ public class PlayerMovement : MonoBehaviour
             player.shooting.ShootRight();
             return;
         }
-        bulletSpawner.startFiring = false;
+        bulletSpawner.isFiring = false;
     }
 }
