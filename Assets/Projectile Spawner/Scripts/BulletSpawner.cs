@@ -66,7 +66,6 @@ public class BulletSpawner : MonoBehaviour
     [SerializeField] private float rapidFiresBeforeStop = 0;
 
     //hidden variables
-    //private Bullet bullet = null;
     private Transform spawnerChild;
     private Transform spawner;
     private float nextFire = 0.0f;
@@ -115,14 +114,13 @@ public class BulletSpawner : MonoBehaviour
 
         // Assign variables to bullet
         bulletObject.transform.localScale = new Vector3(bulletSizeX, bulletSizeY, bulletSizeX);
-        bulletObject.GetComponent<ColorChange>().color = bulletColorIndex;
+        bulletObject.GetComponent<ColorChange>().colorIndex = bulletColorIndex;
         
         Bullet bullet = bulletObject.GetComponent<Bullet>();
         bullets.Add(bullet);
         
         //bulletData.speed = Mathf.Lerp(0, maxSpeedVariance, speedVarianceCounter / bulletsBeforeRepeat);
-        bulletData.reverseSine = reverseSine;
-        bullet.data = new BulletData(bulletData);
+        bullet.Initialize(bulletData, reverseSine);
 
         // Adjust speeds of the bullets
         if (bulletsBeforeRepeat != 0) speedVarianceCounter++;

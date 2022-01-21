@@ -1,24 +1,26 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using BulletHell;
 
 public class ColorChange : MonoBehaviour
 {
-    public int color = 0;
-    [SerializeField] private Material white = null, purple = null, red = null;
-    [SerializeField] private Renderer ObjectToChange = null;
+    public int colorIndex = 0;
+    [SerializeField] private Renderer rend = null;
     [SerializeField] public Light flashLight = null;
     [SerializeField] private ParticleSystem particle = null;
     [SerializeField] private bool startWithRandomColor = false;
     [SerializeField] private bool changeColorRandomly = false;
     private float changeColorEverySeconds = 0;
     private float colorTimer = 0;
+    
+    public ColorSO colors;
+    public Color color => colors.data[colorIndex].color;
+    int colorCount => colors.data.Length;
 
     private void Start()
     {
         if (startWithRandomColor)
         {
-            RandomColor();
+            RandomizeColor();
         }
     }
 
@@ -30,51 +32,38 @@ public class ColorChange : MonoBehaviour
 
     private void LightChange(Color color)
     {
-        if (flashLight == null) return;
+        if (!flashLight) return;
         flashLight.color = color;
     }
 
     private void ParticleChange(Color color)
     {
-        if (particle == null) return;
+        if (!particle) return;
         var main = particle.main;
         main.startColor = color;
     }
-    private void RandomColor()
+    
+    private void RandomizeColor()
     {
-        color = Random.Range(0, 2);
+        colorIndex = Random.Range(0, colorCount);
     }
+    
     private void ColorSwitcher()
     {
-        switch (color)
-        {
-            case 0:
-                ObjectToChange.material = white;
-                LightChange(Color.white);
-                ParticleChange(Color.white);
-                break;
-
-            case 1:
-                ObjectToChange.material = purple;
-                LightChange(Color.magenta);
-                ParticleChange(Color.magenta);
-                break;
-
-            case 2:
-                ObjectToChange.material = red;
-                LightChange(Color.red);
-                ParticleChange(Color.red);
-                break;
-        }
+        rend.material.color = color;
+        LightChange(color);
+        ParticleChange(color);
     }
+    
     private void ColorChangeTimer()
     {
         if (!changeColorRandomly) return;
         colorTimer += Time.deltaTime;
-        if(colorTimer >= changeColorEverySeconds)
+        
+        if (colorTimer >= changeColorEverySeconds)
         {
             changeColorEverySeconds = Random.Range(2, 10);
-            color = Random.Range(0, 2);
+            colorIndex = Random.Range(0, 2);
             colorTimer = 0;
         }
     }

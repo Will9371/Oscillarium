@@ -1,15 +1,22 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EnemyCollision : MonoBehaviour
 {
+    ColorChange color;
+    HealthManager health;
+    
+    void Start()
+    {
+        color = GetComponent<ColorChange>();
+        health = GetComponent<HealthManager>();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Projectile")
+        if (other.CompareTag("Projectile"))
         {
-            this.GetComponent<HealthManager>().Damage(2);
-            if(other.GetComponent<ColorChange>().color != this.GetComponent<ColorChange>().color) this.GetComponent<HealthManager>().Damage(8);
+            health.Damage(2);
+            if (other.GetComponent<ColorChange>().colorIndex != color.colorIndex) health.Damage(8);
             other.gameObject.SetActive(false);
         }
     }

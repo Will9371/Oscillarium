@@ -1,39 +1,32 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerCollision : MonoBehaviour
 {
-    Player player = null;
-
-    private void Start()
-    {
-        player = FindObjectOfType<Player>();
-    }
+    [SerializeField] HealthManager healthManager;
+    [SerializeField] Player player;
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "EnemyProjectile")
+        if (other.tag == "EnemyProjectile")
         {
-            if (other.GetComponent<ColorChange>().color == player.colorChange.color)
+            if (other.GetComponent<ColorChange>().colorIndex == player.colorChange.colorIndex)
             {
                 other.gameObject.SetActive(false);
-                player.ammo.AddAmmo(other.GetComponent<ColorChange>().color);
-                return;
+                player.ammo.AddAmmo(other.GetComponent<ColorChange>().colorIndex);
             }
         }
     }
 
     public void HitInTheHitBox(GameObject other)
     {
-        if(other.tag == "EnemyProjectile")
+        if (other.CompareTag("EnemyProjectile"))
         {
-            this.GetComponent<HealthManager>().Damage(1);
+            healthManager.Damage(1);
             other.gameObject.SetActive(false);
         }
-        if(other.tag == "Enemy")
+        if (other.CompareTag("Enemy"))
         {
-            this.GetComponent<HealthManager>().Damage(1);
+            healthManager.Damage(1);
         }
     }
 }

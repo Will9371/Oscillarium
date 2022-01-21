@@ -155,15 +155,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9589bf3f395b7f942aab7587f94e9593, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: 0
+  colorIndex: 0
   white: {fileID: 2100000, guid: 56780033a7eb6764cb13474632f93d24, type: 2}
   purple: {fileID: 2100000, guid: e8650e2ebbdb2f94a95595083d86eb65, type: 2}
   red: {fileID: 2100000, guid: 8169325fdc01edc458975da5394cb004, type: 2}
-  ObjectToChange: {fileID: 6833919639039599532}
+  rend: {fileID: 0}
   flashLight: {fileID: 0}
   particle: {fileID: 0}
   startWithRandomColor: 0
   changeColorRandomly: 0
+  colors: []
 --- !u!114 &6833919638913029879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,6 +190,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3280ce0f68736441a9c3f80e2b45055, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthManager: {fileID: 6833919638913029872}
+  player: {fileID: 6833919638913029878}
 --- !u!54 &6833919638913029873
 Rigidbody:
   m_ObjectHideFlags: 0

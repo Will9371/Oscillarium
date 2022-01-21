@@ -75,12 +75,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 5701145716870798735, guid: 2cb27da7a075dd04aafefb2c9c394772, type: 3}
-  faction: 1
-  bulletTransform: {fileID: 237473198249611768, guid: 6b93ab0c9a5898e4f82bb55198b09aff, type: 3}
   startFiring: 1
   stopAfterAllDestroyed: 0
-  doNotDestroyOffScreen: 0
-  timeNeededBeforeMoving: 0
   multiBullets: 1
   multiDirectionalWidth: 360
   coneBullets: 1
@@ -92,32 +88,72 @@ MonoBehaviour:
   sweepAngle: 0
   sweepSpeed: 0
   bulletData:
+    faction: 1
     speed: 2
     yAmplitude: 1
     yFrequency: 0.5
+    yCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: -0.006378174
+        value: 0.500473
+        inSlope: 3.824873
+        outSlope: 3.824873
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.07986728
+      - serializedVersion: 3
+        time: 0.25
+        value: 1
+        inSlope: -0.025800526
+        outSlope: -0.025800526
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.75
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0.5
+        inSlope: 4.008087
+        outSlope: 4.008087
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.06301211
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
     reverseSine: 0
     reverseAfterSeconds: 6
     maxLifetime: 12
-    faction: 1
-  bulletSpeed: 2
+    dontDestroyOffscreen: 0
+    destroyAfterSeconds: 0
   timeBetweenBullets: 0.1
   bulletSizeX: 1
   bulletSizeY: 1
   doubleSine: 1
-  yAmplitude: 1
-  yFrequency: 2
-  reverseAfterSeconds: 6
   bulletsBeforeRepeat: 50
   maxSpeedVariance: 1
   stopAfterSeconds: 0
   connectToSpawnerOnStop: 0
-  destroyAfterSeconds: 0
   colorChangeSpeed: 33.7
   numberOfColors: 3
-  bulletColor: 2
+  bulletColorIndex: 0
   randomColorOrder: 1
   startWithRandomColor: 0
   numberOfRapidFireBullets: 50
   rapidFireCooldownTime: 10
   rapidFiresBeforeStop: 0
-  bulletsCreated: []
+  bulletObjects: []
+  bullets: []

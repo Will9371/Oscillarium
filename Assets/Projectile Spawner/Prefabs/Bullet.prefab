@@ -97,14 +97,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 4051185110684705354}
-  speed: 0
-  sineAmplitude: 0
-  sineFrequency: 0
-  reverseSine: 0
-  reverseAfterSeconds: 0
-  maxLifetime: 3
-  bulletSpawner: {fileID: 0}
-  faction: 1
   yCurve:
     serializedVersion: 2
     m_Curve:
@@ -159,15 +151,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9589bf3f395b7f942aab7587f94e9593, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: 0
-  white: {fileID: 2100000, guid: 823c98311da751e40abaef300b4dda44, type: 2}
-  purple: {fileID: 2100000, guid: c68305f4ef3025d4eb170282e6a74432, type: 2}
-  red: {fileID: 2100000, guid: fd026b86f718ec64bb2265036951d9df, type: 2}
-  ObjectToChange: {fileID: 4051185110684705354}
+  colorIndex: 0
+  rend: {fileID: 4051185110684705354}
   flashLight: {fileID: 0}
   particle: {fileID: 0}
   startWithRandomColor: 0
   changeColorRandomly: 0
+  colors: {fileID: 11400000, guid: 02a025e58cfe4844cb6a2823c3526cab, type: 2}
 --- !u!65 &5149826181038425109
 BoxCollider:
   m_ObjectHideFlags: 0

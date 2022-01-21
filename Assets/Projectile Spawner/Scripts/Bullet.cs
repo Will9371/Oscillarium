@@ -1,60 +1,34 @@
 ﻿using System;
 using UnityEngine;
 
-[Serializable]
-public struct BulletData
-{
-    public Faction faction;
-    public float speed;
-    public float yAmplitude;
-    public float yFrequency;
-    public bool reverseSine;
-    public float reverseAfterSeconds;
-    public float maxLifetime;
-    public bool dontDestroyOffscreen;
-    public float destroyAfterSeconds;
-    
-    public BulletData(BulletData template)
-    {
-        speed = template.speed;
-        yAmplitude = template.yAmplitude;
-        yFrequency = template.yFrequency;
-        reverseSine = template.reverseSine;
-        reverseAfterSeconds = template.reverseAfterSeconds;
-        maxLifetime = template.maxLifetime;
-        dontDestroyOffscreen = template.dontDestroyOffscreen;
-        faction = template.faction;
-        destroyAfterSeconds = template.destroyAfterSeconds;
-    }    
-}
-
 public class Bullet : MonoBehaviour
 {
     [SerializeField] Renderer rend;
     
     [NonSerialized] public BulletData data;
-    public AnimationCurve yCurve;
     
     private float bulletLifetime => Time.time - startTime;
-    [SerializeField] [ReadOnly] 
     private float startTime;
-    private bool reversed = false;
-    private bool dontDestroyOffscreen;  // * Move to struct
     private Vector3 center;
     private Vector3 curveOffset;
     private Vector3 offset => data.reverseSine ? curveOffset * -1f : curveOffset;
     private float yPhase;
 
-    private void OnEnable()
+    public void Initialize(BulletData data, bool reverseSine)
     {
+        this.data = data;
+        this.data.reverseSine = reverseSine;
+        
         center = transform.position;
         startTime = Time.time;
+        
+        if (data.reverseAfterSeconds > 0)
+            Invoke(nameof(Reverse), data.reverseAfterSeconds);        
     }
     
     private void Update()
     {
         Step();
-        Reverse();
         BulletTimeDestroyer();
         BulletPositionDestroyer();
     }
@@ -68,25 +42,21 @@ public class Bullet : MonoBehaviour
             yPhase -= 1f;
         
         if (data.yAmplitude != 0f)
-            curveOffset.y = data.yAmplitude * yCurve.Evaluate(yPhase);
+            curveOffset.y = data.yAmplitude * data.yCurve.Evaluate(yPhase);
         
         transform.position = center + offset;
     }
 
     private void BulletPositionDestroyer()
     {
-        if (dontDestroyOffscreen) return;
+        if (data.dontDestroyOffscreen) return;
         if (!rend.isVisible && bulletLifetime > data.maxLifetime)
             gameObject.SetActive(false);
     }
 
     private void Reverse()
     {
-        if (data.reverseAfterSeconds == 0 || bulletLifetime <= data.reverseAfterSeconds || reversed) 
-            return;
-
         data.speed *= -1;
-        reversed = true;
     }
 
     private void BulletTimeDestroyer()
@@ -96,11 +66,6 @@ public class Bullet : MonoBehaviour
         
         if (data.destroyAfterSeconds <= bulletLifetime)
             gameObject.SetActive(false);
-    }
-    
-    void OnDisable()
-    {
-        reversed = false;
     }
 }
 
