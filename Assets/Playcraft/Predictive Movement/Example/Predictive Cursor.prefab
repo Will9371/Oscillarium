@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 4827502425923042026}
   - component: {fileID: 4827502425923042027}
   - component: {fileID: 7112885402216672596}
+  - component: {fileID: 6817999023156129864}
+  - component: {fileID: 8816300490867386839}
   m_Layer: 0
   m_Name: Predictive Cursor
   m_TagString: Untagged
@@ -75,7 +77,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -92,7 +94,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4827502425923042021}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -109,7 +111,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 10, y: 10}
+  m_Size: {x: 0.2, y: 0.2}
   m_EdgeRadius: 0
 --- !u!50 &4827502425923042027
 Rigidbody2D:
@@ -146,3 +148,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   other: {fileID: 0}
   modifiers: {fileID: 11400000, guid: f88d1c464839c4b4a9bd5be4e914bbb9, type: 2}
+--- !u!114 &6817999023156129864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4827502425923042021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9589bf3f395b7f942aab7587f94e9593, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorIndex: 0
+  rend: {fileID: 4827502425923042025}
+  flashLight: {fileID: 0}
+  particle: {fileID: 0}
+  startWithRandomColor: 1
+  changeColorRandomly: 1
+  colorInfo: {fileID: 11400000, guid: 02a025e58cfe4844cb6a2823c3526cab, type: 2}
+--- !u!114 &8816300490867386839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4827502425923042021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4de86badbf9b35a408345627b6227166, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tags:
+  - {fileID: 11400000, guid: dc67dec9080c7b54d8acd0120e83a7f3, type: 2}
