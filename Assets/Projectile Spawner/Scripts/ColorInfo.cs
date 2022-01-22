@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using Playcraft;
 
 namespace BulletHell
 {
@@ -13,7 +14,7 @@ namespace BulletHell
     [Serializable]
     public struct ColorData
     {
+        public SO id;
         public Color color;
-        public Material material;
     }
 }

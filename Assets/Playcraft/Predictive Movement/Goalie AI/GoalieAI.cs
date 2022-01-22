@@ -11,15 +11,15 @@ namespace Playcraft.PredictiveMovement
         public Transform target;
         public Transform center;
         
-        [Header("Settings")]
-        public float speed = 5f;
+        public GoalieAIInfo info;
         
-        public bool stayInCircle;
-        public float radius = 2f;
+        float speed => info.data.speed;
+        public bool stayInCircle => info.data.stayInCircle;
+        public float radius => info.data.radius;
+        public DestinationModifiers destinationModifiers => info.data.destinationModifiers;
+
         FollowOnCircle bounds = new FollowOnCircle();
-
-        [SerializeField] DestinationModifiers destinationModifiers;
-
+        
         public void Initialize() 
         {
             bounds.radius = radius;

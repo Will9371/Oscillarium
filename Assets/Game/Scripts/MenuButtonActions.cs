@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// OBSOLETE: use SingleSceneController
 public class MenuButtonActions : MonoBehaviour
 {
     public void LoadLevelScene()

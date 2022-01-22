@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Playcraft;
 using BulletHell;
 
 public class ColorChange : MonoBehaviour
@@ -13,7 +14,9 @@ public class ColorChange : MonoBehaviour
     private float colorTimer = 0;
     
     public ColorInfo colorInfo;
-    public Color color => colorInfo.data[colorIndex].color;
+    public ColorData colorData => colorInfo.data[colorIndex];
+    public Color color => colorData.color;
+    public SO colorId => colorData.id;
     int colorCount => colorInfo.data.Length;
 
     private void Start()

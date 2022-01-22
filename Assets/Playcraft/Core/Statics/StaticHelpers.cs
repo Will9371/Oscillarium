@@ -74,6 +74,8 @@ namespace Playcraft
         
         #endregion
 
+        #region Get Collection
+        
         public static Transform[] GetChildren(Transform parent)
         {
             if (!parent) return null;
@@ -96,6 +98,17 @@ namespace Playcraft
                 result[i] = useLocal ? locations[i].localPosition : locations[i].position;
                 
             return result;
+        }
+        
+        #endregion
+        
+        public static void QuitGame()
+        {
+            #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+            #else
+            Application.Quit();
+            #endif
         }
     }
 }

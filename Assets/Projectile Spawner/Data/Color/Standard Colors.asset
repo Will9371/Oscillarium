@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: Standard Colors
   m_EditorClassIdentifier: 
   data:
-  - color: {r: 1, g: 1, b: 1, a: 1}
-  - color: {r: 1, g: 0, b: 0, a: 1}
-  - color: {r: 0.6303663, g: 0, b: 1, a: 1}
+  - id: {fileID: 11400000, guid: 699a32218457d4f47afbccb563c7aa3c, type: 2}
+    color: {r: 1, g: 1, b: 1, a: 1}
+  - id: {fileID: 11400000, guid: 450185c91a155214198283cbad8cfb1b, type: 2}
+    color: {r: 1, g: 0, b: 0, a: 1}
+  - id: {fileID: 11400000, guid: a0d082273797c5442baffe48675c1ffb, type: 2}
+    color: {r: 0.6303663, g: 0, b: 1, a: 1}

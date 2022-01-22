@@ -5,42 +5,60 @@ namespace Playcraft.PredictiveMovement
 {
     public class ThiefCursor : MonoBehaviour
     {
-        public RespondToCustomTag treasureIds;
-        public RespondToCustomTag guardIds;
+        [SerializeField] FollowScreenBoundedMouseInWorld bounds;
+        void Update() { transform.position = bounds.Update(); }
+        void OnValidate() { bounds.OnValidate(); }
         
-        public float cooldown = 0.5f;
-        float lastCaughtTime;
-        float lastStealTime;
+        SingleSceneController scene = new SingleSceneController();
         
-        bool recentlyCaught => Time.time - lastCaughtTime < cooldown;
-        bool recentlyStolen => Time.time - lastStealTime < cooldown;
+        /*public RespondToCustomTag pickups;
+        public RespondToCustomTag threats;
 
         void OnTriggerEnter2D(Collider2D other)
         {
-            if (guardIds.Input(other))
-                Caught();
-            else if (treasureIds.Input(other))
-                Steal();
+            if (threats.Input(other))
+                scene.ResetScene();
+            else if (pickups.Input(other))
+                Debug.Log("Point!");
+        }*/
+        
+        void Start() 
+        { 
+            if (bounds.camera == null) 
+                bounds.camera = Camera.main; 
         }
         
-        void Caught()
-        {
-            if (recentlyCaught) return;
-            lastCaughtTime = Time.time;
-            Debug.Log("Caught!");
-        }
+        public void TouchThreat() { Debug.Log("Reset!"); scene.ResetScene(); }
         
-        void Steal()
-        {
-            if (recentlyCaught || recentlyStolen) return;
-            lastStealTime = Time.time;
-            Invoke(nameof(Verdict), cooldown);
-        }
-        
-        void Verdict()
-        {
-            if (recentlyCaught) return;
-            Debug.Log("Steal!");
-        }
+        public void TouchTarget() { Debug.Log("Point!"); }
     }
 }
+
+
+//public float cooldown = 0.5f;
+//float lastCaughtTime;
+//float lastStealTime;
+        
+//bool recentlyCaught => Time.time - lastCaughtTime < cooldown;
+//bool recentlyStolen => Time.time - lastStealTime < cooldown;
+
+/*void Caught()
+{
+    if (recentlyCaught) return;
+    scene.ResetScene();
+    lastCaughtTime = Time.time;
+    Debug.Log("Caught!");
+}*/
+        
+/*void Steal()
+{
+    if (recentlyCaught || recentlyStolen) return;
+    lastStealTime = Time.time;
+    Invoke(nameof(Verdict), cooldown);
+}*/
+        
+/*void Verdict()
+{
+    if (recentlyCaught) return;
+    Debug.Log("Steal!");
+}*/

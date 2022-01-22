@@ -12,8 +12,10 @@ GameObject:
   - component: {fileID: 9091224711081821681}
   - component: {fileID: 9091224711081821684}
   - component: {fileID: 9091224711081821685}
-  - component: {fileID: 9091224711081821687}
   - component: {fileID: 9091224711081821683}
+  - component: {fileID: 4630398053411389287}
+  - component: {fileID: 2340088017353592127}
+  - component: {fileID: 7667136299637004012}
   m_Layer: 0
   m_Name: Cursor
   m_TagString: Untagged
@@ -110,7 +112,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 10, y: 10}
+  m_Size: {x: 0.15, y: 0.15}
   m_EdgeRadius: 0
 --- !u!50 &9091224711081821685
 Rigidbody2D:
@@ -133,22 +135,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &9091224711081821687
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9091224711081821695}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 961d9df7c1d76da41a70fe1514ab0691, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  process:
-    screenFollow:
-      buffer: 40
-    camera: {fileID: 0}
 --- !u!114 &9091224711081821683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,10 +147,90 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8a72f6c21cfb647975d00ffe670d17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  treasureIds:
-    validTags:
-    - {fileID: 11400000, guid: 78403e37760a09a44b5e5ef9b22d7626, type: 2}
-  guardIds:
-    validTags:
-    - {fileID: 11400000, guid: 412d180825d678f42a97ec69b01846bb, type: 2}
-  cooldown: 0.5
+  bounds:
+    screenFollow:
+      buffer: 40
+    camera: {fileID: 0}
+--- !u!114 &4630398053411389287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9091224711081821695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd30b626b2982014e9ae03138ec49f14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: {fileID: 2340088017353592127}
+  values:
+  - factionId: {fileID: 11400000, guid: 409c3eacb4dbda649ac12209a7345a25, type: 2}
+    requireColorMatch: 1
+    requireFactionMatch: 1
+    response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 9091224711081821683}
+          m_TargetAssemblyTypeName: Playcraft.PredictiveMovement.ThiefCursor, Assembly-CSharp
+          m_MethodName: TouchThreat
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - factionId: {fileID: 11400000, guid: f1e0f9a2a4661744aaae8df7acf88162, type: 2}
+    requireColorMatch: 0
+    requireFactionMatch: 2
+    response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 9091224711081821683}
+          m_TargetAssemblyTypeName: Playcraft.PredictiveMovement.ThiefCursor, Assembly-CSharp
+          m_MethodName: TouchTarget
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &2340088017353592127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9091224711081821695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9589bf3f395b7f942aab7587f94e9593, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorIndex: 0
+  rend: {fileID: 9091224711081821681}
+  flashLight: {fileID: 0}
+  particle: {fileID: 0}
+  startWithRandomColor: 1
+  changeColorRandomly: 1
+  colorInfo: {fileID: 11400000, guid: 02a025e58cfe4844cb6a2823c3526cab, type: 2}
+--- !u!114 &7667136299637004012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9091224711081821695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4de86badbf9b35a408345627b6227166, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tags:
+  - {fileID: 11400000, guid: 5464d3f4028bc6241a7b7e4fa98054c4, type: 2}
