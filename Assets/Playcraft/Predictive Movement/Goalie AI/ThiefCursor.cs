@@ -10,27 +10,20 @@ namespace Playcraft.PredictiveMovement
         void OnValidate() { bounds.OnValidate(); }
         
         SingleSceneController scene = new SingleSceneController();
-        
-        /*public RespondToCustomTag pickups;
-        public RespondToCustomTag threats;
 
-        void OnTriggerEnter2D(Collider2D other)
-        {
-            if (threats.Input(other))
-                scene.ResetScene();
-            else if (pickups.Input(other))
-                Debug.Log("Point!");
-        }*/
-        
         void Start() 
         { 
             if (bounds.camera == null) 
                 bounds.camera = Camera.main; 
         }
         
-        public void TouchThreat() { Debug.Log("Reset!"); scene.ResetScene(); }
+        public void TouchThreat() 
+        {
+            GameData.score = 0f;  
+            scene.ResetScene(); 
+        }
         
-        public void TouchTarget() { Debug.Log("Point!"); }
+        public void TouchTarget() { Debug.Log("You Win!!!"); }
     }
 }
 

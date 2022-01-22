@@ -24,11 +24,6 @@ public class ColorContact : MonoBehaviour
             var colorMatch = otherColor.colorId == color.colorId;
             var colorCondition = RespondToMatch(colorMatch, value.requireColorMatch);
             if (colorCondition) value.response.Invoke();
-            
-            /*Debug.Log($"{other.name}...checking faction: {value.factionId}" +
-                      $"own color: {color.colorId}, other color: {otherColor.colorId}, " +
-                      $"color match: {colorMatch}, color condition: {colorCondition}, " +
-                      $"faction match: {factionMatch}");*/
         }
     }
     
@@ -45,8 +40,13 @@ public class ColorContact : MonoBehaviour
     [Serializable]
     public struct ContactData
     {
+        [Tooltip("Only respond if contacted object has this tag")]
         public SO factionId;
+        [Tooltip("True: only respond if colors match, " +
+                 "False: only respond if colors don't match, " +
+                 "Unknown: always respond.")]
         public Trinary requireColorMatch;
+        [Tooltip("Invoked if above conditions are met")]
         public UnityEvent response;
     }
 }
