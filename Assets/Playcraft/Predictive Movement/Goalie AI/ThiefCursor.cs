@@ -1,5 +1,4 @@
 using UnityEngine;
-using Playcraft;
 
 namespace Playcraft.PredictiveMovement
 {
@@ -19,11 +18,21 @@ namespace Playcraft.PredictiveMovement
         
         public void TouchThreat() 
         {
+            Debug.Log("Oh no!");
             GameData.score = 0f;  
             scene.ResetScene(); 
         }
         
-        public void TouchTarget() { Debug.Log("You Win!!!"); }
+        bool hasWon;
+        
+        public void TouchTarget() 
+        {
+            if (!hasWon)
+            {
+                hasWon = true;
+                Debug.Log("You Win!!!"); 
+            }
+        }
     }
 }
 

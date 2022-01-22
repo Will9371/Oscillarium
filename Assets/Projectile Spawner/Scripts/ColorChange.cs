@@ -46,7 +46,7 @@ public class ColorChange : MonoBehaviour
         main.startColor = color;
     }
     
-    private void RandomizeColor()
+    public void RandomizeColor()
     {
         colorIndex = Random.Range(0, colorCount);
     }

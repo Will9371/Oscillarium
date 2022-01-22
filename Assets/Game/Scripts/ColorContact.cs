@@ -23,7 +23,12 @@ public class ColorContact : MonoBehaviour
             
             var colorMatch = otherColor.colorId == color.colorId;
             var colorCondition = RespondToMatch(colorMatch, value.requireColorMatch);
-            if (colorCondition) value.response.Invoke();
+            
+            if (colorCondition) 
+            {
+                Debug.Log($"{gameObject.name} {other.name}");
+                value.response.Invoke();
+            }
         }
     }
     

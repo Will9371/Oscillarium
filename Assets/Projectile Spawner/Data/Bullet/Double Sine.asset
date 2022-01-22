@@ -58,8 +58,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    reverseSine: 0
-    reverseAfterSeconds: 6
+    reverseAfterSeconds: 0
     maxLifetime: 12
     dontDestroyOffscreen: 0
     destroyAfterSeconds: 0
@@ -108,8 +107,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    reverseSine: 0
-    reverseAfterSeconds: 6
+    reverseAfterSeconds: 0
     maxLifetime: 12
     dontDestroyOffscreen: 0
     destroyAfterSeconds: 0
