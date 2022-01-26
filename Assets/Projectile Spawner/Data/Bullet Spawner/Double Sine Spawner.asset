@@ -16,7 +16,7 @@ MonoBehaviour:
     multiBullets: 1
     multiDirectionalWidth: 360
     coneBullets: 1
-    coneWidth: 10
+    coneWidth: 0
     spinSpeed: 0
     reverseSpin: 0
     offsetX: -8
@@ -25,8 +25,8 @@ MonoBehaviour:
     sweepSpeed: 0
     bulletInfo: {fileID: 11400000, guid: fa346091fdd0dd64a9dc1c52e44d031f, type: 2}
     timeBetweenBullets: 0.2
-    bulletSizeX: 1
-    bulletSizeY: 1
+    bulletSizeX: 2
+    bulletSizeY: 2
     bulletsBeforeRepeat: 50
     maxSpeedVariance: 1
     stopAfterSeconds: 0
@@ -34,7 +34,7 @@ MonoBehaviour:
     colorChangeSpeed: 33.7
     numberOfColors: 3
     randomColorOrder: 1
-    startWithRandomColor: 0
+    startWithRandomColor: 1
     numberOfRapidFireBullets: 50
     rapidFireCooldownTime: 10
     rapidFiresBeforeStop: 0

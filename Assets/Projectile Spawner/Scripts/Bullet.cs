@@ -6,18 +6,16 @@ public class Bullet : MonoBehaviour
     [SerializeField] Renderer rend;
     
     [NonSerialized] public BulletData data;
-    [NonSerialized] public Faction faction;
     
-    private float bulletLifetime => Time.time - startTime;
-    private float startTime;
-    private Vector3 center;
-    private Vector3 offset;
-    private float yPhase;
+    float bulletLifetime => Time.time - startTime;
+    float startTime;
+    Vector3 center;
+    Vector3 offset;
+    float yPhase;
 
-    public void Initialize(BulletData data, Faction faction)
+    public void Initialize(BulletData data)
     {
         this.data = data;
-        this.faction = faction;
         
         center = transform.position;
         startTime = Time.time;
@@ -26,14 +24,14 @@ public class Bullet : MonoBehaviour
             Invoke(nameof(Reverse), data.reverseAfterSeconds);        
     }
     
-    private void Update()
+    void Update()
     {
         Step();
         BulletTimeDestroyer();
         BulletPositionDestroyer();
     }
     
-    private void Step()
+    void Step()
     {
         center += data.speed * Time.deltaTime * transform.right;  
         
@@ -47,19 +45,19 @@ public class Bullet : MonoBehaviour
         transform.position = center + offset;
     }
 
-    private void BulletPositionDestroyer()
+    void BulletPositionDestroyer()
     {
         if (data.dontDestroyOffscreen) return;
         if (!rend.isVisible && bulletLifetime > data.maxLifetime)
             gameObject.SetActive(false);
     }
 
-    private void Reverse()
+    void Reverse()
     {
         data.speed *= -1;
     }
 
-    private void BulletTimeDestroyer()
+    void BulletTimeDestroyer()
     {
         if (data.destroyAfterSeconds == 0) 
             return;
@@ -68,14 +66,3 @@ public class Bullet : MonoBehaviour
             gameObject.SetActive(false);
     }
 }
-
-/*private void SineWave()
-{
-    //bulletLifetime += Time.deltaTime;
-    center += speed * Time.deltaTime * transform.right;
-    
-    if (sineAmplitude != 0f)
-        sineOffset.y = sineAmplitude * Mathf.Sin(bulletLifetime * sineFrequency);
-        
-    transform.position = center + offset;
-}*/

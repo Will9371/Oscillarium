@@ -14,6 +14,8 @@ namespace Playcraft.PredictiveMovement
         { 
             if (bounds.camera == null) 
                 bounds.camera = Camera.main; 
+            
+            Cursor.visible = false;
         }
         
         public void TouchThreat() 

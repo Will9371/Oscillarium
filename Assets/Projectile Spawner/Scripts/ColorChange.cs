@@ -1,73 +1,91 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using Playcraft;
 using BulletHell;
 
+// REFACTOR: delegate timer logic
 public class ColorChange : MonoBehaviour
 {
-    public int colorIndex = 0;
-    [SerializeField] private Renderer rend = null;
-    [SerializeField] public Light flashLight = null;
-    [SerializeField] private ParticleSystem particle = null;
-    [SerializeField] private bool startWithRandomColor = false;
-    [SerializeField] private bool changeColorRandomly = false;
-    private float changeColorEverySeconds = 0;
-    private float colorTimer = 0;
-    
+    public int colorIndex;
+    [SerializeField] Renderer rend;
+    [SerializeField] Renderer rendCue;
+    [SerializeField] public Light flashLight;
+    [SerializeField] ParticleSystem particle;
+    [SerializeField] bool startWithRandomColor;
+    [SerializeField] bool changeColorRandomly;
+    [SerializeField] Vector2 timeRange = new Vector2(2f, 10f);
+    [SerializeField] float flashTime = .1f;
+    [SerializeField] int flashCount = 3;
+
     public ColorInfo colorInfo;
     public ColorData colorData => colorInfo.data[colorIndex];
     public Color color => colorData.color;
     public SO colorId => colorData.id;
     int colorCount => colorInfo.data.Length;
 
-    private void Start()
+    void Start()
     {
         if (startWithRandomColor)
-        {
             RandomizeColor();
-        }
     }
-
-    private void Update()
+    
+    void OnEnable()
     {
-        ColorSwitcher();
-        ColorChangeTimer();
+        if (changeColorRandomly)
+            StartCoroutine(nameof(ColorChangeRoutine));
     }
+    
+    void OnDisable() { StopAllCoroutines(); }
 
-    private void LightChange(Color color)
+    void LightChange(Color color)
     {
         if (!flashLight) return;
         flashLight.color = color;
     }
 
-    private void ParticleChange(Color color)
+    void ParticleChange(Color color)
     {
         if (!particle) return;
         var main = particle.main;
         main.startColor = color;
     }
     
-    public void RandomizeColor()
-    {
-        colorIndex = Random.Range(0, colorCount);
-    }
+    public void RandomizeColor() { SetColor(Random.Range(0, colorCount)); }
     
-    private void ColorSwitcher()
+    public void SetColor(int index)
     {
+        colorIndex = index;
         rend.material.color = color;
         LightChange(color);
-        ParticleChange(color);
+        ParticleChange(color);       
+    }
+
+    IEnumerator ColorChangeRoutine()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(Random.Range(timeRange.x, timeRange.y));
+            var nextIndex = Random.Range(0, colorCount);
+
+            if (rendCue && nextIndex != colorIndex)
+                yield return StartCoroutine(FlashRoutine(nextIndex));
+
+            SetColor(nextIndex);
+        }
     }
     
-    private void ColorChangeTimer()
+    IEnumerator FlashRoutine(int nextIndex)
     {
-        if (!changeColorRandomly) return;
-        colorTimer += Time.deltaTime;
+        var flashDelay = new WaitForSeconds(flashTime);
+        var nextColor = colorInfo.data[nextIndex].color;
+        rendCue.material.color = nextColor;
         
-        if (colorTimer >= changeColorEverySeconds)
+        for (int i = 0; i < flashCount; i++)
         {
-            changeColorEverySeconds = Random.Range(2, 10);
-            colorIndex = Random.Range(0, 2);
-            colorTimer = 0;
+            rendCue.enabled = true;
+            yield return flashDelay;
+            rendCue.enabled = false;
+            yield return flashDelay;
         }
     }
 }

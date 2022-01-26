@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7684c815633dd8446b76a5ed459f958d, type: 3}
-  m_Name: Straight Shot
+  m_Name: Spinning Spawner
   m_EditorClassIdentifier: 
   data:
-    multiBullets: 3
+    multiBullets: 2
     multiDirectionalWidth: 360
-    coneBullets: 3
-    coneWidth: 45
-    spinSpeed: 0
+    coneBullets: 2
+    coneWidth: 60
+    spinSpeed: 49
     reverseSpin: 0
     offsetX: -8
     offsetY: 0
-    sweepAngle: 60
-    sweepSpeed: 60
-    bulletInfo: {fileID: 11400000, guid: c745f8e5791830d41a84457ccfb50864, type: 2}
-    timeBetweenBullets: 0.2
+    sweepAngle: 42
+    sweepSpeed: 26
+    bulletInfo: {fileID: 11400000, guid: fa346091fdd0dd64a9dc1c52e44d031f, type: 2}
+    timeBetweenBullets: 0.4
     bulletSizeX: 2
     bulletSizeY: 2
     bulletsBeforeRepeat: 50
@@ -34,7 +34,7 @@ MonoBehaviour:
     colorChangeSpeed: 33.7
     numberOfColors: 3
     randomColorOrder: 1
-    startWithRandomColor: 0
+    startWithRandomColor: 1
     numberOfRapidFireBullets: 50
     rapidFireCooldownTime: 10
     rapidFiresBeforeStop: 0

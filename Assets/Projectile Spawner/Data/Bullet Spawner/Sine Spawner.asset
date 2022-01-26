@@ -25,8 +25,8 @@ MonoBehaviour:
     sweepSpeed: 0
     bulletInfo: {fileID: 11400000, guid: 39d6ba05488b1e744b50359b9551dc83, type: 2}
     timeBetweenBullets: 0.2
-    bulletSizeX: 1
-    bulletSizeY: 1
+    bulletSizeX: 2
+    bulletSizeY: 2
     bulletsBeforeRepeat: 50
     maxSpeedVariance: 1
     stopAfterSeconds: 0

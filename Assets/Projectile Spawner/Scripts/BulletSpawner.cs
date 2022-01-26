@@ -2,44 +2,42 @@
 using UnityEngine;
 using Playcraft.Pooling;
 
-public enum Faction { Player, Enemy }
-
+// REFACTOR: break into sections, then delegate to helper classes
+// Also break info into sub-structs, associated with helper classes
 public class BulletSpawner : MonoBehaviour
 {
     ObjectPoolMaster pool => ObjectPoolMaster.instance;
     Lookup lookup => Lookup.instance;
     GameObject bulletPrefab => lookup.bulletPrefab;
     
-    [SerializeField] Faction faction = Faction.Enemy;
     [SerializeField] BulletSpawnerInfo info;
     BulletSpawnerData data => info.data;
 
     [SerializeField] bool startFiring;
-    public bool isFiring = false;
-    [SerializeField] private bool stopAfterAllDestroyed = false;
-    [Range(0,2)] public int bulletColorIndex = 0;
+    public bool isFiring;
+    [SerializeField] bool stopAfterAllDestroyed;
+    [Range(0,2)] public int bulletColorIndex;
 
-    // Hidden variables
-    private Transform spawnerChild;
-    private Transform spawner;
-    private float nextFire = 0.0f;
-    private float nextRapidFire = 0.0f;
-    private float rapidFireBulletCount = 0;
-    private float rapidFireArrayCount = 0;
-    private float spinAngle;
-    private float sweepAngle;
-    private bool sweep = false;
-    private float sweepPosition = 0;
-    private float colorPosition = 0;
-    private float speedVarianceCounter = 1;
-    private float bulletsLifetime = 0;
-    private bool freeze = false;
+    Transform spawnerChild;
+    Transform spawner;
+    float nextFire;
+    float nextRapidFire;
+    float rapidFireBulletCount;
+    float rapidFireArrayCount;
+    float spinAngle;
+    float sweepAngle;
+    bool sweep;
+    float sweepPosition;
+    float colorPosition;
+    float speedVarianceCounter = 1;
+    float bulletsLifetime;
+    bool freeze;
     
     public List<GameObject> bulletObjects = new List<GameObject>();
     public List<Bullet> bullets = new List<Bullet>();
     
     
-    private void OnEnable()
+    void OnEnable()
     {
         spawner = transform;
         spawnerChild = transform.GetChild(0);
@@ -49,10 +47,11 @@ public class BulletSpawner : MonoBehaviour
             bulletColorIndex = Random.Range(0, 2);
     }
     
-    private void Update()
+    void Update()
     {
         bulletsLifetime += Time.deltaTime;
         if (!isFiring) return;
+        
         FireBullets();
         SpinChild();
         Sweep();
@@ -61,27 +60,27 @@ public class BulletSpawner : MonoBehaviour
         StopFiring();
     }
     
-    private void SetupNewBullet(Quaternion rotation, BulletData bulletData)
+    void SetupNewBullet(Quaternion rotation, BulletData bulletData)
     {
         var bulletPosition = transform.position + new Vector3(0, data.offsetY, data.offsetX);
         GameObject bulletObject = pool.Spawn(bulletPrefab, bulletPosition, rotation);
         bulletObjects.Add(bulletObject);
 
         bulletObject.transform.localScale = new Vector3(data.bulletSizeX, data.bulletSizeY, data.bulletSizeX);
-        bulletObject.GetComponent<ColorChange>().colorIndex = bulletColorIndex;
+        bulletObject.GetComponent<ColorChange>().SetColor(bulletColorIndex);
         
         Bullet bullet = bulletObject.GetComponent<Bullet>();
         bullets.Add(bullet);
         
         //bulletData.speed = Mathf.Lerp(0, maxSpeedVariance, speedVarianceCounter / bulletsBeforeRepeat);
-        bullet.Initialize(bulletData, faction);
+        bullet.Initialize(bulletData);
 
         // Adjust speeds of the bullets
         if (data.bulletsBeforeRepeat != 0) speedVarianceCounter++;
         if (speedVarianceCounter >= data.bulletsBeforeRepeat) speedVarianceCounter = 0;
     }
     
-    private void FireBullets()
+    void FireBullets()
     {
         if (freeze || nextRapidFire > Time.time || nextFire > Time.time) return;
         if (data.numberOfRapidFireBullets > 1 && rapidFireBulletCount >= data.numberOfRapidFireBullets)
@@ -94,7 +93,7 @@ public class BulletSpawner : MonoBehaviour
         ShootMultiDirectional();
     }
     
-    private void SpinChild()
+    void SpinChild()
     {
         if (data.spinSpeed == 0) return;
         float spinDirection = data.reverseSpin ? -1f : 1f;
@@ -102,7 +101,7 @@ public class BulletSpawner : MonoBehaviour
         spawnerChild.rotation = Quaternion.Euler(0, 0, spinAngle);
     }
     
-    private void ShootMultiDirectional()
+    void ShootMultiDirectional()
     {
         if (data.numberOfRapidFireBullets > 1)
             rapidFireBulletCount++;
@@ -115,7 +114,7 @@ public class BulletSpawner : MonoBehaviour
         }
     }
     
-    private void ShootCone(float multiWidth)
+    void ShootCone(float multiWidth)
     {
         for (int i = 0; i <= data.coneBullets - 1; i++)
         {
@@ -131,7 +130,7 @@ public class BulletSpawner : MonoBehaviour
         }
     }
     
-    private void Sweep()
+    void Sweep()
     {
         if (data.sweepSpeed == 0) return;
         float angleDivisor = sweep ? 2f : 1f;
@@ -143,7 +142,7 @@ public class BulletSpawner : MonoBehaviour
         spawner.rotation = Quaternion.Euler(0, 0, sweepAngle);
     }
     
-    private void AutoColorChange()
+    void AutoColorChange()
     {
         if (data.colorChangeSpeed <= 0) return;
         if(colorPosition >= 10)
@@ -154,7 +153,7 @@ public class BulletSpawner : MonoBehaviour
         colorPosition += Time.deltaTime * data.colorChangeSpeed;
     }
     
-    private void ChangeColor()
+    void ChangeColor()
     {
         if (!data.randomColorOrder)
         {
@@ -164,7 +163,7 @@ public class BulletSpawner : MonoBehaviour
         bulletColorIndex = Random.Range(0, Mathf.RoundToInt(data.numberOfColors));
     }
     
-    private void FreezeBullets()
+    void FreezeBullets()
     {
         if (data.stopAfterSeconds == 0 || bulletsLifetime <= data.stopAfterSeconds) 
             return;
@@ -179,7 +178,7 @@ public class BulletSpawner : MonoBehaviour
         }
     }
     
-    private void StopFiring()
+    void StopFiring()
     {
         if (nextFire == 0) return;
         if (data.rapidFiresBeforeStop <= rapidFireArrayCount & data.rapidFiresBeforeStop > 0) Destroy(gameObject);
@@ -188,7 +187,7 @@ public class BulletSpawner : MonoBehaviour
         if (data.stopAfterSeconds <= bulletsLifetime) isFiring = false;
     }
 
-    private bool AllBulletsOffscreen()
+    bool AllBulletsOffscreen()
     {
         foreach (var bullet in bulletObjects)
             if (bullet.activeSelf)
@@ -197,7 +196,7 @@ public class BulletSpawner : MonoBehaviour
         return true;
     }
     
-    private void DestroyAll()
+    void DestroyAll()
     {
         for (int i = bulletObjects.Count - 1; i >= 0; i--)
         {
