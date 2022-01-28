@@ -10,7 +10,7 @@ public class BulletSpawner : MonoBehaviour
     Lookup lookup => Lookup.instance;
     GameObject bulletPrefab => lookup.bulletPrefab;
     
-    [SerializeField] BulletSpawnerInfo info;
+    public BulletSpawnerInfo info;
     BulletSpawnerData data => info.data;
 
     [SerializeField] bool startFiring;
@@ -52,6 +52,7 @@ public class BulletSpawner : MonoBehaviour
         bulletsLifetime += Time.deltaTime;
         if (!isFiring) return;
         
+        // REFACTOR: use coroutines instead of the update loop
         FireBullets();
         SpinChild();
         Sweep();
@@ -79,7 +80,7 @@ public class BulletSpawner : MonoBehaviour
         if (data.bulletsBeforeRepeat != 0) speedVarianceCounter++;
         if (speedVarianceCounter >= data.bulletsBeforeRepeat) speedVarianceCounter = 0;
     }
-    
+
     void FireBullets()
     {
         if (freeze || nextRapidFire > Time.time || nextFire > Time.time) return;

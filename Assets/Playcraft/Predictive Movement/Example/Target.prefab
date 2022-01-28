@@ -218,14 +218,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   colorIndex: 0
   rend: {fileID: 8209569516028213500}
-  rendCue: {fileID: 8082130274670047648}
-  flashLight: {fileID: 0}
-  particle: {fileID: 0}
   startWithRandomColor: 1
   changeColorRandomly: 1
   timeRange: {x: 2, y: 10}
-  flashTime: 0.1
-  flashCount: 3
+  flash:
+    rend: {fileID: 8082130274670047648}
+    flashTime: 0.1
+    flashCount: 3
   colorInfo: {fileID: 11400000, guid: 02a025e58cfe4844cb6a2823c3526cab, type: 2}
 --- !u!58 &8563590682690939112
 CircleCollider2D:

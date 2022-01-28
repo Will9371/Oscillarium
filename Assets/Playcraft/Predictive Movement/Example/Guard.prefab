@@ -180,14 +180,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   colorIndex: 0
   rend: {fileID: 584487898975523056}
-  rendCue: {fileID: 7521022848228186084}
-  flashLight: {fileID: 0}
-  particle: {fileID: 0}
   startWithRandomColor: 1
   changeColorRandomly: 1
   timeRange: {x: 2, y: 10}
-  flashTime: 0.1
-  flashCount: 3
+  flash:
+    rend: {fileID: 7521022848228186084}
+    flashTime: 0.1
+    flashCount: 3
   colorInfo: {fileID: 11400000, guid: 02a025e58cfe4844cb6a2823c3526cab, type: 2}
 --- !u!1 &4516717715089704146
 GameObject:

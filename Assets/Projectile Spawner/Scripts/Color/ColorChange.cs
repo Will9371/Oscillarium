@@ -3,19 +3,14 @@ using UnityEngine;
 using Playcraft;
 using BulletHell;
 
-// REFACTOR: delegate timer logic
 public class ColorChange : MonoBehaviour
 {
     public int colorIndex;
     [SerializeField] Renderer rend;
-    [SerializeField] Renderer rendCue;
-    [SerializeField] public Light flashLight;
-    [SerializeField] ParticleSystem particle;
     [SerializeField] bool startWithRandomColor;
     [SerializeField] bool changeColorRandomly;
     [SerializeField] Vector2 timeRange = new Vector2(2f, 10f);
-    [SerializeField] float flashTime = .1f;
-    [SerializeField] int flashCount = 3;
+    [SerializeField] ColorFlash flash;
 
     public ColorInfo colorInfo;
     public ColorData colorData => colorInfo.data[colorIndex];
@@ -36,19 +31,7 @@ public class ColorChange : MonoBehaviour
     }
     
     void OnDisable() { StopAllCoroutines(); }
-
-    void LightChange(Color color)
-    {
-        if (!flashLight) return;
-        flashLight.color = color;
-    }
-
-    void ParticleChange(Color color)
-    {
-        if (!particle) return;
-        var main = particle.main;
-        main.startColor = color;
-    }
+    
     
     public void RandomizeColor() { SetColor(Random.Range(0, colorCount)); }
     
@@ -56,8 +39,6 @@ public class ColorChange : MonoBehaviour
     {
         colorIndex = index;
         rend.material.color = color;
-        LightChange(color);
-        ParticleChange(color);       
     }
 
     IEnumerator ColorChangeRoutine()
@@ -66,26 +47,11 @@ public class ColorChange : MonoBehaviour
         {
             yield return new WaitForSeconds(Random.Range(timeRange.x, timeRange.y));
             var nextIndex = Random.Range(0, colorCount);
-
-            if (rendCue && nextIndex != colorIndex)
-                yield return StartCoroutine(FlashRoutine(nextIndex));
+            
+            if (nextIndex != colorIndex)
+                yield return StartCoroutine(flash.Process(colorInfo.data[nextIndex].color));
 
             SetColor(nextIndex);
-        }
-    }
-    
-    IEnumerator FlashRoutine(int nextIndex)
-    {
-        var flashDelay = new WaitForSeconds(flashTime);
-        var nextColor = colorInfo.data[nextIndex].color;
-        rendCue.material.color = nextColor;
-        
-        for (int i = 0; i < flashCount; i++)
-        {
-            rendCue.enabled = true;
-            yield return flashDelay;
-            rendCue.enabled = false;
-            yield return flashDelay;
         }
     }
 }

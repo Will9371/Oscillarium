@@ -270,14 +270,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   colorIndex: 0
   rend: {fileID: 9091224711081821681}
-  rendCue: {fileID: 3771596004540362362}
-  flashLight: {fileID: 0}
-  particle: {fileID: 0}
   startWithRandomColor: 1
   changeColorRandomly: 1
   timeRange: {x: 2, y: 10}
-  flashTime: 0.1
-  flashCount: 4
+  flash:
+    rend: {fileID: 3771596004540362362}
+    flashTime: 0.1
+    flashCount: 4
   colorInfo: {fileID: 11400000, guid: 02a025e58cfe4844cb6a2823c3526cab, type: 2}
 --- !u!114 &7667136299637004012
 MonoBehaviour:
