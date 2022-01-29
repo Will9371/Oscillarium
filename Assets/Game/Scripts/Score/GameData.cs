@@ -14,5 +14,15 @@ public static class GameData
     }
     public static Action<float> onScoreChanged;
     
-    // * Add lives or hit counter
+    private static float _hits;
+    public static float hits
+    {
+        get => _hits;
+        set
+        {
+            _hits = value;
+            onHitsChanged?.Invoke(_hits);
+        }
+    }
+    public static Action<float> onHitsChanged;
 }

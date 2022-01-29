@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Enemy Follower
   m_EditorClassIdentifier: 
   data:
-    speed: 1.5
+    speed: 2.5
     stayInCircle: 0
     radius: 0
     destinationModifiers: {fileID: 11400000, guid: 52f02e33efeb7234299d55c35a79056c, type: 2}

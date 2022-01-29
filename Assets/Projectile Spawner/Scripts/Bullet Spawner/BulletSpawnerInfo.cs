@@ -45,9 +45,7 @@ public struct BulletSpawnerData
     [Space]
 
     [Header("Color Controls")]
-    //public ColorInfo colorInfo;
     public Vector2 colorChangeTimeRange;
-    //public int numberOfColors => colorInfo.data.Length;
     public bool randomColorOrder;
     public bool startWithRandomColor;
 

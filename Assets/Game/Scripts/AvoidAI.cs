@@ -17,10 +17,7 @@ public class AvoidAI : MonoBehaviour
         InvokeRepeating(nameof(Refresh), refreshRate, refreshRate);
     }
     
-    void OnDisable()
-    {
-        CancelInvoke(nameof(Refresh));
-    }
+    void OnDisable() { CancelInvoke(nameof(Refresh)); }
     
     void Update()
     {

@@ -222,23 +222,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   color: {fileID: 2340088017353592127}
   values:
-  - factionId: {fileID: 11400000, guid: 409c3eacb4dbda649ac12209a7345a25, type: 2}
-    requireColorMatch: 1
-    response:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 9091224711081821683}
-          m_TargetAssemblyTypeName: Playcraft.PredictiveMovement.ThiefCursor, Assembly-CSharp
-          m_MethodName: TouchThreat
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
   - factionId: {fileID: 11400000, guid: f1e0f9a2a4661744aaae8df7acf88162, type: 2}
     requireColorMatch: 0
     response:
@@ -277,7 +260,7 @@ MonoBehaviour:
     rend: {fileID: 3771596004540362362}
     flashTime: 0.1
     flashCount: 4
-  colorInfo: {fileID: 11400000, guid: 02a025e58cfe4844cb6a2823c3526cab, type: 2}
+    defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &7667136299637004012
 MonoBehaviour:
   m_ObjectHideFlags: 0

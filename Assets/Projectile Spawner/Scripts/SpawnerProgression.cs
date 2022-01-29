@@ -4,6 +4,7 @@ using UnityEngine.Events;
 
 public class SpawnerProgression : MonoBehaviour
 {
+    [SerializeField] AudioSource music;
     [SerializeField] Settings settings;
     [SerializeField] References[] references;
     [SerializeField] Stage[] stages;
@@ -11,13 +12,23 @@ public class SpawnerProgression : MonoBehaviour
     [SerializeField] FloatEvent outputStartTime;
     
     Stage stage => stages[stageIndex];
-    int stageIndex;
+    float stageFlashTime => stage.spawners.Length > 0 ? settings.totalFlashTime : 0f;
     
+    int stageIndex;
+    float nextStageTime;
+    bool inTransition;
+
     void Start()
     {
         SetStartStage();
         SetStartTime();
         BeginTransition();
+    }
+    
+    void Update()
+    {
+        if (music.time >= nextStageTime && !inTransition)
+            BeginTransition();
     }
     
     void SetStartStage()
@@ -34,14 +45,16 @@ public class SpawnerProgression : MonoBehaviour
         for (int i = 0; i < startAtStage; i++)
         {
             startTime += stages[i].duration;
-            startTime += stages[i].spawners.Length > 0 ? settings.totalFlashTime : 0f;
+            //startTime += stageFlashTime;
         }
-        outputStartTime.Invoke(startTime);        
+        outputStartTime.Invoke(startTime);
+        nextStageTime = startTime;     
     }
 
     void BeginTransition()
     {
         if (stageIndex >= stages.Length) return;
+        inTransition = true;
         
         foreach (var reference in references)
             reference.spawner.enabled = false;
@@ -56,18 +69,21 @@ public class SpawnerProgression : MonoBehaviour
             StartCoroutine(references[i].flash.Process());
         }
 
-        var flashTime = stage.spawners.Length > 0 ? settings.totalFlashTime : 0f;
+        var flashTime = stageFlashTime;
         Invoke(nameof(BeginStage), flashTime);
-        Invoke(nameof(BeginTransition), stage.duration);
+        nextStageTime += stage.duration;
+        //Invoke(nameof(BeginTransition), stage.duration);
     }
     
     void BeginStage()
     {
+        //Debug.Log($"Beginning stage {stageIndex} at time {Time.time}");
         for (int i = 0; i < stage.spawners.Length; i++)
             references[i].spawner.enabled = true;
 
         stage.onBegin.Invoke();
         stageIndex++;
+        inTransition = false;
     }
     
     void OnValidate()

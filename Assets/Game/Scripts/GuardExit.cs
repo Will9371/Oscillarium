@@ -14,13 +14,10 @@ public class GuardExit : MonoBehaviour
         movement.enabled = false;
     }
 
-    void Update()
-    {
-        transform.Translate(speed * Time.deltaTime * direction);
-    }
+    void Update() { transform.Translate(speed * Time.deltaTime * direction); }
     
-    void OnBecameInvisible()
-    {
-        gameObject.SetActive(false);
-    }
+    void OnBecameInvisible() 
+    { 
+        if (!enabled) return;
+        gameObject.SetActive(false); }
 }

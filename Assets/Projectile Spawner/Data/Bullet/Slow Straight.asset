@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Slow Straight
   m_EditorClassIdentifier: 
   data:
-  - speed: 2.5
+  - speed: 3
     yAmplitude: 0
     yFrequency: 0
     yCurve:

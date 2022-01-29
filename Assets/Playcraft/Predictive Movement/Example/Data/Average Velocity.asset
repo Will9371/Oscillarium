@@ -15,6 +15,6 @@ MonoBehaviour:
   process:
     runningAverageLength: 30
     attenuationFactor: 0.95
-    projectionTime: 1
-    averageDelta: {x: 0.0022665367, y: 0, z: 0}
-    projectedPosition: {x: 3.0883002, y: 4.814815, z: 0}
+    projectionTime: 0.75
+    averageDelta: {x: -0.11610303, y: 0.02786141, z: 0}
+    projectedPosition: {x: -4.6089787, y: 6.2078857, z: 0}

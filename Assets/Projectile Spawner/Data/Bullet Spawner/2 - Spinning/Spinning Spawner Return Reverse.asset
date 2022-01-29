@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7684c815633dd8446b76a5ed459f958d, type: 3}
-  m_Name: Spinning Spawner Return
+  m_Name: Spinning Spawner Return Reverse
   m_EditorClassIdentifier: 
   data:
-    multiBullets: 3
+    multiBullets: 2
     multiDirectionalWidth: 360
     coneBullets: 2
     coneWidth: 30
     spinSpeed: 45
-    reverseSpin: 0
+    reverseSpin: 1
     offsetX: -8
     offsetY: 0
     sweepAngle: 0

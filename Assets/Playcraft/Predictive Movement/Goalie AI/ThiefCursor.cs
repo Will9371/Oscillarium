@@ -8,8 +8,6 @@ namespace Playcraft.PredictiveMovement
         void Update() { transform.position = bounds.Update(); }
         void OnValidate() { bounds.OnValidate(); }
         
-        SingleSceneController scene = new SingleSceneController();
-
         void Start() 
         { 
             if (bounds.camera == null) 
@@ -17,27 +15,29 @@ namespace Playcraft.PredictiveMovement
             
             Cursor.visible = false;
         }
-        
-        public void TouchThreat() 
-        {
-            Debug.Log("Oh no!");
-            GameData.score = 0f;  
-            scene.ResetScene(); 
-        }
-        
-        bool hasWon;
-        
-        public void TouchTarget() 
-        {
-            if (!hasWon)
-            {
-                hasWon = true;
-                Debug.Log("You Win!!!"); 
-            }
-        }
     }
 }
 
+
+//SingleSceneController scene = new SingleSceneController();
+
+/*public void TouchThreat() 
+{
+    Debug.Log("Oh no!");
+    GameData.score = 0f;  
+    scene.ResetScene(); 
+}
+
+bool hasWon;
+
+public void TouchTarget() 
+{
+    if (!hasWon)
+    {
+        hasWon = true;
+        Debug.Log("You Win!!!"); 
+    }
+}*/
 
 //public float cooldown = 0.5f;
 //float lastCaughtTime;

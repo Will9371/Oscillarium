@@ -38,7 +38,6 @@ namespace Playcraft.PredictiveMovement
             direction = direction.normalized;
             
             self.Translate(speed * Time.fixedDeltaTime * direction);
-            //self.position = Vector3.MoveTowards(self.position, targetPosition, speed * Time.deltaTime);
         }
     }
 }

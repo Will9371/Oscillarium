@@ -12,6 +12,7 @@ public class BulletTrail : MonoBehaviour
     [SerializeField] GoalieAIMono movement;
     [SerializeField] Vector2 spawnRateRange = new Vector2(.5f, 1f);
     [SerializeField] Vector2 changeColorRange = new Vector2(.3f, .6f);
+    [SerializeField] bool flyTowardsTarget;
     
     BulletData bulletData => bulletInfo.data[0];
     
@@ -33,7 +34,8 @@ public class BulletTrail : MonoBehaviour
     {
         var bulletPosition = transform.position;
         var bulletObject = pool.Spawn(bulletPrefab, bulletPosition);
-        bulletObject.transform.right = movement.moveDirection.normalized;
+        var polarity = flyTowardsTarget ? 1f : -1f;
+        bulletObject.transform.right = polarity * movement.moveDirection.normalized;
 
         bulletObject.GetComponent<ColorChange>().SetColor(bulletColorIndex);
         

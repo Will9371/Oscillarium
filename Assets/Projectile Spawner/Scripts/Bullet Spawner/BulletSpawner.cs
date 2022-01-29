@@ -35,7 +35,7 @@ public class BulletSpawner : MonoBehaviour
     
     /// Sets sweep system active/inactive
     bool sweep;
-    float sweepPosition;
+    float sweepPosition;    // * REFACTOR: the pattern this uses is insane
     bool freeze;
     
     public List<GameObject> bulletObjects = new List<GameObject>();
@@ -49,7 +49,10 @@ public class BulletSpawner : MonoBehaviour
         isFiring = startFiring;
         spinAngle = 0;
         sweepAngle = 0;
-        
+        freeze = false;
+        sweep = false;
+        sweepPosition = 0f;
+
         spawnerChild.localRotation = Quaternion.identity;
         baseAngle = transform.rotation.eulerAngles.z;
         baseChildAngle = spawnerChild.rotation.eulerAngles.z;

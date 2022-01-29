@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Position History
   m_EditorClassIdentifier: 
   process:
-    recordCount: 100
+    recordCount: 30

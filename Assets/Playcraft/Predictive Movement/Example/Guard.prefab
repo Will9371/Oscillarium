@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cb14dbfec480b746a9d17a2a6e42d9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  refreshRate: 0.2
+  refreshRate: 0.1
   radius: 4
   avoidStrength: 1
   avoidMax: 2
@@ -189,8 +189,9 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5701145716870798735, guid: 2cb27da7a075dd04aafefb2c9c394772, type: 3}
   bulletInfo: {fileID: 11400000, guid: 85b190c9ca7b3214ab10291e2c332fb1, type: 2}
   movement: {fileID: 584487898975523057}
-  spawnRateRange: {x: 0.4, y: 0.8}
+  spawnRateRange: {x: 0.25, y: 0.333}
   changeColorRange: {x: 0.5, y: 1}
+  flyTowardsTarget: 0
 --- !u!114 &1107899769470899855
 MonoBehaviour:
   m_ObjectHideFlags: 0

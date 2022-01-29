@@ -17,12 +17,14 @@ public class Bullet : MonoBehaviour
 
     public void Initialize(BulletData data)
     {
+        startTime = Time.time;
         this.data = data;
         speed = data.speed;
-        offset = Vector3.zero;
-        
         center = transform.position;
-        startTime = Time.time;
+        offset = Vector3.zero;
+        xPhase = 0f;
+        yPhase = 0f;
+        
         Step();
         
         if (data.reverseAfterSeconds > 0)
