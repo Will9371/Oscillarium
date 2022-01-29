@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using UnityEngine;
 using Playcraft;
-using BulletHell;
 
 public class ColorChange : MonoBehaviour
 {
+    Lookup lookup => Lookup.instance;
+    ColorInfo colorInfo => lookup.colorInfo;
+
     public int colorIndex;
     [SerializeField] Renderer rend;
     [SerializeField] bool startWithRandomColor;
@@ -12,7 +14,6 @@ public class ColorChange : MonoBehaviour
     [SerializeField] Vector2 timeRange = new Vector2(2f, 10f);
     [SerializeField] ColorFlash flash;
 
-    public ColorInfo colorInfo;
     public ColorData colorData => colorInfo.data[colorIndex];
     public Color color => colorData.color;
     public SO colorId => colorData.id;

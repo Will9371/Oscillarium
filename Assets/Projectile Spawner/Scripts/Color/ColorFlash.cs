@@ -5,10 +5,10 @@ using UnityEngine;
 [Serializable]
 public class ColorFlash
 {
-    [SerializeField] Renderer rend;
-    [SerializeField] float flashTime = .1f;
-    [SerializeField] int flashCount = 3;
-    [SerializeField] Color defaultColor;
+    public Renderer rend;
+    public float flashTime = .1f;
+    public int flashCount = 3;
+    public Color defaultColor;
     
     public IEnumerator Process() { yield return Process(defaultColor); }
 

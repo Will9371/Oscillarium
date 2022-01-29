@@ -15,6 +15,8 @@ public class Lookup : ScriptableObject
 	#region Global Resource References
 	
 	public GameObject bulletPrefab;
+	public ColorInfo colorInfo;
+	public int colorCount => colorInfo.data.Length;
 	
 	#endregion
 

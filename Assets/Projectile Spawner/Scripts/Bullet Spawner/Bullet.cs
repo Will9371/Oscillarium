@@ -12,13 +12,18 @@ public class Bullet : MonoBehaviour
     Vector3 center;
     Vector3 offset;
     float yPhase;
+    float xPhase;
+    float speed;
 
     public void Initialize(BulletData data)
     {
         this.data = data;
+        speed = data.speed;
+        offset = Vector3.zero;
         
         center = transform.position;
         startTime = Time.time;
+        Step();
         
         if (data.reverseAfterSeconds > 0)
             Invoke(nameof(Reverse), data.reverseAfterSeconds);        
@@ -33,14 +38,25 @@ public class Bullet : MonoBehaviour
     
     void Step()
     {
-        center += data.speed * Time.deltaTime * transform.right;  
+        center += speed * Time.deltaTime * transform.right;  
         
-        yPhase += Time.deltaTime * data.yFrequency;
-        while (yPhase > 1f)
-            yPhase -= 1f;
+        if (data.yAmplitude > 0f)
+        {
+            yPhase += Time.deltaTime * data.yFrequency;
+            while (yPhase > 1f)
+                yPhase -= 1f;
         
-        if (data.yAmplitude != 0f)
             offset.y = data.yAmplitude * data.yCurve.Evaluate(yPhase);
+        }
+        
+        if (data.xAmplitude > 0f)
+        {    
+            xPhase += Time.deltaTime * data.xFrequency;
+            while (xPhase > 1f)
+                xPhase -= 1f;
+                
+            offset.x = data.xAmplitude * data.xCurve.Evaluate(xPhase);
+        }
         
         transform.position = center + offset;
     }
@@ -52,10 +68,7 @@ public class Bullet : MonoBehaviour
             gameObject.SetActive(false);
     }
 
-    void Reverse()
-    {
-        data.speed *= -1;
-    }
+    void Reverse() { speed *= -1; }
 
     void BulletTimeDestroyer()
     {

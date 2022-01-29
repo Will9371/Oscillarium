@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using Playcraft.Pooling;
 
@@ -9,6 +10,8 @@ public class BulletSpawner : MonoBehaviour
     ObjectPoolMaster pool => ObjectPoolMaster.instance;
     Lookup lookup => Lookup.instance;
     GameObject bulletPrefab => lookup.bulletPrefab;
+    ColorInfo colorInfo => lookup.colorInfo;
+    int colorCount => lookup.colorCount;
     
     public BulletSpawnerInfo info;
     BulletSpawnerData data => info.data;
@@ -18,19 +21,21 @@ public class BulletSpawner : MonoBehaviour
     [SerializeField] bool stopAfterAllDestroyed;
     [Range(0,2)] public int bulletColorIndex;
 
+    // * Remove, condense baseAngle and baseChildAngle
     Transform spawnerChild;
     Transform spawner;
-    float nextFire;
     float nextRapidFire;
     float rapidFireBulletCount;
     float rapidFireArrayCount;
+    
+    float baseChildAngle;
     float spinAngle;
+    float baseAngle;
     float sweepAngle;
+    
+    /// Sets sweep system active/inactive
     bool sweep;
     float sweepPosition;
-    float colorPosition;
-    float speedVarianceCounter = 1;
-    float bulletsLifetime;
     bool freeze;
     
     public List<GameObject> bulletObjects = new List<GameObject>();
@@ -42,64 +47,75 @@ public class BulletSpawner : MonoBehaviour
         spawner = transform;
         spawnerChild = transform.GetChild(0);
         isFiring = startFiring;
+        spinAngle = 0;
+        sweepAngle = 0;
         
-        if (data.startWithRandomColor)
-            bulletColorIndex = Random.Range(0, 2);
+        spawnerChild.localRotation = Quaternion.identity;
+        baseAngle = transform.rotation.eulerAngles.z;
+        baseChildAngle = spawnerChild.rotation.eulerAngles.z;
+
+        StartCoroutine(FireRoutine());
+        StartCoroutine(ChangeColorRoutine());
+        
+        if (data.stopAfterSeconds > 0)
+            Invoke(nameof(FreezeBullets), data.stopAfterSeconds);
+        
+        if (stopAfterAllDestroyed)
+            InvokeRepeating(nameof(StopIfAllBulletsOffscreen), .2f, .2f);
+    }
+    
+    void OnDisable()
+    {
+        StopAllCoroutines();
     }
     
     void Update()
     {
-        bulletsLifetime += Time.deltaTime;
         if (!isFiring) return;
-        
-        // REFACTOR: use coroutines instead of the update loop
-        FireBullets();
         SpinChild();
         Sweep();
-        AutoColorChange();
-        FreezeBullets();
-        StopFiring();
     }
     
-    void SetupNewBullet(Quaternion rotation, BulletData bulletData)
+    void ShootBullet(Quaternion rotation, BulletData bulletData)
     {
         var bulletPosition = transform.position + new Vector3(0, data.offsetY, data.offsetX);
-        GameObject bulletObject = pool.Spawn(bulletPrefab, bulletPosition, rotation);
+        var bulletObject = pool.Spawn(bulletPrefab, bulletPosition, rotation);
         bulletObjects.Add(bulletObject);
 
         bulletObject.transform.localScale = new Vector3(data.bulletSizeX, data.bulletSizeY, data.bulletSizeX);
         bulletObject.GetComponent<ColorChange>().SetColor(bulletColorIndex);
         
-        Bullet bullet = bulletObject.GetComponent<Bullet>();
+        var bullet = bulletObject.GetComponent<Bullet>();
         bullets.Add(bullet);
-        
-        //bulletData.speed = Mathf.Lerp(0, maxSpeedVariance, speedVarianceCounter / bulletsBeforeRepeat);
         bullet.Initialize(bulletData);
-
-        // Adjust speeds of the bullets
-        if (data.bulletsBeforeRepeat != 0) speedVarianceCounter++;
-        if (speedVarianceCounter >= data.bulletsBeforeRepeat) speedVarianceCounter = 0;
     }
 
-    void FireBullets()
+    IEnumerator FireRoutine()
     {
-        if (freeze || nextRapidFire > Time.time || nextFire > Time.time) return;
-        if (data.numberOfRapidFireBullets > 1 && rapidFireBulletCount >= data.numberOfRapidFireBullets)
+        var delay = new WaitForSeconds(data.timeBetweenBullets);
+        
+        while (true)
         {
-            nextRapidFire = Time.time + data.rapidFireCooldownTime;
-            rapidFireBulletCount = 0;
-            rapidFireArrayCount++;
+            ShootMultiDirectional();
+            yield return delay;
         }
-        nextFire = Time.time + data.timeBetweenBullets;
-        ShootMultiDirectional();
     }
     
+    //if (data.numberOfRapidFireBullets > 1 && rapidFireBulletCount >= data.numberOfRapidFireBullets)
+    //{
+    //    nextRapidFire = Time.time + data.rapidFireCooldownTime;
+    //    rapidFireBulletCount = 0;
+    //    rapidFireArrayCount++;
+    //}  
+    
+    //if (data.rapidFiresBeforeStop <= rapidFireArrayCount & data.rapidFiresBeforeStop > 0) gameObject.SetActive(false);  
+
     void SpinChild()
     {
         if (data.spinSpeed == 0) return;
         float spinDirection = data.reverseSpin ? -1f : 1f;
         spinAngle += data.spinSpeed * spinDirection * Time.deltaTime;
-        spawnerChild.rotation = Quaternion.Euler(0, 0, spinAngle);
+        spawnerChild.rotation = Quaternion.Euler(0, 0, spinAngle + baseChildAngle);
     }
     
     void ShootMultiDirectional()
@@ -109,8 +125,7 @@ public class BulletSpawner : MonoBehaviour
 
         for (int i = 0; i <= data.multiBullets - 1; i++)
         {
-            float width = Mathf.Lerp(0, data.multiDirectionalWidth, i/data.multiBullets);
-            if (data.multiBullets == 1) width = 0;
+            float width = data.multiBullets <= 1 ? 0 : Mathf.Lerp(0, data.multiDirectionalWidth, i/(float)data.multiBullets);
             ShootCone(width);
         }
     }
@@ -126,7 +141,7 @@ public class BulletSpawner : MonoBehaviour
             foreach (var bulletData in data.bulletInfo.data)
             {
                 bulletRotation = spawnerChild.transform.rotation * Quaternion.Euler(0, 0, width + multiWidth);
-                SetupNewBullet(bulletRotation, bulletData);
+                ShootBullet(bulletRotation, bulletData);
             }
         }
     }
@@ -140,53 +155,46 @@ public class BulletSpawner : MonoBehaviour
         sweepPosition += data.sweepSpeed * sweepDirection * Time.deltaTime;
         if (sweep && sweepPosition <= 0) sweep = false;
         else if (!sweep && sweepPosition >= 100) sweep = true;
-        spawner.rotation = Quaternion.Euler(0, 0, sweepAngle);
+        spawner.rotation = Quaternion.Euler(0, 0, sweepAngle + baseAngle);
     }
-    
-    void AutoColorChange()
+
+    IEnumerator ChangeColorRoutine()
     {
-        if (data.colorChangeSpeed <= 0) return;
-        if(colorPosition >= 10)
+        if (data.startWithRandomColor)
+            bulletColorIndex = Random.Range(0, colorCount);
+    
+        while (true)
         {
-            colorPosition = 0;
+            var waitTime = Random.Range(data.colorChangeTimeRange.x, data.colorChangeTimeRange.y);
+            yield return new WaitForSeconds(waitTime);
             ChangeColor();
         }
-        colorPosition += Time.deltaTime * data.colorChangeSpeed;
     }
     
     void ChangeColor()
     {
         if (!data.randomColorOrder)
         {
-            bulletColorIndex = bulletColorIndex == data.numberOfColors - 1 ? 0 : bulletColorIndex + 1;
+            bulletColorIndex = bulletColorIndex == colorCount - 1 ? 0 : bulletColorIndex + 1;
             return;
         }
-        bulletColorIndex = Random.Range(0, Mathf.RoundToInt(data.numberOfColors));
+        bulletColorIndex = Random.Range(0, Mathf.RoundToInt(colorCount));
     }
     
     void FreezeBullets()
     {
-        if (data.stopAfterSeconds == 0 || bulletsLifetime <= data.stopAfterSeconds) 
-            return;
+        StopCoroutine(nameof(FireRoutine));
 
         foreach (var bullet in bullets)
         {
             bullet.data.speed = 0f;
-            freeze = true;
             if (!data.connectToSpawnerOnStop) return;
             if (!bullet) return;
             bullet.transform.SetParent(transform.GetChild(0));
         }
     }
     
-    void StopFiring()
-    {
-        if (nextFire == 0) return;
-        if (data.rapidFiresBeforeStop <= rapidFireArrayCount & data.rapidFiresBeforeStop > 0) Destroy(gameObject);
-        if (stopAfterAllDestroyed && AllBulletsOffscreen()) DestroyAll();
-        if (data.stopAfterSeconds <= 0) return;
-        if (data.stopAfterSeconds <= bulletsLifetime) isFiring = false;
-    }
+    void StopIfAllBulletsOffscreen() { if (AllBulletsOffscreen()) DestroyAll(); }
 
     bool AllBulletsOffscreen()
     {
@@ -205,6 +213,6 @@ public class BulletSpawner : MonoBehaviour
             bullets.Remove(bullets[i]);
         }
         
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }

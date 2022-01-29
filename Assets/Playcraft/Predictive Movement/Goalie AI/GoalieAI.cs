@@ -27,12 +27,18 @@ namespace Playcraft.PredictiveMovement
         }
         
         Vector3 targetPosition;
+        public Vector3 direction { get; private set; }
 
         public void FixedUpdate() 
         {
             targetPosition = destinationModifiers.Tick(target.position);
             if (stayInCircle) targetPosition = bounds.Update(targetPosition);
-            self.position = Vector3.MoveTowards(self.position, targetPosition, speed * Time.deltaTime);
+            
+            direction = targetPosition - self.position;
+            direction = direction.normalized;
+            
+            self.Translate(speed * Time.fixedDeltaTime * direction);
+            //self.position = Vector3.MoveTowards(self.position, targetPosition, speed * Time.deltaTime);
         }
     }
 }

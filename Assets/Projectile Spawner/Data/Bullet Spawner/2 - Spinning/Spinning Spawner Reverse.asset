@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7684c815633dd8446b76a5ed459f958d, type: 3}
+  m_Name: Spinning Spawner Reverse
+  m_EditorClassIdentifier: 
+  data:
+    multiBullets: 2
+    multiDirectionalWidth: 360
+    coneBullets: 2
+    coneWidth: 30
+    spinSpeed: 45
+    reverseSpin: 1
+    offsetX: -8
+    offsetY: 0
+    sweepAngle: 0
+    sweepSpeed: 0
+    bulletInfo: {fileID: 11400000, guid: c745f8e5791830d41a84457ccfb50864, type: 2}
+    timeBetweenBullets: 0.2
+    bulletSizeX: 2
+    bulletSizeY: 2
+    stopAfterSeconds: 0
+    connectToSpawnerOnStop: 0
+    colorChangeTimeRange: {x: 0.3, y: 0.6}
+    randomColorOrder: 1
+    startWithRandomColor: 1
+    numberOfRapidFireBullets: 50
+    rapidFireCooldownTime: 10
+    rapidFiresBeforeStop: 0

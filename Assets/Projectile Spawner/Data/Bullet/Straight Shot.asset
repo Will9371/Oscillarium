@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Straight Shot
   m_EditorClassIdentifier: 
   data:
-  - speed: 2
+  - speed: 3
     yAmplitude: 0
     yFrequency: 0.75
     yCurve:
@@ -40,7 +40,15 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    reverseAfterSeconds: 6
+    xAmplitude: 0
+    xFrequency: 0
+    xCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    reverseAfterSeconds: 0
     maxLifetime: 12
     dontDestroyOffscreen: 0
     destroyAfterSeconds: 12

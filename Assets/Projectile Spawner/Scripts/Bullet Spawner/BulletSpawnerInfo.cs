@@ -11,7 +11,7 @@ public class BulletSpawnerInfo : ScriptableObject
 public struct BulletSpawnerData
 {
     [Header("MultiDirectional Controls")]
-    [Range(1, 10)] public float multiBullets;
+    [Range(0, 10)] public int multiBullets;
     [Range(0,360)] public int multiDirectionalWidth;
     [Space]
 
@@ -38,19 +38,16 @@ public struct BulletSpawnerData
     [Range(.01f, 2)] public float timeBetweenBullets;
     [Range(0.25f, 5)] public float bulletSizeX;
     [Range(0.25f, 5)] public float bulletSizeY;
-    
-    [Header("Variable Speeds")]
-    public float bulletsBeforeRepeat;
-    public float maxSpeedVariance;
-    
+
     [Header("Stop Bullets")]
     public float stopAfterSeconds;
     public bool connectToSpawnerOnStop;
     [Space]
 
     [Header("Color Controls")]
-    [Range(0, 100)] public float colorChangeSpeed;
-    [Range(2, 3)] public float numberOfColors;
+    //public ColorInfo colorInfo;
+    public Vector2 colorChangeTimeRange;
+    //public int numberOfColors => colorInfo.data.Length;
     public bool randomColorOrder;
     public bool startWithRandomColor;
 

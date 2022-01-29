@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Resource Library
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 5701145716870798735, guid: 2cb27da7a075dd04aafefb2c9c394772, type: 3}
+  colorInfo: {fileID: 11400000, guid: 45593aa9a9e10854e9f7b3574a5a13fa, type: 2}

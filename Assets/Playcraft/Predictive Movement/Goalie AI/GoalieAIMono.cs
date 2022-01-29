@@ -8,5 +8,7 @@ namespace Playcraft.PredictiveMovement
         void OnValidate() { process.self = transform; }
         void Start() { process.Initialize(); }
         void FixedUpdate() { process.FixedUpdate(); }
+        
+        public Vector3 moveDirection => process.direction;
     }
 }

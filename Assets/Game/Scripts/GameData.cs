@@ -13,4 +13,6 @@ public static class GameData
         }
     }
     public static Action<float> onScoreChanged;
+    
+    // * Add lives or hit counter
 }

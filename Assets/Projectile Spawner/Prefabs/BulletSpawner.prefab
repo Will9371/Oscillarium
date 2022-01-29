@@ -40,7 +40,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4556431937905085523}
   - component: {fileID: 4556431937905085522}
-  - component: {fileID: 2728581225753490244}
   m_Layer: 0
   m_Name: BulletSpawner
   m_TagString: Untagged
@@ -83,37 +82,6 @@ MonoBehaviour:
   bulletColorIndex: 0
   bulletObjects: []
   bullets: []
---- !u!114 &2728581225753490244
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4556431937905085520}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfb13d41bf89860409b0e61b1bd6220e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  flash:
-    rend: {fileID: 4818728429982593508}
-    flashTime: 0.1
-    flashCount: 5
-    defaultColor: {r: 1, g: 1, b: 1, a: 1}
-  spawner: {fileID: 4556431937905085522}
-  stages:
-  - duration: 15
-    position: {x: -10, y: 0, z: 0}
-    rotation: {x: 0, y: 0, z: 0}
-    spawnInfo: {fileID: 11400000, guid: 147fac0faa711b34ca8df1dfa831f5eb, type: 2}
-  - duration: 15
-    position: {x: 10, y: 0, z: 0}
-    rotation: {x: 0, y: 0, z: 180}
-    spawnInfo: {fileID: 11400000, guid: 28cee2bdf8b7c574dacc95ffebb1b181, type: 2}
-  - duration: 15
-    position: {x: 0, y: 0, z: 0}
-    rotation: {x: 0, y: 0, z: 0}
-    spawnInfo: {fileID: 11400000, guid: 435df41dfeca0074ebff3fc5d92a6db0, type: 2}
 --- !u!1 &9005137831271934118
 GameObject:
   m_ObjectHideFlags: 0

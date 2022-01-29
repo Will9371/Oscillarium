@@ -15,6 +15,9 @@ public struct BulletData
     public float yAmplitude;
     public float yFrequency;
     public AnimationCurve yCurve;
+    public float xAmplitude;
+    public float xFrequency;
+    public AnimationCurve xCurve;
     public float reverseAfterSeconds;
     public float maxLifetime;
     public bool dontDestroyOffscreen;
