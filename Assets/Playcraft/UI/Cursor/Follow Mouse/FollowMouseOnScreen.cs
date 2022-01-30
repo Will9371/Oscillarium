@@ -10,6 +10,8 @@ namespace Playcraft
         
         public float buffer;
         
+        public void Start() { RefreshBounds(); }
+        
         public void RefreshBounds()
         {
             process.xBounds = new Vector2(buffer, Screen.width - buffer);

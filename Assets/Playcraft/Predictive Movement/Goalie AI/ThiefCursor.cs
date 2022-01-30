@@ -13,56 +13,8 @@ namespace Playcraft.PredictiveMovement
             if (bounds.camera == null) 
                 bounds.camera = Camera.main; 
             
+            bounds.Start();
             Cursor.visible = false;
         }
     }
 }
-
-
-//SingleSceneController scene = new SingleSceneController();
-
-/*public void TouchThreat() 
-{
-    Debug.Log("Oh no!");
-    GameData.score = 0f;  
-    scene.ResetScene(); 
-}
-
-bool hasWon;
-
-public void TouchTarget() 
-{
-    if (!hasWon)
-    {
-        hasWon = true;
-        Debug.Log("You Win!!!"); 
-    }
-}*/
-
-//public float cooldown = 0.5f;
-//float lastCaughtTime;
-//float lastStealTime;
-        
-//bool recentlyCaught => Time.time - lastCaughtTime < cooldown;
-//bool recentlyStolen => Time.time - lastStealTime < cooldown;
-
-/*void Caught()
-{
-    if (recentlyCaught) return;
-    scene.ResetScene();
-    lastCaughtTime = Time.time;
-    Debug.Log("Caught!");
-}*/
-        
-/*void Steal()
-{
-    if (recentlyCaught || recentlyStolen) return;
-    lastStealTime = Time.time;
-    Invoke(nameof(Verdict), cooldown);
-}*/
-        
-/*void Verdict()
-{
-    if (recentlyCaught) return;
-    Debug.Log("Steal!");
-}*/

@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] Renderer rend;
     
     [NonSerialized] public BulletData data;
+    [NonSerialized] public float speed;
     
     float bulletLifetime => Time.time - startTime;
     float startTime;
@@ -13,7 +14,7 @@ public class Bullet : MonoBehaviour
     Vector3 offset;
     float yPhase;
     float xPhase;
-    float speed;
+    
 
     public void Initialize(BulletData data)
     {
@@ -34,6 +35,8 @@ public class Bullet : MonoBehaviour
     void Update()
     {
         Step();
+        
+        // REFACTOR: use Invoke instead of Update
         BulletTimeDestroyer();
         BulletPositionDestroyer();
     }
@@ -61,6 +64,12 @@ public class Bullet : MonoBehaviour
         }
         
         transform.position = center + offset;
+        
+        // HACK:
+        /*if (speed > 0f)
+            transform.position = center + offset;
+        else
+            transform.localPosition = center + offset;*/
     }
 
     void BulletPositionDestroyer()
@@ -80,4 +89,6 @@ public class Bullet : MonoBehaviour
         if (data.destroyAfterSeconds <= bulletLifetime)
             gameObject.SetActive(false);
     }
+    
+    //public void SetCenterToLocal() { center = transform.localPosition - offset; }
 }

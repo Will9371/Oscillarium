@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Playcraft;
 using Playcraft.Pooling;
 
 // REFACTOR: break into sections, then delegate to helper classes
@@ -82,8 +83,6 @@ public class BulletSpawner : MonoBehaviour
     void ShootBullet(Quaternion rotation, BulletData bulletData)
     {
         var bulletPosition = transform.position + new Vector3(0, data.offsetY, data.offsetX);
-        Debug.Log(pool == null);
-        Debug.Log(bulletPrefab == null);
         var bulletObject = pool.Spawn(bulletPrefab, bulletPosition, rotation);
         bulletObjects.Add(bulletObject);
 
@@ -188,17 +187,19 @@ public class BulletSpawner : MonoBehaviour
     
     void FreezeBullets()
     {
-        StopCoroutine(nameof(FireRoutine));
+        StopAllCoroutines();
 
         foreach (var bullet in bullets)
         {
-            bullet.data.speed = 0f;
-            if (!data.connectToSpawnerOnStop) return;
-            if (!bullet) return;
-            bullet.transform.SetParent(transform.GetChild(0));
+            if (!bullet) continue;
+            bullet.speed = 0f;
+            if (data.connectToSpawnerOnStop)
+                bullet.transform.SetParent(transform.GetChild(0));
         }
+        
+        enabled = false;
     }
-    
+
     void StopIfAllBulletsOffscreen() { if (AllBulletsOffscreen()) DestroyAll(); }
 
     bool AllBulletsOffscreen()
@@ -220,4 +221,15 @@ public class BulletSpawner : MonoBehaviour
         
         gameObject.SetActive(false);
     }
+    
+    public ColorFlash flash;
+
+    public void EnableAtPosition(Vector3SO data) 
+    {
+        StartCoroutine(flash.Process());
+        transform.position = data.value; 
+        Invoke(nameof(DelayEnabled), flash.totalFlashTime);
+    }
+    
+    void DelayEnabled() { enabled = true; }
 }

@@ -11,12 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Game/Scenes/Game.unity
     guid: 16fccab3a2391b74db097fde95665259
-  - enabled: 0
-    path: Assets/Game/Scenes/Obsolete/LevelsMenu.unity
-    guid: 036d42b25d9ab63428388a851a2d7473
-  - enabled: 0
-    path: Assets/Game/Scenes/Obsolete/Credits.unity
-    guid: bedefd8cef92bd140a60bc208e1c6b08
   - enabled: 1
     path: Assets/Game/Scenes/Highscore.unity
     guid: 364a02d1158ec0f4ba6c8f88356b8196

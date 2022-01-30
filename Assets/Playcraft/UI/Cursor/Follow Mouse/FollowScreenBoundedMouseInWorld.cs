@@ -12,6 +12,8 @@ namespace Playcraft
         Vector3 screenSpace;
         Vector3 worldSpace;
         
+        public void Start() { screenFollow.Start(); }
+
         public Vector3 Update() 
         {
             screenSpace = screenFollow.Update(); 

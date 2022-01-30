@@ -10,6 +10,8 @@ public class ColorFlash
     public int flashCount = 3;
     public Color defaultColor;
     
+    public float totalFlashTime => flashTime * flashCount * 2;
+    
     public IEnumerator Process() { yield return Process(defaultColor); }
 
     public IEnumerator Process(Color color)
