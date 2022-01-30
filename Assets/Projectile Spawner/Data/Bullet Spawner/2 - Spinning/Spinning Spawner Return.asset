@@ -16,7 +16,7 @@ MonoBehaviour:
     multiBullets: 3
     multiDirectionalWidth: 360
     coneBullets: 2
-    coneWidth: 30
+    coneWidth: 20
     spinSpeed: 45
     reverseSpin: 0
     offsetX: -8
@@ -24,7 +24,7 @@ MonoBehaviour:
     sweepAngle: 0
     sweepSpeed: 0
     bulletInfo: {fileID: 11400000, guid: dabbbdbfd482b364bb5ad014e00756f6, type: 2}
-    timeBetweenBullets: 0.2
+    timeBetweenBullets: 0.3
     bulletSizeX: 2
     bulletSizeY: 2
     stopAfterSeconds: 0

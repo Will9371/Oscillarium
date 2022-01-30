@@ -20,4 +20,11 @@ public class SetScorePercent : MonoBehaviour
         incorrect = value;
         Percent.Invoke(percent);
     }
+    
+    public void GetValue()
+    {
+        correct = GameData.score;
+        incorrect = GameData.hits;
+        Percent.Invoke(percent);
+    }
 }

@@ -82,6 +82,8 @@ public class BulletSpawner : MonoBehaviour
     void ShootBullet(Quaternion rotation, BulletData bulletData)
     {
         var bulletPosition = transform.position + new Vector3(0, data.offsetY, data.offsetX);
+        Debug.Log(pool == null);
+        Debug.Log(bulletPrefab == null);
         var bulletObject = pool.Spawn(bulletPrefab, bulletPosition, rotation);
         bulletObjects.Add(bulletObject);
 

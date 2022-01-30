@@ -6,4 +6,5 @@ public class RelayHits : MonoBehaviour
     void Start() { GameData.onHitsChanged += OnHitsChanged; }
     void OnDestroy() { GameData.onHitsChanged -= OnHitsChanged; }
     void OnHitsChanged(float value) { score.Invoke(value); }
+    public void GetValue() { score.Invoke(GameData.hits); }
 }

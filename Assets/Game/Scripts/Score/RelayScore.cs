@@ -6,4 +6,5 @@ public class RelayScore : MonoBehaviour
     void Start() { GameData.onScoreChanged += OnScoreChanged; }
     void OnDestroy() { GameData.onScoreChanged -= OnScoreChanged; }
     void OnScoreChanged(float value) { score.Invoke(value); }
+    public void GetValue() { score.Invoke(GameData.score); }
 }
