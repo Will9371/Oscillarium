@@ -11,8 +11,10 @@ public class ColorChange : MonoBehaviour
     [SerializeField] Renderer rend;
     [SerializeField] bool startWithRandomColor;
     [SerializeField] bool changeColorRandomly;
+    [SerializeField] bool alternateColor;
     [SerializeField] Vector2 timeRange = new Vector2(2f, 10f);
     [SerializeField] ColorFlash flash;
+    [SerializeField] AudioSource sound;
 
     public ColorData colorData => colorInfo.data[colorIndex];
     public Color color => colorData.color;
@@ -47,10 +49,14 @@ public class ColorChange : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(Random.Range(timeRange.x, timeRange.y));
-            var nextIndex = Random.Range(0, colorCount);
+            
+            var nextIndex = alternateColor ? (colorIndex == 0 ? 1 : 0) : Random.Range(0, colorCount);
             
             if (nextIndex != colorIndex)
+            {
+                if (sound) sound.Play();
                 yield return StartCoroutine(flash.Process(colorInfo.data[nextIndex].color));
+            }
 
             SetColor(nextIndex);
         }

@@ -15,6 +15,11 @@ namespace Playcraft.PredictiveMovement
             
             bounds.Start();
             Cursor.visible = false;
+            InvokeRepeating(nameof(Refresh), 0.25f, 0.25f);
         }
+        
+        void Refresh() { bounds.screenFollow.RefreshBounds(); }
+        
+        void OnDestroy() { CancelInvoke(nameof(Refresh)); }
     }
 }

@@ -6,6 +6,7 @@ using UnityEngine;
 public class ColorFlash
 {
     public Renderer rend;
+    public Renderer secondRend;
     public float flashTime = .1f;
     public int flashCount = 3;
     public Color defaultColor;
@@ -23,8 +24,10 @@ public class ColorFlash
         for (int i = 0; i < flashCount; i++)
         {
             rend.enabled = true;
+            if (secondRend) secondRend.enabled = true;
             yield return flashDelay;
             rend.enabled = false;
+            if (secondRend) secondRend.enabled = false;
             yield return flashDelay;
         }
     }    
