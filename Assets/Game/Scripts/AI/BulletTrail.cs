@@ -32,10 +32,11 @@ public class BulletTrail : MonoBehaviour
     
     void Spawn()
     {
-        var bulletPosition = transform.position;
+        var bulletPosition = transform.position + offset;
         var bulletObject = pool.Spawn(bulletPrefab, bulletPosition);
         var polarity = flyTowardsTarget ? 1f : -1f;
-        bulletObject.transform.right = polarity * movement.moveDirection.normalized;
+        var direction = (movement ? movement.moveDirection : targetVector).normalized;
+        bulletObject.transform.right = polarity * direction;
 
         bulletObject.GetComponent<ColorChange>().SetColor(bulletColorIndex);
         
@@ -49,4 +50,10 @@ public class BulletTrail : MonoBehaviour
         bulletColorIndex = Random.Range(0, lookup.colorCount);
         Invoke(nameof(RandomizeColor), Random.Range(changeColorRange.x, changeColorRange.y));
     }
+    
+    [SerializeField] Transform target;
+    Vector3 targetVector => target.position - (transform.position + offset);
+    
+    Vector3 offset;
+    public void SetOffset(Vector3 value) { offset = value; }
 }

@@ -10,27 +10,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7684c815633dd8446b76a5ed459f958d, type: 3}
-  m_Name: Starfish
+  m_Name: Worm Follow
   m_EditorClassIdentifier: 
   data:
-    multiBullets: 5
+    multiBullets: 6
     multiDirectionalWidth: 360
     coneBullets: 1
     coneWidth: 0
-    spinSpeed: 30
+    spinSpeed: 15
     reverseSpin: 0
     offsetX: 0
     offsetY: 0
     sweepAngle: 0
     sweepSpeed: 0
-    bulletInfo: {fileID: 11400000, guid: 217192fcc41f46d438b2aabb31c0a9ee, type: 2}
+    bulletInfo: {fileID: 11400000, guid: 8cbe8a4f2d75ffc4f9ad2048dd485e54, type: 2}
     timeBetweenBullets: 0.2
     bulletSizeX: 2
     bulletSizeY: 2
-    stopAfterSeconds: 3
+    stopAfterSeconds: 0.8
     connectToSpawnerOnStop: 0
-    colorChangeTimeRange: {x: 0.4, y: 0.6}
-    randomColorOrder: 1
+    colorChangeTimeRange: {x: 0.5, y: 0.5}
+    randomColorOrder: 0
     startWithRandomColor: 1
     numberOfRapidFireBullets: 50
     rapidFireCooldownTime: 10

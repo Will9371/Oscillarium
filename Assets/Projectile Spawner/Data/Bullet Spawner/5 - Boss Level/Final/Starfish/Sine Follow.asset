@@ -10,71 +10,36 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b9254f45e8ac47c42ac83499f846bc28, type: 3}
-  m_Name: Worm Circle
+  m_Name: Sine Follow
   m_EditorClassIdentifier: 
   data:
-  - speed: 0.5
-    yAmplitude: 6
-    yFrequency: 0.25
+  - speed: 2
+    yAmplitude: 0.5
+    yFrequency: 1
     yCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: -0.013438452
-        outSlope: -0.013438452
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0.1573267
-      - serializedVersion: 3
-        time: 0.5
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 34
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 1
-        value: 0
-        inSlope: 0.043718252
-        outSlope: 0.043718252
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.31834412
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    xAmplitude: 5
-    xFrequency: 0.25
-    xCurve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
         time: -0.006378174
         value: 0.500473
-        inSlope: -3.589745
-        outSlope: -3.589745
+        inSlope: 3.824873
+        outSlope: 3.824873
         tangentMode: 0
         weightedMode: 0
         inWeight: 0
-        outWeight: 0.056327004
+        outWeight: 0.07986728
       - serializedVersion: 3
         time: 0.25
-        value: 0
-        inSlope: 0.023955464
-        outSlope: 0.023955464
+        value: 1
+        inSlope: -0.025800526
+        outSlope: -0.025800526
         tangentMode: 34
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.75
-        value: 1
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 34
@@ -84,11 +49,55 @@ MonoBehaviour:
       - serializedVersion: 3
         time: 1
         value: 0.5
-        inSlope: -4.059934
-        outSlope: -4.059934
+        inSlope: 4.008087
+        outSlope: 4.008087
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0.06546593
+        inWeight: 0.06301211
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    xAmplitude: 0
+    xFrequency: 1
+    xCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: -0.006378174
+        value: 0.500473
+        inSlope: 3.824873
+        outSlope: 3.824873
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.07986728
+      - serializedVersion: 3
+        time: 0.25
+        value: 1
+        inSlope: -0.025800526
+        outSlope: -0.025800526
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.75
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0.5
+        inSlope: 4.008087
+        outSlope: 4.008087
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.06301211
         outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2

@@ -29,7 +29,7 @@ MonoBehaviour:
     bulletSizeY: 2
     stopAfterSeconds: 2
     connectToSpawnerOnStop: 0
-    colorChangeTimeRange: {x: 0.4, y: 0.6}
+    colorChangeTimeRange: {x: 0.4, y: 0.5}
     randomColorOrder: 1
     startWithRandomColor: 1
     numberOfRapidFireBullets: 50

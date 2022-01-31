@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using Playcraft;
 using Playcraft.Pooling;
 
@@ -185,6 +186,8 @@ public class BulletSpawner : MonoBehaviour
         bulletColorIndex = Random.Range(0, Mathf.RoundToInt(colorCount));
     }
     
+    [SerializeField] UnityEvent onFreeze;
+    
     void FreezeBullets()
     {
         StopAllCoroutines();
@@ -196,8 +199,9 @@ public class BulletSpawner : MonoBehaviour
             if (data.connectToSpawnerOnStop)
                 bullet.transform.SetParent(transform.GetChild(0));
         }
-        
+
         enabled = false;
+        onFreeze.Invoke();
     }
 
     void StopIfAllBulletsOffscreen() { if (AllBulletsOffscreen()) DestroyAll(); }
@@ -232,4 +236,10 @@ public class BulletSpawner : MonoBehaviour
     }
     
     void DelayEnabled() { enabled = true; }
+    
+    public void MoveFollowers(Vector3 value)
+    {
+        foreach (var bullet in bullets)
+            bullet.MoveCenter(value);
+    }
 }

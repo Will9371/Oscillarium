@@ -37,8 +37,11 @@ public class AvoidAI : MonoBehaviour
         var nearby = Physics2D.OverlapCircleAll(transform.position, radius);
         
         foreach (var other in nearby)
-            if (other.GetComponent<AvoidAI>())
+        {
+            var otherAvoid = other.GetComponent<AvoidAI>();
+            if (otherAvoid && otherAvoid.enabled)
                 nearbyAI.Add(other.transform);
+        }
     }
     
     void SetAvoidance()

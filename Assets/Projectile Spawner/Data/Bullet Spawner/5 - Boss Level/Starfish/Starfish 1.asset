@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7684c815633dd8446b76a5ed459f958d, type: 3}
-  m_Name: Starfish
+  m_Name: Starfish 1
   m_EditorClassIdentifier: 
   data:
     multiBullets: 5

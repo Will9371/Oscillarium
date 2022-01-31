@@ -64,12 +64,6 @@ public class Bullet : MonoBehaviour
         }
         
         transform.position = center + offset;
-        
-        // HACK:
-        /*if (speed > 0f)
-            transform.position = center + offset;
-        else
-            transform.localPosition = center + offset;*/
     }
 
     void BulletPositionDestroyer()
@@ -90,5 +84,5 @@ public class Bullet : MonoBehaviour
             gameObject.SetActive(false);
     }
     
-    //public void SetCenterToLocal() { center = transform.localPosition - offset; }
+    public void MoveCenter(Vector3 value) { center += value; }
 }
